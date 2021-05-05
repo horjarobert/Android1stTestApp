@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SalariulBrut</string>
+    <string name="str_copyright">©2021</string>
+    <string name="str_title">Salariul Brut</string>
+    <string name="str_play">➾</string>
+    <string name="str_euro">€</string>
+    <string name="str_dollar">$</string>
+    <string name="str_leu">L</string>
+    <string name="str_hint">ex: 1000</string>
+    <string name="str_tooltip">by Stufflex</string>
+    <string name="str_intro_brut">Introdu salariul brut</string>
+    <string name="str_tooltip_lei">LEI</string>
+    <string name="str_tooltip_euro">EURO</string>
+    <string name="str_tooltip_dollar">DOLAR</string>
+</resources>

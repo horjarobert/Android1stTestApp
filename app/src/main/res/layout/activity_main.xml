@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/mainLayout"
+    >
+
+    <!-- BEGIN guidelines -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8"
+        />
+        <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        />
+    <!-- END guidelines -->
+
+    <!-- BEGIN text views -->
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:text="@string/str_title"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="Reset"
+        />
+
+    <TextView
+        android:id="@+id/txt_copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:text="@string/str_copyright"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:tooltipText="@string/str_tooltip"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_9" />
+    <!-- END text views -->
+
+    <!-- BEGIN go next objects -->
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_play"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_7"
+
+        />
+
+    <TextView
+        android:id="@+id/txt_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/str_play"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:translationZ="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_7" />
+    <!-- END go next objects -->
+
+    <!-- BEGIN calculations -->
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/str_hint"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:tooltipText="@string/str_intro_brut"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
+
+    <Button
+        android:id="@+id/btn_euro"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_play"
+        android:onClick="SwapEuro"
+        android:text="@string/str_euro"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tooltipText="@string/str_tooltip_euro"
+        />
+
+    <Button
+        android:id="@+id/btn_dollar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_play"
+        android:onClick="SwapDollar"
+        android:text="@string/str_dollar"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tooltipText="@string/str_tooltip_dollar"
+        />
+
+    <Button
+        android:id="@+id/btn_lei"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_play"
+        android:onClick="SwapLei"
+        android:text="@string/str_leu"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:tooltipText="@string/str_tooltip_lei"
+        />
+
+    <androidx.constraintlayout.widget.Placeholder
+        android:id="@+id/placeholder"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
+    <!-- END calculations -->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
