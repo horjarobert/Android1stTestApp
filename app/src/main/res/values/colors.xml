@@ -7,4 +7,10 @@
     <color name="color_79797A">#79797A</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="color_blue">#002b7f</color>
+    <color name="color_blue_light">#136ab6</color>
+    <color name="color_yellow">#fcd116</color>
+    <color name="color_yellow_light">#f9f029</color>
+    <color name="color_red">#ce1126</color>
+    <color name="color_red_light">#ec4444</color>
 </resources>

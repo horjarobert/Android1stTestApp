@@ -6,6 +6,11 @@
     <string name="str_euro">€</string>
     <string name="str_dollar">$</string>
     <string name="str_leu">L</string>
+    <string name="str_pound">£</string>
+    <string name="str_sheqel">₪</string>
+    <string name="str_show">✯</string>
+    <string name="str_rupee">₹</string>
+    <string name="str_ruble">₽</string>
     <string name="str_hint">ex: 1000</string>
     <string name="str_tooltip">by Stufflex</string>
     <string name="str_intro_brut">Introdu salariul brut</string>

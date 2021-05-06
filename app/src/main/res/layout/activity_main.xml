@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/mainLayout"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
     >
 
     <!-- BEGIN guidelines -->
@@ -178,7 +181,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_7"
-
         />
 
     <TextView
@@ -209,6 +211,7 @@
         android:textAlignment="center"
         android:textSize="25sp"
         android:tooltipText="@string/str_intro_brut"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
@@ -216,57 +219,136 @@
 
     <Button
         android:id="@+id/btn_euro"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/btn_play"
-        android:onClick="SwapEuro"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/euro_list"
+        android:backgroundTint="@null"
         android:text="@string/str_euro"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="parent"
-        android:tooltipText="@string/str_tooltip_euro"
-        />
-
-    <Button
-        android:id="@+id/btn_dollar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/btn_play"
-        android:onClick="SwapDollar"
-        android:text="@string/str_dollar"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintTop_toTopOf="parent"
-        android:tooltipText="@string/str_tooltip_dollar"
-        />
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnEuro"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
 
     <Button
         android:id="@+id/btn_lei"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/lei_list"
+        android:backgroundTint="@null"
+        android:text="@string/str_leu"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnLei"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+
+    <Button
+        android:id="@+id/btn_sheqel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/sheqel_list"
+        android:backgroundTint="@null"
+        android:text="@string/str_sheqel"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnSheqel"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+
+    <Button
+        android:id="@+id/btn_dollar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/dollar_list"
+        android:text="@string/str_dollar"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnDollar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_pound"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/pound_list"
+        android:text="@string/str_pound"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnPound"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_rupee"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rupee_list"
+        android:text="@string/str_rupee"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_ruble"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ruble_list"
+        android:text="@string/str_ruble"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:onClick="ClickOnRuble"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_show"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/btn_play"
-        android:onClick="SwapLei"
-        android:text="@string/str_leu"
+        android:text="@string/str_show"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_6"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="parent"
-        android:tooltipText="@string/str_tooltip_lei"
-        />
-
-    <androidx.constraintlayout.widget.Placeholder
-        android:id="@+id/placeholder"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:onClick="ClickToShow"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
+
+
     <!-- END calculations -->
 
 

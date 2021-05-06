@@ -5,13 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Placeholder;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.transition.TransitionManager;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -21,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -33,10 +43,13 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_dollar;
     private Button btn_play;
     private Button btn_lei;
+    private Button btn_pound;
+    private Button btn_sheqel;
+    private Button btn_show;
+    private Button btn_rupee;
+    private Button btn_ruble;
     private TextView txt_arrow;
     private TextView txt_copyright;
-
-    private Placeholder placeholder;
 
     private ConstraintLayout mainLayout;
     private int n = 12;
@@ -49,6 +62,41 @@ public class MainActivity extends AppCompatActivity {
     private Animation anim_btn_lei;
     private Animation anim_txt_copyright;
     private Animation anim_txt_arrow;
+
+    private AnimatorSet setLeiDownAndUp;
+    private AnimatorSet setPoundDownAndUp;
+    private AnimatorSet setRupeeDownAndUp;
+    private AnimatorSet setEuroDownAndUp;
+    private AnimatorSet setSheqelDownAndUp;
+    private AnimatorSet setDollarDownAndUp;
+    private AnimatorSet setRubleDownAndUp;
+
+    private Animator scaleLeiDown;
+    private Animator scalePoundDown;
+    private Animator scaleRupeeDown;
+    private Animator scaleEuroDown;
+    private Animator scaleSheqelDown;
+    private Animator scaleDollarDown;
+    private Animator scaleRubleDown;
+
+    private Animator scaleLeiUp;
+    private Animator scalePoundUp;
+    private Animator scaleRupeeUp;
+    private Animator scaleEuroUp;
+    private Animator scaleSheqelUp;
+    private Animator scaleDollarUp;
+    private Animator scaleRubleUp;
+
+    private AnimationDrawable animationDrawableLei;
+    private AnimationDrawable animationDrawablePound;
+    private AnimationDrawable animationDrawableRupee;
+    private AnimationDrawable animationDrawableEuro;
+    private AnimationDrawable animationDrawableSheqel;
+    private AnimationDrawable animationDrawableDollar;
+    private AnimationDrawable animationDrawableRuble;
+
+    private static final long TOAST_TIMEOUT_MS = 3000;
+    private static long lastToastTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +113,14 @@ public class MainActivity extends AppCompatActivity {
         btn_dollar = findViewById(R.id.btn_dollar);
         btn_play = findViewById(R.id.btn_play);
         btn_lei = findViewById(R.id.btn_lei);
+        btn_pound = findViewById(R.id.btn_pound);
+        btn_sheqel = findViewById(R.id.btn_sheqel);
+        btn_show = findViewById(R.id.btn_show);
+        btn_rupee = findViewById(R.id.btn_rupee);
+        btn_ruble = findViewById(R.id.btn_ruble);
         txt_arrow = findViewById(R.id.txt_arrow);
         txt_copyright = findViewById(R.id.txt_copyright);
         mainLayout = findViewById(R.id.mainLayout);
-        placeholder = findViewById(R.id.placeholder);
 
         // Alert user when EditText limit exxceeded
         editTextNumberDecimal.addTextChangedListener(new TextWatcher() {
@@ -98,24 +150,123 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        // Set animations
-        anim_txt_title = AnimationUtils.loadAnimation(this, R.anim.blinking);
-        // anim_editTextNumberDecimal = AnimationUtils.loadAnimation(this, R.anim.big_small);
-        // anim_btn_euro = AnimationUtils.loadAnimation(this, R.anim.big_small);
-        anim_btn_dollar = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
-        anim_btn_play = AnimationUtils.loadAnimation(this, R.anim.fancy);
-        anim_btn_lei = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
-        anim_txt_copyright = AnimationUtils.loadAnimation(this, R.anim.bottom_to_up);
-        anim_txt_arrow = AnimationUtils.loadAnimation(this, R.anim.fancy);
+//        // Set animations
+//        anim_txt_title = AnimationUtils.loadAnimation(this, R.anim.blinking);
+//        // anim_editTextNumberDecimal = AnimationUtils.loadAnimation(this, R.anim.big_small);
+//        // anim_btn_euro = AnimationUtils.loadAnimation(this, R.anim.big_small);
+//        anim_btn_dollar = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
+//        anim_btn_play = AnimationUtils.loadAnimation(this, R.anim.fancy);
+//        anim_btn_lei = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+//        anim_txt_copyright = AnimationUtils.loadAnimation(this, R.anim.bottom_to_up);
+//        anim_txt_arrow = AnimationUtils.loadAnimation(this, R.anim.fancy);
+//
+//        txt_title.setAnimation(anim_txt_title);
+//        btn_lei.setAnimation(anim_btn_lei);
+//        btn_dollar.setAnimation(anim_btn_dollar);
+//        txt_copyright.setAnimation(anim_txt_copyright);
+//        btn_play.setAnimation(anim_btn_play);
+//        txt_arrow.setAnimation(anim_txt_arrow);
 
-        txt_title.setAnimation(anim_txt_title);
-        btn_lei.setAnimation(anim_btn_lei);
-        btn_dollar.setAnimation(anim_btn_dollar);
-        txt_copyright.setAnimation(anim_txt_copyright);
-        btn_play.setAnimation(anim_btn_play);
-        txt_arrow.setAnimation(anim_txt_arrow);
+        // Hide these buttons
+        btn_euro.setVisibility(View.INVISIBLE);
+        btn_lei.setVisibility(View.INVISIBLE);
+        btn_sheqel.setVisibility(View.INVISIBLE);
+        btn_dollar.setVisibility(View.INVISIBLE);
+        btn_pound.setVisibility(View.INVISIBLE);
+        btn_rupee.setVisibility(View.INVISIBLE);
+        btn_ruble.setVisibility(View.INVISIBLE);
 
+        // Special guest | Animation for btn_lei
+        scaleLeiDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleLeiDown.setTarget(btn_lei);
 
+        scaleLeiUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setLeiDownAndUp = new AnimatorSet();
+        setLeiDownAndUp.playSequentially(scaleLeiDown, scaleLeiUp);
+
+        // Special guest | Animation for btn_pound
+        scalePoundDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scalePoundDown.setTarget(btn_pound);
+
+        scalePoundUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setPoundDownAndUp = new AnimatorSet();
+        setPoundDownAndUp.playSequentially(scalePoundDown, scalePoundUp);
+
+        // Special guest | Animation for btn_rupee
+        scaleRupeeDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleRupeeDown.setTarget(btn_rupee);
+
+        scaleRupeeUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setRupeeDownAndUp = new AnimatorSet();
+        setRupeeDownAndUp.playSequentially(scaleRupeeDown, scaleRupeeUp);
+
+        // Special guest | Animation for btn_euro
+        scaleEuroDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleEuroDown.setTarget(btn_euro);
+
+        scaleEuroUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setEuroDownAndUp = new AnimatorSet();
+        setEuroDownAndUp.playSequentially(scaleEuroDown, scaleEuroUp);
+
+        // Special guest | Animation for btn_sheqel
+        scaleSheqelDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleSheqelDown.setTarget(btn_sheqel);
+
+        scaleSheqelUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setSheqelDownAndUp = new AnimatorSet();
+        setSheqelDownAndUp.playSequentially(scaleSheqelDown, scaleSheqelUp);
+
+        // Special guest | Animation for btn_dollar
+        scaleDollarDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleDollarDown.setTarget(btn_dollar);
+
+        scaleDollarUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setDollarDownAndUp = new AnimatorSet();
+        setDollarDownAndUp.playSequentially(scaleDollarDown, scaleDollarUp);
+
+        // Special guest | Animation for btn_ruble
+        scaleRubleDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleRubleDown.setTarget(btn_ruble);
+
+        scaleRubleUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setRubleDownAndUp = new AnimatorSet();
+        setRubleDownAndUp.playSequentially(scaleRubleDown, scaleRubleUp);
+
+        // Awesome animations
+        animationDrawableLei = (AnimationDrawable) btn_lei.getBackground();
+        animationDrawableLei.setEnterFadeDuration(250);
+        animationDrawableLei.setExitFadeDuration(500);
+
+        animationDrawablePound = (AnimationDrawable) btn_pound.getBackground();
+        animationDrawablePound.setEnterFadeDuration(250);
+        animationDrawablePound.setExitFadeDuration(500);
+
+        animationDrawableRupee = (AnimationDrawable) btn_rupee.getBackground();
+        animationDrawableRupee.setEnterFadeDuration(250);
+        animationDrawableRupee.setExitFadeDuration(500);
+
+        animationDrawableEuro = (AnimationDrawable) btn_euro.getBackground();
+        animationDrawableEuro.setEnterFadeDuration(250);
+        animationDrawableEuro.setExitFadeDuration(500);
+
+        animationDrawableSheqel = (AnimationDrawable) btn_sheqel.getBackground();
+        animationDrawableSheqel.setEnterFadeDuration(250);
+        animationDrawableSheqel.setExitFadeDuration(500);
+
+        animationDrawableDollar = (AnimationDrawable) btn_dollar.getBackground();
+        animationDrawableDollar.setEnterFadeDuration(250);
+        animationDrawableDollar.setExitFadeDuration(500);
+
+        animationDrawableRuble = (AnimationDrawable) btn_ruble.getBackground();
+        animationDrawableRuble.setEnterFadeDuration(250);
+        animationDrawableRuble.setExitFadeDuration(500);
     }
 
     // Hide the navigation bar and make full screen all app
@@ -137,29 +288,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         hideNavigationBar();
-
-    }
-
-    public void SwapLei(View v){
-        TransitionManager.beginDelayedTransition(mainLayout);
-        placeholder.setContentId(v.getId());
-        btn_lei.setTextColor(Color.parseColor("#00FF00"));
-        btn_euro.setTextColor(Color.parseColor("#FFFFFF"));
-        btn_dollar.setTextColor(Color.parseColor("#FFFFFF"));
-    }
-    public void SwapEuro(View v){
-        TransitionManager.beginDelayedTransition(mainLayout);
-        placeholder.setContentId(v.getId());
-        btn_lei.setTextColor(Color.parseColor("#FFFFFF"));
-        btn_euro.setTextColor(Color.parseColor("#00FF00"));
-        btn_dollar.setTextColor(Color.parseColor("#FFFFFF"));
-    }
-    public void SwapDollar(View v){
-        TransitionManager.beginDelayedTransition(mainLayout);
-        placeholder.setContentId(v.getId());
-        btn_lei.setTextColor(Color.parseColor("#FFFFFF"));
-        btn_euro.setTextColor(Color.parseColor("#FFFFFF"));
-        btn_dollar.setTextColor(Color.parseColor("#00FF00"));
     }
 
     // Reset the app
@@ -167,5 +295,153 @@ public class MainActivity extends AppCompatActivity {
         Intent appReset = getIntent();
         finish();
         startActivity(appReset);
+    }
+
+    public void ClickToShow(View v){
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                btn_lei.setVisibility(View.VISIBLE);
+
+                setLeiDownAndUp.start();
+
+                animationDrawableLei.start();
+            }
+        }, 300);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn_pound.setVisibility(View.VISIBLE);
+                btn_rupee.setVisibility(View.VISIBLE);
+
+                setPoundDownAndUp.start();
+                setRupeeDownAndUp.start();
+
+                animationDrawablePound.start();
+                animationDrawableRupee.start();
+            }
+        }, 600);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn_euro.setVisibility(View.VISIBLE);
+                btn_sheqel.setVisibility(View.VISIBLE);
+
+                setEuroDownAndUp.start();
+                setSheqelDownAndUp.start();
+
+                animationDrawableEuro.start();
+                animationDrawableSheqel.start();
+            }
+        }, 900);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btn_dollar.setVisibility(View.VISIBLE);
+                btn_ruble.setVisibility(View.VISIBLE);
+
+                setDollarDownAndUp.start();
+                setRubleDownAndUp.start();
+
+                animationDrawableDollar.start();
+                animationDrawableRuble.start();
+            }
+        }, 1200);
+
+    }
+
+    public void ClickOnDollar(View v){
+        Toast toast = Toast.makeText(this, "USD (dolar american)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
+    }
+    public void ClickOnEuro(View v){
+        Toast toast = Toast.makeText(this, "EUR (euro)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
+    }
+    public void ClickOnPound(View v){
+        Toast toast = Toast.makeText(this, "GBP (lira sterlină)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
+    }
+    public void ClickOnLei(View v){
+        Toast toast = Toast.makeText(this, "Lei românești", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
+    }
+    public void ClickOnRupee(View v){
+        Toast toast = Toast.makeText(this, "INR (rupia indiană)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
+    }
+    public void ClickOnSheqel(View v){
+        Toast toast = Toast.makeText(this, "ILS (sheqel israelian)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
+    }
+    public void ClickOnRuble(View v){
+        Toast toast = Toast.makeText(this, "RUB (rubla rusească)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+
     }
 }
