@@ -19,119 +19,119 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.2"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.3"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.4"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.6"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.7"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.8"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -168,21 +168,21 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_9"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_9" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_9"
+        android:visibility="invisible"
+        />
     <!-- END text views -->
 
     <!-- BEGIN go next objects -->
     <Button
         android:id="@+id/btn_play"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/btn_play"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_7"
-        android:onClick="ChangeActivity"
-        />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_7" />
 
     <TextView
         android:id="@+id/txt_arrow"
@@ -194,10 +194,11 @@
         android:textColor="@color/white"
         android:textSize="35sp"
         android:translationZ="10dp"
-        android:translationY="-3dp"
+        android:translationY="3dp"
+        android:rotation="180"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_7" />
     <!-- END go next objects -->
 
@@ -206,24 +207,25 @@
         android:id="@+id/txt_input_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="5dp"
         android:textColorHighlight="#FFFFFF"
         android:textColorHint="@color/color_585858"
         android:textColorLink="@color/color_585858"
         android:textCursorDrawable="?android:attr/textCursorDrawable"
         android:tooltipText="@string/str_intro_brut"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_4"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4">
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3"
+        android:padding="5dp"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_input_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:imeOptions="actionDone"
             android:ems="10"
             android:hint="@string/str_hint"
-            android:imeOptions="actionDone"
             android:inputType="number"
             android:textColorHighlight="#FFFFFF"
             android:textColorHint="@color/color_585858"
@@ -250,11 +252,11 @@
         android:textColorLink="@color/color_585858"
         android:textCursorDrawable="@color/color_585858"
         android:textSize="15sp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_3"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_3"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
 
     <Button
         android:id="@+id/btn_lei"
@@ -268,11 +270,11 @@
         android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnLei"
-        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
 
     <Button
         android:id="@+id/btn_sheqel"
@@ -286,44 +288,42 @@
         android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnSheqel"
-        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_7"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_7"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
 
     <Button
         android:id="@+id/btn_dollar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/dollar_list"
-        android:text="@string/str_dollar"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnDollar"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+        android:text="@string/str_dollar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
 
     <Button
         android:id="@+id/btn_pound"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/pound_list"
-        android:text="@string/str_pound"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnPound"
-        android:visibility="invisible"
+        android:text="@string/str_pound"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_4"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
 
     <Button
@@ -331,16 +331,15 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/rupee_list"
-        android:text="@string/str_rupee"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnRupee"
-        android:visibility="invisible"
+        android:text="@string/str_rupee"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_6"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
 
     <Button
@@ -348,34 +347,51 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ruble_list"
-        android:text="@string/str_ruble"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnRuble"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+        android:text="@string/str_ruble"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
 
     <Button
         android:id="@+id/btn_show"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@drawable/btn_play"
-        android:gravity="center"
-        android:onClick="ClickToShow"
         android:text="@string/str_show"
-        android:textAlignment="center"
-        android:textColor="@color/white"
         android:textSize="35sp"
+        android:background="@drawable/btn_play"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:onClick="ClickToShow"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4"
+        android:visibility="invisible"
+        />
+
 
     <!-- END calculations -->
 
+    <!-- BEGIN salary info design -->
+    <TextView
+        android:id="@+id/txt_salariu_brut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_salariu_brut"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_5" />
+    <!-- END salary info design -->
 </androidx.constraintlayout.widget.ConstraintLayout>

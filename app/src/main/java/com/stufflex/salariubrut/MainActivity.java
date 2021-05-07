@@ -1,8 +1,10 @@
 package com.stufflex.salariubrut;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.constraintlayout.widget.Placeholder;
 
 import android.animation.Animator;
@@ -14,9 +16,12 @@ import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.Html;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.transition.TransitionManager;
 import android.util.TypedValue;
@@ -31,6 +36,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
@@ -95,8 +103,18 @@ public class MainActivity extends AppCompatActivity {
     private AnimationDrawable animationDrawableDollar;
     private AnimationDrawable animationDrawableRuble;
 
-    private static final long TOAST_TIMEOUT_MS = 3000;
+    private static final long TOAST_TIMEOUT_MS = 2000;
     private static long lastToastTime = 0;
+
+    private ConstraintSet constraintSetActivityOLD = new ConstraintSet();
+    private ConstraintSet constraintSetActivityNEW = new ConstraintSet();
+
+    private boolean playIsClicked;
+
+    private TextInputLayout txt_input_layout;
+    private TextInputEditText txt_input_edit_text;
+
+    private String regexStr = "^[0-9]*$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +126,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Initializations
         txt_title = findViewById(R.id.txt_title);
-        editTextNumberDecimal = findViewById(R.id.editTextNumberDecimal);
+        txt_input_layout = findViewById(R.id.txt_input_layout);
+        txt_input_edit_text = findViewById(R.id.txt_input_edit_text);
         btn_euro = findViewById(R.id.btn_euro);
         btn_dollar = findViewById(R.id.btn_dollar);
         btn_play = findViewById(R.id.btn_play);
@@ -123,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         mainLayout = findViewById(R.id.mainLayout);
 
         // Alert user when EditText limit exxceeded
-        editTextNumberDecimal.addTextChangedListener(new TextWatcher() {
+        txt_input_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 // Navbar-fullscreen
@@ -135,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                 if (charSequence.length() == n)
                 {
                     new AlertDialog.Builder(MainActivity.this).setTitle("\uD83D\uDC40 Ai ajuns la limită! ⌛").setMessage("Te rog, nu minți! Mulțumesc! ☺").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
-                    editTextNumberDecimal.setText("");
+                    txt_input_edit_text.setText("");
 
                     // Navbar-fullscreen
                     hideNavigationBar();
@@ -267,6 +286,11 @@ public class MainActivity extends AppCompatActivity {
         animationDrawableRuble = (AnimationDrawable) btn_ruble.getBackground();
         animationDrawableRuble.setEnterFadeDuration(250);
         animationDrawableRuble.setExitFadeDuration(500);
+
+        // Cloning
+        constraintSetActivityOLD.clone(mainLayout);
+        constraintSetActivityNEW.clone(this, R.layout.clone_activity_main);
+
     }
 
     // Hide the navigation bar and make full screen all app
@@ -299,10 +323,139 @@ public class MainActivity extends AppCompatActivity {
 
     public void ClickToShow(View v){
 
+        mainLayout.setBackgroundResource(R.drawable.layout_gray);
+        btn_play.setBackgroundResource(R.drawable.btn_gray);
+        btn_show.setBackgroundResource(R.drawable.btn_gray);
+        txt_input_edit_text.setTextColor(getResources().getColor(R.color.color_79797A));
+        txt_title.setTextColor(getResources().getColor(R.color.color_79797A));
+        txt_copyright.setTextColor(getResources().getColor(R.color.color_79797A));
+
+        ButtonAnimations(v);
+
+    }
+
+    public void ClickOnDollar(View v){
+        Toast toast = Toast.makeText(this, "USD (dolar american)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+    public void ClickOnEuro(View v){
+        Toast toast = Toast.makeText(this, "EUR (euro)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+    public void ClickOnPound(View v){
+        Toast toast = Toast.makeText(this, "GBP (lira sterlină)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+    public void ClickOnLei(View v){
+        Toast toast = Toast.makeText(this, "Lei românești", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+    public void ClickOnRupee(View v){
+        Toast toast = Toast.makeText(this, "INR (rupia indiană)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+    public void ClickOnSheqel(View v){
+        Toast toast = Toast.makeText(this, "ILS (sheqel israelian)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+    public void ClickOnRuble(View v){
+        Toast toast = Toast.makeText(this, "RUB (rubla rusească)", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
+    }
+
+    // Change the layout to activity_main_open_github.xml
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void ChangeActivity(View v){
+        //navbar-fullscreen
+        hideNavigationBar();
+
+        ClickToShow(v);
+
+        TransitionManager.beginDelayedTransition(mainLayout);
+
+        if (txt_input_edit_text.length() == 0) {
+            new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, te rog!").setMessage("Introdu salariul în căsuța din mijloc. Mulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+        }
+        else {
+
+            if (!playIsClicked) {
+                constraintSetActivityNEW.applyTo(mainLayout);
+                playIsClicked = true;
+
+                txt_input_edit_text.setEnabled(false);
+            } else {
+                constraintSetActivityOLD.applyTo(mainLayout);
+                playIsClicked = false;
+                txt_input_edit_text.setEnabled(true);
+
+                // Some bug, usually it should start but only 5 of 6 starts, btn_lei is invisible on return..., now I fix it with this improvement
+                btn_lei.setVisibility(View.VISIBLE);
+                setLeiDownAndUp.start();
+                animationDrawableLei.start();
+            }
+        }
+    }
+
+    public void ButtonAnimations(View v){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 btn_lei.setVisibility(View.VISIBLE);
 
                 setLeiDownAndUp.start();
@@ -350,98 +503,5 @@ public class MainActivity extends AppCompatActivity {
                 animationDrawableRuble.start();
             }
         }, 1200);
-
-    }
-
-    public void ClickOnDollar(View v){
-        Toast toast = Toast.makeText(this, "USD (dolar american)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
-    public void ClickOnEuro(View v){
-        Toast toast = Toast.makeText(this, "EUR (euro)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
-    public void ClickOnPound(View v){
-        Toast toast = Toast.makeText(this, "GBP (lira sterlină)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
-    public void ClickOnLei(View v){
-        Toast toast = Toast.makeText(this, "Lei românești", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
-    public void ClickOnRupee(View v){
-        Toast toast = Toast.makeText(this, "INR (rupia indiană)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
-    public void ClickOnSheqel(View v){
-        Toast toast = Toast.makeText(this, "ILS (sheqel israelian)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
-    public void ClickOnRuble(View v){
-        Toast toast = Toast.makeText(this, "RUB (rubla rusească)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM|Gravity.FILL_HORIZONTAL, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
-
-    }
+     }
 }

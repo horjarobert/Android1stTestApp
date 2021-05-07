@@ -13,4 +13,5 @@
     <color name="color_yellow_light">#f9f029</color>
     <color name="color_red">#ce1126</color>
     <color name="color_red_light">#ec4444</color>
+    <color name="color_gray_light">#d1d1d1</color>
 </resources>

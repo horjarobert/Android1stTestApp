@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SalariulBrut</string>
     <string name="str_copyright">©2021</string>
-    <string name="str_title">Salariul Brut</string>
+    <string name="str_title">Calculator 💰</string>
     <string name="str_play">➾</string>
     <string name="str_euro">€</string>
     <string name="str_dollar">$</string>
@@ -11,10 +11,13 @@
     <string name="str_show">✯</string>
     <string name="str_rupee">₹</string>
     <string name="str_ruble">₽</string>
-    <string name="str_hint">ex: 1000</string>
+    <string name="str_hint">Salariul Brut</string>
     <string name="str_tooltip">by Stufflex</string>
     <string name="str_intro_brut">Introdu salariul brut</string>
     <string name="str_tooltip_lei">LEI</string>
     <string name="str_tooltip_euro">EURO</string>
     <string name="str_tooltip_dollar">DOLAR</string>
+    <string name="str_salariu_brut">Salariu Brut</string>
+    <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
+    <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
 </resources>
