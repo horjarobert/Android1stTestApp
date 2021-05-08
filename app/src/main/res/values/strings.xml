@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">SalariulBrut</string>
+    <string name="app_name">Salariul Brut</string>
     <string name="str_copyright">©2021</string>
-    <string name="str_title">Calculator 💰</string>
+    <string name="str_title">Calculator</string>
+    <string name="str_money">💰</string>
+    <string name="str_present">🎁</string>
     <string name="str_play">➾</string>
     <string name="str_euro">€</string>
     <string name="str_dollar">$</string>

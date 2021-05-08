@@ -9,6 +9,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:clickable="true"
+    android:background="@drawable/layout_gray"
     >
 
     <!-- BEGIN guidelines -->
@@ -171,6 +172,48 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_9" />
     <!-- END text views -->
 
+    <!-- BEGIN info buttons -->
+    <Button
+        android:id="@+id/btn_present"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_transparent"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_present"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/color_363636"
+        android:textColorLink="@color/color_585858"
+        android:textCursorDrawable="@color/color_585858"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_money"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_transparent"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_money"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/color_363636"
+        android:textColorLink="@color/color_585858"
+        android:textCursorDrawable="@color/color_585858"
+        android:textSize="25sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- END info buttons -->
+
     <!-- BEGIN go next objects -->
     <Button
         android:id="@+id/btn_play"
@@ -222,17 +265,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
+            android:gravity="center"
             android:hint="@string/str_hint"
             android:imeOptions="actionDone"
             android:inputType="number"
-            android:textColorHighlight="#FFFFFF"
-            android:textColorHint="@color/color_585858"
-            android:textColorLink="@color/color_585858"
-            android:textCursorDrawable="?android:attr/textCursorDrawable"
-            android:textSize="25sp"
             android:textAlignment="center"
-            android:gravity="center"
-            />
+            android:textColorHighlight="#FFFFFF"
+            android:textColorHint="@color/black"
+            android:textColorLink="@color/black"
+            android:textCursorDrawable="?android:attr/textCursorDrawable"
+            android:textSize="25sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -362,20 +404,63 @@
 
     <Button
         android:id="@+id/btn_show"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/btn_play"
         android:gravity="center"
         android:onClick="ClickToShow"
         android:text="@string/str_show"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="35sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
 
     <!-- END calculations -->
+
+    <!-- BEGIN bar tictok -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bar_1"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:background="@color/color_gray_light"
+        android:outlineProvider="none"
+        android:translationY="-10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_title"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bar_2"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:background="@color/color_gray_light"
+        android:outlineProvider="none"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_title"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/txt_title">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bar_3"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:background="@color/color_gray_light"
+        android:outlineProvider="none"
+        android:translationY="-10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_title"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/txt_title">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- END bar tictok -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

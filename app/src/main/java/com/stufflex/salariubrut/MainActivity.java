@@ -56,18 +56,23 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_show;
     private Button btn_rupee;
     private Button btn_ruble;
+    private Button btn_present;
+    private Button btn_money;
     private TextView txt_arrow;
     private TextView txt_copyright;
 
     private ConstraintLayout mainLayout;
+    private ConstraintLayout bar_1;
+    private ConstraintLayout bar_2;
+    private ConstraintLayout bar_3;
+
     private int n = 12;
 
     private Animation anim_txt_title;
     private Animation anim_editTextNumberDecimal;
-    private Animation anim_btn_euro;
-    private Animation anim_btn_dollar;
+    private Animation anim_btn_present;
+    private Animation anim_btn_money;
     private Animation anim_btn_play;
-    private Animation anim_btn_lei;
     private Animation anim_txt_copyright;
     private Animation anim_txt_arrow;
 
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private AnimatorSet setSheqelDownAndUp;
     private AnimatorSet setDollarDownAndUp;
     private AnimatorSet setRubleDownAndUp;
+    private AnimatorSet setShowDownAndUp;
 
     private Animator scaleLeiDown;
     private Animator scalePoundDown;
@@ -86,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private Animator scaleSheqelDown;
     private Animator scaleDollarDown;
     private Animator scaleRubleDown;
+    private Animator scaleShowDown;
 
     private Animator scaleLeiUp;
     private Animator scalePoundUp;
@@ -94,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
     private Animator scaleSheqelUp;
     private Animator scaleDollarUp;
     private Animator scaleRubleUp;
+    private Animator scaleShowUp;
 
     private AnimationDrawable animationDrawableLei;
     private AnimationDrawable animationDrawablePound;
@@ -137,9 +145,14 @@ public class MainActivity extends AppCompatActivity {
         btn_show = findViewById(R.id.btn_show);
         btn_rupee = findViewById(R.id.btn_rupee);
         btn_ruble = findViewById(R.id.btn_ruble);
+        btn_present = findViewById(R.id.btn_present);
+        btn_money = findViewById(R.id.btn_money);
         txt_arrow = findViewById(R.id.txt_arrow);
         txt_copyright = findViewById(R.id.txt_copyright);
         mainLayout = findViewById(R.id.mainLayout);
+        bar_1 = findViewById(R.id.bar_1);
+        bar_2 = findViewById(R.id.bar_2);
+        bar_3 = findViewById(R.id.bar_3);
 
         // Alert user when EditText limit exxceeded
         txt_input_edit_text.addTextChangedListener(new TextWatcher() {
@@ -169,22 +182,18 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-//        // Set animations
-//        anim_txt_title = AnimationUtils.loadAnimation(this, R.anim.blinking);
-//        // anim_editTextNumberDecimal = AnimationUtils.loadAnimation(this, R.anim.big_small);
-//        // anim_btn_euro = AnimationUtils.loadAnimation(this, R.anim.big_small);
-//        anim_btn_dollar = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
-//        anim_btn_play = AnimationUtils.loadAnimation(this, R.anim.fancy);
-//        anim_btn_lei = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
-//        anim_txt_copyright = AnimationUtils.loadAnimation(this, R.anim.bottom_to_up);
-//        anim_txt_arrow = AnimationUtils.loadAnimation(this, R.anim.fancy);
-//
-//        txt_title.setAnimation(anim_txt_title);
-//        btn_lei.setAnimation(anim_btn_lei);
-//        btn_dollar.setAnimation(anim_btn_dollar);
-//        txt_copyright.setAnimation(anim_txt_copyright);
-//        btn_play.setAnimation(anim_btn_play);
-//        txt_arrow.setAnimation(anim_txt_arrow);
+        // Set animations
+        anim_btn_play = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
+        anim_txt_copyright = AnimationUtils.loadAnimation(this, R.anim.bottom_to_up);
+        anim_txt_arrow = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+        anim_btn_money = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
+        anim_btn_present = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+
+        txt_copyright.setAnimation(anim_txt_copyright);
+        btn_play.setAnimation(anim_btn_play);
+        txt_arrow.setAnimation(anim_txt_arrow);
+        btn_money.setAnimation(anim_btn_money);
+        btn_present.setAnimation(anim_btn_present);
 
         // Hide these buttons
         btn_euro.setVisibility(View.INVISIBLE);
@@ -258,7 +267,17 @@ public class MainActivity extends AppCompatActivity {
         setRubleDownAndUp = new AnimatorSet();
         setRubleDownAndUp.playSequentially(scaleRubleDown, scaleRubleUp);
 
-        // Awesome animations
+        // Special guest | Animation for btn_show
+        scaleShowDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleShowDown.setTarget(btn_show);
+
+        scaleShowUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+
+        setShowDownAndUp = new AnimatorSet();
+        setShowDownAndUp.playSequentially(scaleShowDown, scaleShowUp);
+        setShowDownAndUp.start();
+
+        // Awesome animations (for backgrounds)
         animationDrawableLei = (AnimationDrawable) btn_lei.getBackground();
         animationDrawableLei.setEnterFadeDuration(250);
         animationDrawableLei.setExitFadeDuration(500);
@@ -291,6 +310,28 @@ public class MainActivity extends AppCompatActivity {
         constraintSetActivityOLD.clone(mainLayout);
         constraintSetActivityNEW.clone(this, R.layout.clone_activity_main);
 
+        // Hide bars from txt_title
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bar_1.setVisibility(View.INVISIBLE);
+            }
+        }, 800);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bar_2.setVisibility(View.INVISIBLE);
+
+            }
+        }, 1000);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bar_3.setVisibility(View.INVISIBLE);
+
+            }
+        }, 1200);
+
     }
 
     // Hide the navigation bar and make full screen all app
@@ -319,19 +360,21 @@ public class MainActivity extends AppCompatActivity {
         Intent appReset = getIntent();
         finish();
         startActivity(appReset);
+
+        Toast toast = Toast.makeText(this, "Restart", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
     }
 
     public void ClickToShow(View v){
-
-        mainLayout.setBackgroundResource(R.drawable.layout_gray);
-        btn_play.setBackgroundResource(R.drawable.btn_gray);
-        btn_show.setBackgroundResource(R.drawable.btn_gray);
-        txt_input_edit_text.setTextColor(getResources().getColor(R.color.color_79797A));
-        txt_title.setTextColor(getResources().getColor(R.color.color_79797A));
-        txt_copyright.setTextColor(getResources().getColor(R.color.color_79797A));
-
         ButtonAnimations(v);
-
     }
 
     public void ClickOnDollar(View v){
@@ -371,7 +414,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void ClickOnLei(View v){
-        Toast toast = Toast.makeText(this, "Lei românești", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, "Leu (românesc)", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM, 0, 0);
 
         // Toast improvement, never click twice, just once after each 3s
@@ -431,6 +474,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (txt_input_edit_text.length() == 0) {
             new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, te rog!").setMessage("Introdu salariul în căsuța din mijloc. Mulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+
+            // Navbar-fullscreen
+            hideNavigationBar();
         }
         else {
 
@@ -439,6 +485,8 @@ public class MainActivity extends AppCompatActivity {
                 playIsClicked = true;
 
                 txt_input_edit_text.setEnabled(false);
+                btn_show.setVisibility(View.INVISIBLE);
+
             } else {
                 constraintSetActivityOLD.applyTo(mainLayout);
                 playIsClicked = false;
@@ -448,6 +496,16 @@ public class MainActivity extends AppCompatActivity {
                 btn_lei.setVisibility(View.VISIBLE);
                 setLeiDownAndUp.start();
                 animationDrawableLei.start();
+
+                // Same problem like above, I fix it with this patch
+                bar_1.setVisibility(View.INVISIBLE);
+                bar_2.setVisibility(View.INVISIBLE);
+                bar_3.setVisibility(View.INVISIBLE);
+
+                // Again, a new fix...
+                setShowDownAndUp.start();
+                btn_show.setVisibility(View.VISIBLE);
+
             }
         }
     }
