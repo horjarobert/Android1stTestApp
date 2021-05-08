@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_lei;
     private Button btn_pound;
     private Button btn_sheqel;
-    private Button btn_show;
     private Button btn_rupee;
     private Button btn_ruble;
     private Button btn_present;
@@ -83,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
     private AnimatorSet setSheqelDownAndUp;
     private AnimatorSet setDollarDownAndUp;
     private AnimatorSet setRubleDownAndUp;
-    private AnimatorSet setShowDownAndUp;
 
     private Animator scaleLeiDown;
     private Animator scalePoundDown;
@@ -92,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     private Animator scaleSheqelDown;
     private Animator scaleDollarDown;
     private Animator scaleRubleDown;
-    private Animator scaleShowDown;
 
     private Animator scaleLeiUp;
     private Animator scalePoundUp;
@@ -101,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
     private Animator scaleSheqelUp;
     private Animator scaleDollarUp;
     private Animator scaleRubleUp;
-    private Animator scaleShowUp;
 
     private AnimationDrawable animationDrawableLei;
     private AnimationDrawable animationDrawablePound;
@@ -120,9 +116,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean playIsClicked;
 
     private TextInputLayout txt_input_layout;
-    private TextInputEditText txt_input_edit_text;
 
-    private String regexStr = "^[0-9]*$";
+    private TextInputEditText txt_input_edit_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
         btn_lei = findViewById(R.id.btn_lei);
         btn_pound = findViewById(R.id.btn_pound);
         btn_sheqel = findViewById(R.id.btn_sheqel);
-        btn_show = findViewById(R.id.btn_show);
         btn_rupee = findViewById(R.id.btn_rupee);
         btn_ruble = findViewById(R.id.btn_ruble);
         btn_present = findViewById(R.id.btn_present);
@@ -267,16 +261,6 @@ public class MainActivity extends AppCompatActivity {
         setRubleDownAndUp = new AnimatorSet();
         setRubleDownAndUp.playSequentially(scaleRubleDown, scaleRubleUp);
 
-        // Special guest | Animation for btn_show
-        scaleShowDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleShowDown.setTarget(btn_show);
-
-        scaleShowUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setShowDownAndUp = new AnimatorSet();
-        setShowDownAndUp.playSequentially(scaleShowDown, scaleShowUp);
-        setShowDownAndUp.start();
-
         // Awesome animations (for backgrounds)
         animationDrawableLei = (AnimationDrawable) btn_lei.getBackground();
         animationDrawableLei.setEnterFadeDuration(250);
@@ -331,6 +315,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, 1200);
+
+        // Set currency buttons visibility
+        btn_euro.setVisibility(View.INVISIBLE);
+        btn_lei.setVisibility(View.INVISIBLE);
+        btn_sheqel.setVisibility(View.INVISIBLE);
+        btn_dollar.setVisibility(View.INVISIBLE);
+        btn_pound.setVisibility(View.INVISIBLE);
+        btn_rupee.setVisibility(View.INVISIBLE);
+        btn_ruble.setVisibility(View.INVISIBLE);
 
     }
 
@@ -400,6 +393,7 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
     }
     public void ClickOnPound(View v){
         Toast toast = Toast.makeText(this, "GBP (lira sterlină)", Toast.LENGTH_SHORT);
@@ -468,11 +462,8 @@ public class MainActivity extends AppCompatActivity {
         //navbar-fullscreen
         hideNavigationBar();
 
-        ClickToShow(v);
-
         TransitionManager.beginDelayedTransition(mainLayout);
-
-        if (txt_input_edit_text.length() == 0) {
+        if (txt_input_edit_text.getVisibility() == View.VISIBLE && txt_input_edit_text.length() == 0) {
             new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, te rog!").setMessage("Introdu salariul în căsuța din mijloc. Mulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
 
             // Navbar-fullscreen
@@ -485,32 +476,32 @@ public class MainActivity extends AppCompatActivity {
                 playIsClicked = true;
 
                 txt_input_edit_text.setEnabled(false);
-                btn_show.setVisibility(View.INVISIBLE);
+
+                ClickToShow(v);
 
             } else {
                 constraintSetActivityOLD.applyTo(mainLayout);
                 playIsClicked = false;
                 txt_input_edit_text.setEnabled(true);
 
-                // Some bug, usually it should start but only 5 of 6 starts, btn_lei is invisible on return..., now I fix it with this improvement
-                btn_lei.setVisibility(View.VISIBLE);
-                setLeiDownAndUp.start();
-                animationDrawableLei.start();
-
                 // Same problem like above, I fix it with this patch
                 bar_1.setVisibility(View.INVISIBLE);
                 bar_2.setVisibility(View.INVISIBLE);
                 bar_3.setVisibility(View.INVISIBLE);
 
-                // Again, a new fix...
-                setShowDownAndUp.start();
-                btn_show.setVisibility(View.VISIBLE);
-
+                btn_euro.setVisibility(View.INVISIBLE);
+                btn_lei.setVisibility(View.INVISIBLE);
+                btn_sheqel.setVisibility(View.INVISIBLE);
+                btn_dollar.setVisibility(View.INVISIBLE);
+                btn_pound.setVisibility(View.INVISIBLE);
+                btn_rupee.setVisibility(View.INVISIBLE);
+                btn_ruble.setVisibility(View.INVISIBLE);
             }
         }
+
     }
 
-    public void ButtonAnimations(View v){
+    public void ButtonAnimations(View v) {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

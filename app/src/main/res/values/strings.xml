@@ -13,7 +13,7 @@
     <string name="str_show">✯</string>
     <string name="str_rupee">₹</string>
     <string name="str_ruble">₽</string>
-    <string name="str_hint">Salariul Brut</string>
+    <string name="str_hint">Salariul Brut (în lei)</string>
     <string name="str_tooltip">by Stufflex</string>
     <string name="str_intro_brut">Introdu salariul brut</string>
     <string name="str_tooltip_lei">LEI</string>
