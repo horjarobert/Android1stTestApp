@@ -62,6 +62,8 @@
     <string name="str_pound_banknote">💷</string>
 
     <string name="str_romania">🇷🇴</string>
-    <string name="str_pushpin">📍</string>
+
+    <string name="str_grinning">😃</string>
+    <string name="str_grinning_eyes">😄</string>
 
 </resources>

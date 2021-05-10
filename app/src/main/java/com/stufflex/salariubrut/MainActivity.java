@@ -177,6 +177,14 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler33;
     private Handler handler34;
     private Handler handler35;
+    private Handler handler36;
+    private Handler handler37;
+    private Handler handler38;
+
+    private Handler handler_btn_currency_1;
+    private Handler handler_btn_currency_2;
+    private Handler handler_btn_currency_3;
+    private Handler handler_btn_currency_4;
 
     private Runnable runnable1;
     private Runnable runnable2;
@@ -213,6 +221,14 @@ public class MainActivity extends AppCompatActivity {
     private Runnable runnable33;
     private Runnable runnable34;
     private Runnable runnable35;
+    private Runnable runnable36;
+    private Runnable runnable37;
+    private Runnable runnable38;
+
+    private Runnable runnable_btn_currency_1;
+    private Runnable runnable_btn_currency_2;
+    private Runnable runnable_btn_currency_3;
+    private Runnable runnable_btn_currency_4;
 
     private boolean giftIsClicked = false;
 
@@ -596,7 +612,6 @@ public class MainActivity extends AppCompatActivity {
                 runnable12 = new Runnable() {
                     @Override
                     public void run() {
-                        btn_freestyle_3.setVisibility(View.INVISIBLE);
                         btn_freestyle_4.setVisibility(View.VISIBLE);
 
                     }
@@ -607,6 +622,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable13 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(45);
                         btn_freestyle_5.setVisibility(View.VISIBLE);
 
                     }
@@ -617,6 +633,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable14 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(90);
                         btn_freestyle_6.setVisibility(View.VISIBLE);
 
                     }
@@ -627,6 +644,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable15 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(0);
                         btn_freestyle_4.setText(R.string.str_judge);
 
                     }
@@ -637,6 +655,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable16 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(45);
                         btn_freestyle_5.setText(R.string.str_farmer);
 
                     }
@@ -647,6 +666,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable17 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(90);
                         btn_freestyle_6.setText(R.string.str_cook);
 
                     }
@@ -657,6 +677,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable18 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(0);
                         btn_freestyle_4.setText(R.string.str_mechanic);
 
                     }
@@ -667,6 +688,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable19 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(45);
                         btn_freestyle_5.setText(R.string.str_factory_worker);
 
                     }
@@ -677,6 +699,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable20 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(90);
                         btn_freestyle_6.setText(R.string.str_office_worker);
 
                     }
@@ -687,6 +710,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable21 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(0);
                         btn_freestyle_4.setText(R.string.str_scientist);
 
                     }
@@ -697,6 +721,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable22 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(45);
                         btn_freestyle_5.setText(R.string.str_technologist);
 
                     }
@@ -707,6 +732,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable23 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setRotation(90);
                         btn_freestyle_6.setText(R.string.str_astronaut);
 
                     }
@@ -717,6 +743,7 @@ public class MainActivity extends AppCompatActivity {
                 runnable24 = new Runnable() {
                     @Override
                     public void run() {
+                        btn_freestyle_3.setVisibility(View.INVISIBLE);
                         btn_freestyle_7.setVisibility(View.VISIBLE);
 
                     }
@@ -778,6 +805,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         btn_freestyle_1.setVisibility(View.INVISIBLE);
+                        btn_freestyle_1.setText(R.string.str_confused);
                         btn_freestyle_2.setVisibility(View.INVISIBLE);
                         btn_freestyle_3.setVisibility(View.INVISIBLE);
                         btn_freestyle_4.setVisibility(View.INVISIBLE);
@@ -845,13 +873,45 @@ public class MainActivity extends AppCompatActivity {
                         btn_money_5.setVisibility(View.INVISIBLE);
 
                         btn_gift.setVisibility(View.VISIBLE);
+                        btn_gift.setText(R.string.str_grinning);
+
                         setGiftDownAndUp.start();
                     }
                 };
                 handler35.postDelayed(runnable35, 14000);
+
+                handler36 = new  Handler();
+                runnable36 = new Runnable() {
+                    @Override
+                    public void run() {
+                        btn_gift.setText(R.string.str_grinning);
+
+                    }
+                };
+                handler36.postDelayed(runnable36, 14500);
+
+                handler37 = new  Handler();
+                runnable37 = new Runnable() {
+                    @Override
+                    public void run() {
+                        btn_gift.setText(R.string.str_grinning_eyes);
+
+                    }
+                };
+                handler37.postDelayed(runnable37, 15000);
+
+                handler38 = new  Handler();
+                runnable38 = new Runnable() {
+                    @Override
+                    public void run() {
+                        btn_gift.setText(R.string.str_gift);
+                        btn_gift.animate().rotation(btn_gift.getRotation()-360).start();
+
+                    }
+                };
+                handler38.postDelayed(runnable38, 15500);
             }
         });
-
 
     }
 
@@ -895,7 +955,68 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ClickToShow(View v){
-        ButtonAnimations(v);
+
+        handler_btn_currency_1 = new  Handler();
+        runnable_btn_currency_1 = new Runnable() {
+            @Override
+            public void run() {
+                btn_lei.setVisibility(View.VISIBLE);
+
+                setLeiDownAndUp.start();
+
+                animationDrawableLei.start();
+            }
+        };
+        handler_btn_currency_1.postDelayed(runnable_btn_currency_1, 300);
+
+        handler_btn_currency_2 = new  Handler();
+        runnable_btn_currency_2 = new Runnable() {
+            @Override
+            public void run() {
+                btn_pound.setVisibility(View.VISIBLE);
+                btn_rupee.setVisibility(View.VISIBLE);
+
+                setPoundDownAndUp.start();
+                setRupeeDownAndUp.start();
+
+                animationDrawablePound.start();
+                animationDrawableRupee.start();
+            }
+        };
+        handler_btn_currency_2.postDelayed(runnable_btn_currency_2, 600);
+
+        handler_btn_currency_3 = new  Handler();
+        runnable_btn_currency_3 = new Runnable() {
+            @Override
+            public void run() {
+                btn_euro.setVisibility(View.VISIBLE);
+                btn_sheqel.setVisibility(View.VISIBLE);
+
+                setEuroDownAndUp.start();
+                setSheqelDownAndUp.start();
+
+                animationDrawableEuro.start();
+                animationDrawableSheqel.start();
+            }
+        };
+        handler_btn_currency_3.postDelayed(runnable_btn_currency_3, 900);
+
+        handler_btn_currency_4 = new  Handler();
+        runnable_btn_currency_4 = new Runnable() {
+            @Override
+            public void run() {
+                btn_dollar.setVisibility(View.VISIBLE);
+                btn_ruble.setVisibility(View.VISIBLE);
+
+                setDollarDownAndUp.start();
+                setRubleDownAndUp.start();
+
+                animationDrawableDollar.start();
+                animationDrawableRuble.start();
+            }
+        };
+        handler_btn_currency_4.postDelayed(runnable_btn_currency_4, 1200);
+
     }
 
     public void ClickOnDollar(View v){
@@ -1040,6 +1161,9 @@ public class MainActivity extends AppCompatActivity {
                     handler33.removeCallbacksAndMessages(null);
                     handler34.removeCallbacksAndMessages(null);
                     handler35.removeCallbacksAndMessages(null);
+                    handler36.removeCallbacksAndMessages(null);
+                    handler37.removeCallbacksAndMessages(null);
+                    handler38.removeCallbacksAndMessages(null);
                 }
 
                 btn_freestyle_1.setVisibility(View.INVISIBLE);
@@ -1061,6 +1185,12 @@ public class MainActivity extends AppCompatActivity {
                 ClickToShow(v);
 
             } else {
+                // Remove currency button animations even when they are not fully loaded...
+                handler_btn_currency_1.removeCallbacksAndMessages(null);
+                handler_btn_currency_2.removeCallbacksAndMessages(null);
+                handler_btn_currency_3.removeCallbacksAndMessages(null);
+                handler_btn_currency_4.removeCallbacksAndMessages(null);
+
                 constraintSetActivityOLD.applyTo(mainLayout);
                 playIsClicked = false;
                 txt_input_edit_text.setEnabled(true);
@@ -1085,60 +1215,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void ButtonAnimations(View v) {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn_lei.setVisibility(View.VISIBLE);
-
-                setLeiDownAndUp.start();
-
-                animationDrawableLei.start();
-            }
-        }, 300);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn_pound.setVisibility(View.VISIBLE);
-                btn_rupee.setVisibility(View.VISIBLE);
-
-                setPoundDownAndUp.start();
-                setRupeeDownAndUp.start();
-
-                animationDrawablePound.start();
-                animationDrawableRupee.start();
-            }
-        }, 600);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn_euro.setVisibility(View.VISIBLE);
-                btn_sheqel.setVisibility(View.VISIBLE);
-
-                setEuroDownAndUp.start();
-                setSheqelDownAndUp.start();
-
-                animationDrawableEuro.start();
-                animationDrawableSheqel.start();
-            }
-        }, 900);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                btn_dollar.setVisibility(View.VISIBLE);
-                btn_ruble.setVisibility(View.VISIBLE);
-
-                setDollarDownAndUp.start();
-                setRubleDownAndUp.start();
-
-                animationDrawableDollar.start();
-                animationDrawableRuble.start();
-            }
-        }, 1200);
-     }
-
-     public void CaleaSpreSucces(View v) {
+    public void CaleaSpreSucces(View v) {
          Toast toast = Toast.makeText(this, "Calea spre succes...", Toast.LENGTH_LONG);
          toast.setGravity(Gravity.BOTTOM, 0, 0);
 
