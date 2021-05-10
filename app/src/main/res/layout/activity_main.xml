@@ -20,12 +20,33 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1"
         />
-        <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25171" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_275"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.275"
         />
         <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_3"
@@ -34,12 +55,33 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3"
         />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.38"
+        />
         <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45"
         />
         <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_5"
@@ -48,12 +90,26 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"
         />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55"
+        />
         <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"
         />
         <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_7"
@@ -174,18 +230,14 @@
 
     <!-- BEGIN info buttons -->
     <Button
-        android:id="@+id/btn_present"
+        android:id="@+id/btn_romania"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_transparent"
         android:backgroundTint="@null"
         android:gravity="center"
-        android:text="@string/str_present"
+        android:text="@string/str_romania"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHighlight="@color/color_363636"
-        android:textColorLink="@color/color_585858"
-        android:textCursorDrawable="@color/color_585858"
         android:textSize="25sp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
@@ -194,24 +246,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_money"
+        android:id="@+id/btn_diamond"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_transparent"
         android:backgroundTint="@null"
         android:gravity="center"
-        android:text="@string/str_money"
+        android:text="@string/str_diamond"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHighlight="@color/color_363636"
-        android:textColorLink="@color/color_585858"
-        android:textCursorDrawable="@color/color_585858"
         android:textSize="25sp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_gift"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/btn_transparent"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_gift"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/color_363636"
+        android:textColorLink="@color/color_585858"
+        android:textCursorDrawable="@color/color_585858"
+        android:textSize="80sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_25" />
     <!-- END info buttons -->
 
     <!-- BEGIN go next objects -->
@@ -245,6 +313,7 @@
     <!-- END go next objects -->
 
     <!-- BEGIN calculations -->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_input_layout"
         android:layout_width="0dp"
@@ -254,10 +323,11 @@
         android:textColorHint="@color/color_585858"
         android:textColorLink="@color/color_585858"
         android:textCursorDrawable="?android:attr/textCursorDrawable"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_6"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4">
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_45"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_input_edit_text"
@@ -291,12 +361,13 @@
         android:textColorLink="@color/color_585858"
         android:textCursorDrawable="@color/color_585858"
         android:textSize="20sp"
-        android:visibility="invisible"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_3"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_3"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
 
     <Button
         android:id="@+id/btn_lei"
@@ -310,12 +381,13 @@
         android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnLei"
-        android:visibility="invisible"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
 
     <Button
         android:id="@+id/btn_sheqel"
@@ -329,47 +401,48 @@
         android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnSheqel"
-        android:visibility="invisible"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_7"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_7"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
 
     <Button
         android:id="@+id/btn_dollar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/dollar_list"
-        android:text="@string/str_dollar"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnDollar"
-        android:visibility="invisible"
+        android:text="@string/str_dollar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
 
     <Button
         android:id="@+id/btn_pound"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/pound_list"
-        android:text="@string/str_pound"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnPound"
-        android:visibility="invisible"
+        android:text="@string/str_pound"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_4"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
 
     <Button
@@ -377,17 +450,17 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/rupee_list"
-        android:text="@string/str_rupee"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnRupee"
-        android:visibility="invisible"
+        android:text="@string/str_rupee"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_6"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
 
     <Button
@@ -395,18 +468,18 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ruble_list"
-        android:text="@string/str_ruble"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
         android:gravity="center"
         android:onClick="ClickOnRuble"
-        android:visibility="invisible"
+        android:text="@string/str_ruble"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
 
     <!-- END calculations -->
 
@@ -452,5 +525,324 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- END bar tictok -->
+
+    <!-- BEGIN freestyle improvement -->
+    <Button
+        android:id="@+id/btn_freestyle_1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/freestyle_layout"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_confused"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:enabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3"
+        />
+
+    <Button
+        android:id="@+id/btn_freestyle_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="9dp"
+        android:background="@drawable/freestyle_layout"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_idea_bulb"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btn_freestyle_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/btn_freestyle_1"
+        />
+
+    <Button
+        android:id="@+id/btn_freestyle_3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_right_hand"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_4"
+        app:layout_constraintStart_toEndOf="@+id/btn_euro"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
+        />
+
+    <Button
+        android:id="@+id/btn_freestyle_4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_student"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
+
+    <Button
+        android:id="@+id/btn_freestyle_5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_teacher"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_freestyle_6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_health_worker"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
+
+    <Button
+        android:id="@+id/btn_freestyle_7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_southeast"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_22"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_22" />
+
+    <Button
+        android:id="@+id/btn_freestyle_8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_rightwards"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/btn_rupee"
+        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_freestyle_9"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_northeast"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_38"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_38" />
+
+    <Button
+        android:id="@+id/btn_freestyle_10"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_dollar_banknote"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_275"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_22" />
+
+    <Button
+        android:id="@+id/btn_freestyle_11"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_euro_banknote"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
+
+    <Button
+        android:id="@+id/btn_freestyle_12"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/freestyle_layout"
+        android:enabled="false"
+        android:gravity="center"
+        android:onClick="ClickOnRupee"
+        android:text="@string/str_pound_banknote"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_35" />
+
+    <Button
+        android:id="@+id/btn_money_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/freestyle_layout"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_money"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="65sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_25" />
+
+    <Button
+        android:id="@+id/btn_money_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/freestyle_layout"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_money"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="65sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_25" />
+
+    <Button
+        android:id="@+id/btn_money_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/freestyle_layout"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_money"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="65sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_25" />
+
+    <Button
+        android:id="@+id/btn_money_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/freestyle_layout"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_money"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="65sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4"/>
+
+    <Button
+        android:id="@+id/btn_money_5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/freestyle_layout"
+        android:backgroundTint="@null"
+        android:gravity="center"
+        android:text="@string/str_money"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="65sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
+    <!-- END freestyle improvement -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

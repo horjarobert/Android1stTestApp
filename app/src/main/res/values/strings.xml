@@ -3,7 +3,9 @@
     <string name="str_copyright">©2021</string>
     <string name="str_title">Calculator</string>
     <string name="str_money">💰</string>
-    <string name="str_present">🎁</string>
+    <string name="str_gift">🎁</string>
+    <string name="str_diamond">💎</string>
+
     <string name="str_play">➾</string>
     <string name="str_euro">€</string>
     <string name="str_dollar">$</string>
@@ -13,6 +15,7 @@
     <string name="str_show">✯</string>
     <string name="str_rupee">₹</string>
     <string name="str_ruble">₽</string>
+
     <string name="str_hint">Salariul Brut (în lei)</string>
     <string name="str_tooltip">by Stufflex</string>
     <string name="str_intro_brut">Introdu salariul brut</string>
@@ -22,4 +25,43 @@
     <string name="str_salariu_brut">Salariu Brut</string>
     <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
     <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
+
+    <string name="str_confused">😕</string>
+    <string name="str_frowning">☹</string>
+    <string name="str_worried">😟</string>
+    <string name="str_sad">😥</string>
+    <string name="str_crying">😭</string>
+    <string name="str_idea_bulb">💡</string>
+    <string name="str_little_smile">🙂</string>
+    <string name="str_wink">😉</string>
+    <string name="str_sunglasses">😎</string>
+    <string name="str_right_hand">👉</string>
+
+    <string name="str_student">👨‍🎓️</string>
+    <string name="str_teacher">👨‍🏫️</string>
+    <string name="str_health_worker">👨‍⚕️</string>
+
+    <string name="str_judge">👨‍⚖️</string>
+    <string name="str_farmer">👨‍🌾️</string>
+    <string name="str_cook">👨‍🍳️</string>
+
+    <string name="str_mechanic">👨‍🔧️</string>
+    <string name="str_factory_worker">👨‍🏭</string>
+    <string name="str_office_worker">👨‍💼</string>
+
+    <string name="str_scientist">👨‍🔬</string>
+    <string name="str_technologist">👨‍💻</string>
+    <string name="str_astronaut">👨‍🚀</string>
+
+    <string name="str_rightwards">➞</string>
+    <string name="str_southeast">⬊</string>
+    <string name="str_northeast">⬈</string>
+
+    <string name="str_dollar_banknote">💵</string>
+    <string name="str_euro_banknote">💶</string>
+    <string name="str_pound_banknote">💷</string>
+
+    <string name="str_romania">🇷🇴</string>
+    <string name="str_pushpin">📍</string>
+
 </resources>
