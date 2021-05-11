@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -131,6 +132,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"
         />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_1"
@@ -482,22 +490,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
 
     <!-- END calculations -->
-
-    <!-- BEGIN salary info design -->
-    <TextView
-        android:id="@+id/txt_salariu_brut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/str_salariu_brut"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_5" />
-    <!-- END salary info design -->
 
     <!-- BEGIN bar tictok -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -863,5 +855,32 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_4" />
     <!-- END freestyle improvement -->
+
+    <!-- BEGIN salary info design -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/salaryLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_45">
+
+        <include
+            layout="@layout/include_salary_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+        </include>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- END salary info design -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

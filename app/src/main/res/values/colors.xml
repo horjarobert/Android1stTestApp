@@ -14,4 +14,5 @@
     <color name="color_red">#ce1126</color>
     <color name="color_red_light">#ec4444</color>
     <color name="color_gray_light">#d1d1d1</color>
+    <color name="color_gray_extra_light">#e7e7e7</color>
 </resources>

@@ -1,0 +1,2626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StufflexSplashActivity"
+    android:id="@+id/splashLayout"
+    android:background="@color/black"
+    >
+
+    <!-- BEGIN helpers -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ht_salary_95"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8"
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vt_salary_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        />
+    <!-- END helpers -->
+
+    <!-- BEGIN freestyle mode -->
+    <TextView
+        android:id="@+id/txt_changeable_letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_letter_S"
+        android:textSize="250sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_changeable_f_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_letter_f_1"
+        android:textSize="250sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_changeable_f_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_letter_f_2"
+        android:textSize="250sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_letter_S"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_S"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_t"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_u"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_u"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_f_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_f_1"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_f_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_f_2"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_l"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_e"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_x"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_letter_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_b"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_letter_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/allerta_stencil"
+        android:gravity="center"
+        android:text="@string/str_letter_y"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <!-- END freestyle mode -->
+
+    <!-- BEGIN the unbelievable -->
+    <TextView
+        android:id="@+id/txt_a_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_a_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_a_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_a_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_a_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_a_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_a_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_a_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_a_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_a_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_a_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_a_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_a_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_a_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_a_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_a_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_a_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_a_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_a_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_a_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_b_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_b_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_b_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_b_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_b_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_b_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_b_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_b_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_b_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_b_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_b_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_b_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_b_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_b_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_b_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_b_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_b_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_b_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_b_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_b_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_c_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_c_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_c_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_c_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_c_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_c_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_c_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_c_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_c_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_c_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_c_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_c_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_c_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_c_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_c_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_c_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_c_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_c_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_c_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_c_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_d_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_d_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_d_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_d_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_d_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_d_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_d_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_d_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_d_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_d_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_d_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_d_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_d_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_d_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_d_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_d_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_d_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_d_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_d_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_d_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_e_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_e_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_e_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_e_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_e_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_e_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_e_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_e_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_e_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_e_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_e_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_e_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_e_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_e_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_e_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_e_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_e_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_e_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_e_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_e_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_f_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_f_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_f_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_f_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_f_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_f_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_f_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_f_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_f_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_f_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_f_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_f_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_f_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_f_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_f_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_f_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_f_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_f_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_f_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_f_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_g_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_g_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_g_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_g_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_g_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_g_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_g_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_g_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_g_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_g_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_g_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_g_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_g_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_g_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_g_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_g_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_g_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_g_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_g_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_g_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_h_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_h_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_h_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_h_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_h_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_h_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_h_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_h_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_h_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_h_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_h_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_h_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_h_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_h_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_h_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_h_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_h_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_h_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_h_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_h_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_i_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_i_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_i_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_i_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_i_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_i_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_i_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_i_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_i_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_i_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_i_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_i_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_i_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_i_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_i_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_i_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_i_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_i_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_i_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_i_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <TextView
+        android:id="@+id/txt_j_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_05"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_j_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+
+    <TextView
+        android:id="@+id/txt_j_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <TextView
+        android:id="@+id/txt_j_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <TextView
+        android:id="@+id/txt_j_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
+
+    <TextView
+        android:id="@+id/txt_j_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
+
+    <TextView
+        android:id="@+id/txt_j_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
+
+    <TextView
+        android:id="@+id/txt_j_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
+
+    <TextView
+        android:id="@+id/txt_j_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_45"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4" />
+
+    <TextView
+        android:id="@+id/txt_j_10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <TextView
+        android:id="@+id/txt_j_11"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <TextView
+        android:id="@+id/txt_j_12"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_55" />
+
+    <TextView
+        android:id="@+id/txt_j_13"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6" />
+
+    <TextView
+        android:id="@+id/txt_j_14"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
+
+    <TextView
+        android:id="@+id/txt_j_15"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_75"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_7" />
+
+    <TextView
+        android:id="@+id/txt_j_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_75" />
+
+    <TextView
+        android:id="@+id/txt_j_17"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_85"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
+
+    <TextView
+        android:id="@+id/txt_j_18"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
+    <TextView
+        android:id="@+id/txt_j_19"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_9" />
+
+    <TextView
+        android:id="@+id/txt_j_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_gray_light"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_95" />
+
+    <!-- END the unbelievable -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Declarations
     private TextView txt_title;
-    private EditText editTextNumberDecimal;
 
     private Button btn_euro;
     private Button btn_dollar;
@@ -79,8 +78,21 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txt_arrow;
     private TextView txt_copyright;
+    private TextView txt_salariat;
+    private TextView txt_salariu;
+    private TextView txt_salariu_brut;
+    private TextView txt_salariu_brut_rezultat;
+    private TextView txt_asigurari_cas;
+    private TextView txt_asigurari_cas_rezultat;
+    private TextView txt_asigurari_cass;
+    private TextView txt_asigurari_cass_rezultat;
+    private TextView txt_impozit_pe_venit;
+    private TextView txt_impozit_pe_venit_rezultat;
+    private TextView txt_salariu_net;
+    private TextView txt_salariu_net_rezultat;
 
     private ConstraintLayout mainLayout;
+    private ConstraintLayout salaryLayout;
     private ConstraintLayout bar_1;
     private ConstraintLayout bar_2;
     private ConstraintLayout bar_3;
@@ -242,6 +254,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Initializations
         txt_title = findViewById(R.id.txt_title);
+        txt_salariat = findViewById(R.id.txt_salariat);
+        txt_salariu = findViewById(R.id.txt_salariu);
+        txt_salariu_brut = findViewById(R.id.txt_salariu_brut);
+        txt_salariu_brut_rezultat = findViewById(R.id.txt_salariu_brut_rezultat);
+        txt_asigurari_cas = findViewById(R.id.txt_asigurari_cas);
+        txt_asigurari_cas_rezultat = findViewById(R.id.txt_asigurari_cas_rezultat);
+        txt_asigurari_cass = findViewById(R.id.txt_asigurari_cass);
+        txt_asigurari_cass_rezultat = findViewById(R.id.txt_asigurari_cass_rezultat);
+        txt_impozit_pe_venit = findViewById(R.id.txt_impozit_pe_venit);
+        txt_impozit_pe_venit_rezultat = findViewById(R.id.txt_impozit_pe_venit_rezultat);
+        txt_salariu_net = findViewById(R.id.txt_salariu_net);
+        txt_salariu_net_rezultat = findViewById(R.id.txt_salariu_net_rezultat);
+
         txt_input_layout = findViewById(R.id.txt_input_layout);
         txt_input_edit_text = findViewById(R.id.txt_input_edit_text);
 
@@ -276,7 +301,9 @@ public class MainActivity extends AppCompatActivity {
 
         txt_arrow = findViewById(R.id.txt_arrow);
         txt_copyright = findViewById(R.id.txt_copyright);
+
         mainLayout = findViewById(R.id.mainLayout);
+        salaryLayout = findViewById(R.id.salaryLayout);
 
         bar_1 = findViewById(R.id.bar_1);
         bar_2 = findViewById(R.id.bar_2);
@@ -331,6 +358,8 @@ public class MainActivity extends AppCompatActivity {
         btn_pound.setVisibility(View.INVISIBLE);
         btn_rupee.setVisibility(View.INVISIBLE);
         btn_ruble.setVisibility(View.INVISIBLE);
+
+        salaryLayout.setVisibility(View.INVISIBLE);
 
         // Special guest | Animation for btn_lei
         scaleLeiDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
@@ -808,6 +837,7 @@ public class MainActivity extends AppCompatActivity {
                         btn_freestyle_1.setText(R.string.str_confused);
                         btn_freestyle_2.setVisibility(View.INVISIBLE);
                         btn_freestyle_3.setVisibility(View.INVISIBLE);
+                        btn_freestyle_3.setRotation(0);
                         btn_freestyle_4.setVisibility(View.INVISIBLE);
                         btn_freestyle_5.setVisibility(View.INVISIBLE);
                         btn_freestyle_6.setVisibility(View.INVISIBLE);
@@ -1030,6 +1060,9 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
+        txt_salariu.setText(R.string.str_salariu_dolari);
+
     }
     public void ClickOnEuro(View v){
         Toast toast = Toast.makeText(this, "EUR (euro)", Toast.LENGTH_SHORT);
@@ -1043,6 +1076,8 @@ public class MainActivity extends AppCompatActivity {
             lastToastTime = now;
         }
 
+        txt_salariu.setText(R.string.str_salariu_euro);
+
     }
     public void ClickOnPound(View v){
         Toast toast = Toast.makeText(this, "GBP (lira sterlină)", Toast.LENGTH_SHORT);
@@ -1055,6 +1090,9 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
+        txt_salariu.setText(R.string.str_salariu_lire);
+
     }
     public void ClickOnLei(View v){
         Toast toast = Toast.makeText(this, "Leu (românesc)", Toast.LENGTH_SHORT);
@@ -1067,6 +1105,9 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
+        txt_salariu.setText(R.string.str_salariu_lei);
+
     }
     public void ClickOnRupee(View v){
         Toast toast = Toast.makeText(this, "INR (rupia indiană)", Toast.LENGTH_SHORT);
@@ -1079,6 +1120,9 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
+        txt_salariu.setText(R.string.str_salariu_rupii);
+
     }
     public void ClickOnSheqel(View v){
         Toast toast = Toast.makeText(this, "ILS (sheqel israelian)", Toast.LENGTH_SHORT);
@@ -1091,6 +1135,9 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
+        txt_salariu.setText(R.string.str_salariu_sheqeli);
+
     }
     public void ClickOnRuble(View v){
         Toast toast = Toast.makeText(this, "RUB (rubla rusească)", Toast.LENGTH_SHORT);
@@ -1103,6 +1150,9 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
             lastToastTime = now;
         }
+
+        txt_salariu.setText(R.string.str_salariu_ruble);
+
     }
 
     // Change the layout to activity_main_open_github.xml
@@ -1184,6 +1234,9 @@ public class MainActivity extends AppCompatActivity {
 
                 ClickToShow(v);
 
+                salaryLayout.setVisibility(View.VISIBLE);
+
+
             } else {
                 // Remove currency button animations even when they are not fully loaded...
                 handler_btn_currency_1.removeCallbacksAndMessages(null);
@@ -1207,6 +1260,8 @@ public class MainActivity extends AppCompatActivity {
                 btn_pound.setVisibility(View.INVISIBLE);
                 btn_rupee.setVisibility(View.INVISIBLE);
                 btn_ruble.setVisibility(View.INVISIBLE);
+
+                salaryLayout.setVisibility(View.INVISIBLE);
 
                 btn_gift.setVisibility(View.VISIBLE);
                 setGiftDownAndUp.start();

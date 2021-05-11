@@ -22,9 +22,23 @@
     <string name="str_tooltip_lei">LEI</string>
     <string name="str_tooltip_euro">EURO</string>
     <string name="str_tooltip_dollar">DOLAR</string>
+
     <string name="str_salariu_brut">Salariu Brut</string>
     <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
-    <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
+    <string name="str_cas">CAS</string>
+    <string name="str_asigurari_cass">CASS</string>
+    <string name="str_cass">CASS</string>
+    <string name="str_impozit_pe_venit">Impozit pe venit</string>
+    <string name="str_salariu_net">Salariu Net</string>
+    <string name="str_salariat">Salariat</string>
+    <string name="str_salariu_lei">Lei</string>
+    <string name="str_salariu_dolari">Dolari</string>
+    <string name="str_salariu_euro">Euro</string>
+    <string name="str_salariu_sheqeli">Sheqeli</string>
+    <string name="str_salariu_ruble">Ruble</string>
+    <string name="str_salariu_lire">Lire</string>
+    <string name="str_salariu_rupii">Rupii</string>
+    <string name="str_salariu_dash">###</string>
 
     <string name="str_confused">😕</string>
     <string name="str_frowning">☹</string>
@@ -65,5 +79,17 @@
 
     <string name="str_grinning">😃</string>
     <string name="str_grinning_eyes">😄</string>
+
+    <string name="str_letter_S">S</string>
+    <string name="str_letter_t">t</string>
+    <string name="str_letter_u">u</string>
+    <string name="str_letter_f_1">f</string>
+    <string name="str_letter_f_2">f</string>
+    <string name="str_letter_l">l</string>
+    <string name="str_letter_e">e</string>
+    <string name="str_letter_x">x</string>
+
+    <string name="str_letter_b">b</string>
+    <string name="str_letter_y">y</string>
 
 </resources>
