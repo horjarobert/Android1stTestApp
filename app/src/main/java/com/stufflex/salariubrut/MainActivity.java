@@ -1264,6 +1264,7 @@ public class MainActivity extends AppCompatActivity {
                 salaryLayout.setVisibility(View.INVISIBLE);
 
                 btn_gift.setVisibility(View.VISIBLE);
+                btn_gift.setText(R.string.str_gift);
                 setGiftDownAndUp.start();
             }
         }

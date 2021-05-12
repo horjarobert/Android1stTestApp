@@ -214,7 +214,7 @@
     <!-- BEGIN salary texts & bars -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/salary_ht_bar"
-        android:layout_width="3dp"
+        android:layout_width="2dp"
         android:layout_height="0dp"
         android:background="@color/color_gray_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
@@ -227,7 +227,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/salary_vt_bar_1"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/color_gray_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
@@ -239,7 +239,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/salary_vt_bar_2"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/color_gray_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
@@ -251,7 +251,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/salary_vt_bar_3"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/color_gray_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
@@ -263,7 +263,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/salary_vt_bar_4"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/color_gray_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
@@ -275,7 +275,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/salary_vt_bar_5"
         android:layout_width="0dp"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/color_gray_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
