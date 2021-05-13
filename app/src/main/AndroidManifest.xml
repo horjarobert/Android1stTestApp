@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/new_sb_2nd"
+        android:icon="@mipmap/new_sb_4th"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/new_sb_2nd_round"
+        android:roundIcon="@mipmap/new_sb_4th_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SalariuBrut">
 
