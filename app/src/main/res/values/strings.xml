@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Salariul Brut</string>
+    <string name="app_name">₵alculator $alariu</string>
     <string name="str_copyright">©2021</string>
     <string name="str_title">Calculator</string>
     <string name="str_money">💰</string>
@@ -24,12 +24,14 @@
     <string name="str_tooltip_dollar">DOLAR</string>
 
     <string name="str_salariu_brut">Salariu Brut</string>
+    <string name="str_salariu_brut_spec">Din Salariul Brut se scad taxele, nu rămâi în mână cu suma asta...</string>
     <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
     <string name="str_cas">CAS</string>
-    <string name="str_asigurari_cass">CASS</string>
+    <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
     <string name="str_cass">CASS</string>
     <string name="str_impozit_pe_venit">Impozit pe venit</string>
     <string name="str_salariu_net">Salariu Net</string>
+    <string name="str_salariu_net_spec">Salariul Net e cel cu care rămâi în mână</string>
     <string name="str_salariat">Salariat</string>
     <string name="str_salariu_lei">Lei</string>
     <string name="str_salariu_dolari">Dolari</string>

@@ -13,6 +13,7 @@ import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
@@ -31,6 +32,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -243,6 +245,11 @@ public class MainActivity extends AppCompatActivity {
     private Runnable runnable_btn_currency_4;
 
     private boolean giftIsClicked = false;
+
+    private float salar_brut, cas_lei, cass_lei, impozit_lei, salar_net;
+
+    private ObjectAnimator colorAnimSalariuNet;
+    private ObjectAnimator colorAnimSalariuNetRezultat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1108,6 +1115,8 @@ public class MainActivity extends AppCompatActivity {
 
         txt_salariu.setText(R.string.str_salariu_lei);
 
+        CalculLei(v);
+
     }
     public void ClickOnRupee(View v){
         Toast toast = Toast.makeText(this, "INR (rupia indiană)", Toast.LENGTH_SHORT);
@@ -1156,6 +1165,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Change the layout to activity_main_open_github.xml
+    @SuppressLint("WrongConstant")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void ChangeActivity(View v){
         //navbar-fullscreen
@@ -1267,6 +1277,30 @@ public class MainActivity extends AppCompatActivity {
                 btn_gift.setText(R.string.str_gift);
                 setGiftDownAndUp.start();
             }
+
+            // Calculus
+            salar_brut = Float.parseFloat(String.valueOf(txt_input_edit_text.getText()));
+
+            CalculLei(v);
+
+            // Text animation (beta version)
+            colorAnimSalariuNet = ObjectAnimator.ofInt(txt_salariu_net, "textColor",
+                    Color.BLACK, Color.GREEN);
+            colorAnimSalariuNet.setEvaluator(new ArgbEvaluator());
+            colorAnimSalariuNet.setDuration(4000);
+            colorAnimSalariuNet.setRepeatMode(ValueAnimator.REVERSE);
+            colorAnimSalariuNet.setRepeatCount(Animation.INFINITE);
+            colorAnimSalariuNet.setInterpolator(new LinearInterpolator());
+            colorAnimSalariuNet.start();
+
+            colorAnimSalariuNetRezultat = ObjectAnimator.ofInt(txt_salariu_net_rezultat, "textColor",
+                    Color.BLACK, Color.GREEN);
+            colorAnimSalariuNetRezultat.setEvaluator(new ArgbEvaluator());
+            colorAnimSalariuNetRezultat.setDuration(4000);
+            colorAnimSalariuNetRezultat.setRepeatMode(ValueAnimator.REVERSE);
+            colorAnimSalariuNetRezultat.setRepeatCount(Animation.INFINITE);
+            colorAnimSalariuNetRezultat.setInterpolator(new LinearInterpolator());
+            colorAnimSalariuNetRezultat.start();
         }
 
     }
@@ -1276,6 +1310,24 @@ public class MainActivity extends AppCompatActivity {
          toast.setGravity(Gravity.BOTTOM, 0, 0);
 
          toast.show();
+
+     }
+
+     public void CalculLei(View v){
+         // Calculus
+         txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut));
+
+         cas_lei = salar_brut * (25.0f / 100);
+         txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_lei));
+
+         cass_lei = salar_brut * (10.0f / 100);
+         txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_lei));
+
+         impozit_lei = salar_brut * (10.0f / 100);
+         txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_lei));
+
+         salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+         txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net));
 
      }
 }
