@@ -250,6 +250,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ObjectAnimator colorAnimSalariuNet;
     private ObjectAnimator colorAnimSalariuNetRezultat;
+    private ObjectAnimator colorAnimSalariuBrut;
+    private ObjectAnimator colorAnimSalariuBrutRezultat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1301,6 +1303,24 @@ public class MainActivity extends AppCompatActivity {
             colorAnimSalariuNetRezultat.setRepeatCount(Animation.INFINITE);
             colorAnimSalariuNetRezultat.setInterpolator(new LinearInterpolator());
             colorAnimSalariuNetRezultat.start();
+
+            colorAnimSalariuBrut = ObjectAnimator.ofInt(txt_salariu_brut, "textColor",
+                    Color.BLACK, Color.RED);
+            colorAnimSalariuBrut.setEvaluator(new ArgbEvaluator());
+            colorAnimSalariuBrut.setDuration(4000);
+            colorAnimSalariuBrut.setRepeatMode(ValueAnimator.REVERSE);
+            colorAnimSalariuBrut.setRepeatCount(Animation.INFINITE);
+            colorAnimSalariuBrut.setInterpolator(new LinearInterpolator());
+            colorAnimSalariuBrut.start();
+
+            colorAnimSalariuBrutRezultat = ObjectAnimator.ofInt(txt_salariu_brut_rezultat, "textColor",
+                    Color.BLACK, Color.RED);
+            colorAnimSalariuBrutRezultat.setEvaluator(new ArgbEvaluator());
+            colorAnimSalariuBrutRezultat.setDuration(4000);
+            colorAnimSalariuBrutRezultat.setRepeatMode(ValueAnimator.REVERSE);
+            colorAnimSalariuBrutRezultat.setRepeatCount(Animation.INFINITE);
+            colorAnimSalariuBrutRezultat.setInterpolator(new LinearInterpolator());
+            colorAnimSalariuBrutRezultat.start();
         }
 
     }
