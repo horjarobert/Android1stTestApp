@@ -210,7 +210,7 @@
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allerta_stencil"
+        android:fontFamily="@font/artifika"
         android:text="@string/str_title"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -226,7 +226,7 @@
         android:id="@+id/txt_copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/allerta_stencil"
+        android:fontFamily="@font/artifika"
         android:text="@string/str_copyright"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -309,7 +309,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/str_play"
+        android:text="@string/str_play_final"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="35sp"
@@ -488,7 +488,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
-
     <!-- END calculations -->
 
     <!-- BEGIN bar tictok -->
@@ -537,7 +536,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- END bar tictok -->
 
-  <!-- BEGIN freestyle improvement -->
+    <!-- BEGIN freestyle improvement -->
     <Button
         android:id="@+id/btn_freestyle_1"
         android:layout_width="90dp"

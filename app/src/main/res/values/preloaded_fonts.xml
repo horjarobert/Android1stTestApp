@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
         <item>@font/abril_fatface</item>
+        <item>@font/aclonica</item>
         <item>@font/allerta_stencil</item>
+        <item>@font/almendra</item>
         <item>@font/amarante</item>
+        <item>@font/aref_ruqaa</item>
+        <item>@font/artifika</item>
+        <item>@font/autour_one</item>
+        <item>@font/baloo_tamma</item>
+        <item>@font/original_surfer</item>
+        <item>@font/passero_one</item>
+        <item>@font/sniglet</item>
+        <item>@font/stoke_light</item>
+        <item>@font/supermercado_one</item>
+        <item>@font/taviraj_thin</item>
+        <item>@font/volkhov</item>
+        <item>@font/walter_turncoat</item>
+        <item>@font/yantramanav_thin</item>
+        <item>@font/yatra_one</item>
     </array>
 </resources>

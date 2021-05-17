@@ -5,7 +5,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.constraintlayout.widget.Placeholder;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -21,37 +20,29 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.Html;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.transition.TransitionManager;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     // Declarations
-    private TextView txt_title;
-
     private Button btn_euro;
     private Button btn_dollar;
-    private Button btn_play;
+    private Button btn_play_complete;
+    private Button btn_play_final;
     private Button btn_lei;
     private Button btn_pound;
     private Button btn_sheqel;
@@ -78,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_money_4;
     private Button btn_money_5;
 
-    private TextView txt_arrow;
+    private TextView txt_title_calculator;
+    private TextView txt_title_completeaza;
+    private TextView txt_play_complete;
+    private TextView txt_play_final;
     private TextView txt_copyright;
     private TextView txt_salariat;
     private TextView txt_salariu;
@@ -95,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ConstraintLayout mainLayout;
     private ConstraintLayout salaryLayout;
+    private ConstraintLayout optionsToCompleteLayout;
     private ConstraintLayout bar_1;
     private ConstraintLayout bar_2;
     private ConstraintLayout bar_3;
@@ -104,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     private Animation anim_txt_title;
     private Animation anim_btn_romania;
     private Animation anim_btn_diamond;
-    private Animation anim_btn_play;
+    private Animation anim_btn_play_complete;
     private Animation anim_txt_copyright;
-    private Animation anim_txt_arrow;
+    private Animation anim_txt_play_complete;
 
     private AnimatorSet setLeiDownAndUp;
     private AnimatorSet setPoundDownAndUp;
@@ -142,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
     private AnimationDrawable animationDrawableSheqel;
     private AnimationDrawable animationDrawableDollar;
     private AnimationDrawable animationDrawableRuble;
-    private AnimationDrawable animationDrawableGif;
 
     private static final long TOAST_TIMEOUT_MS = 2000;
     private static long lastToastTime = 0;
@@ -253,6 +247,16 @@ public class MainActivity extends AppCompatActivity {
     private ObjectAnimator colorAnimSalariuBrut;
     private ObjectAnimator colorAnimSalariuBrutRezultat;
 
+    private CheckBox checkBox_functie_de_baza_DA;
+    private CheckBox checkBox_functie_de_baza_NU;
+    private CheckBox checkBox_scutit_de_impozit_DA;
+    private CheckBox checkBox_scutit_de_impozit_NU;
+
+    private int checkFunctieDeBaza_DA = 0;
+    private int checkFunctieDeBaza_NU = 0;
+    private int checkScutitDeImpozit_DA = 0;
+    private int checkScutitDeImpozit_NU = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -262,7 +266,8 @@ public class MainActivity extends AppCompatActivity {
         hideNavigationBar();
 
         // Initializations
-        txt_title = findViewById(R.id.txt_title);
+        txt_title_calculator = findViewById(R.id.txt_title_calculator);
+        txt_title_completeaza = findViewById(R.id.txt_title_completeaza);
         txt_salariat = findViewById(R.id.txt_salariat);
         txt_salariu = findViewById(R.id.txt_salariu);
         txt_salariu_brut = findViewById(R.id.txt_salariu_brut);
@@ -281,7 +286,8 @@ public class MainActivity extends AppCompatActivity {
 
         btn_euro = findViewById(R.id.btn_euro);
         btn_dollar = findViewById(R.id.btn_dollar);
-        btn_play = findViewById(R.id.btn_play);
+        btn_play_complete = findViewById(R.id.btn_play_complete);
+        btn_play_final = findViewById(R.id.btn_play_final);
         btn_lei = findViewById(R.id.btn_lei);
         btn_pound = findViewById(R.id.btn_pound);
         btn_sheqel = findViewById(R.id.btn_sheqel);
@@ -308,15 +314,22 @@ public class MainActivity extends AppCompatActivity {
         btn_money_4 = findViewById(R.id.btn_money_4);
         btn_money_5 = findViewById(R.id.btn_money_5);
 
-        txt_arrow = findViewById(R.id.txt_arrow);
+        txt_play_complete = findViewById(R.id.txt_play_complete);
+        txt_play_final = findViewById(R.id.txt_play_final);
         txt_copyright = findViewById(R.id.txt_copyright);
 
         mainLayout = findViewById(R.id.mainLayout);
-        salaryLayout = findViewById(R.id.salaryLayout);
+//        salaryLayout = findViewById(R.id.salaryLayout);
+        optionsToCompleteLayout = findViewById(R.id.optionsToCompleteLayout);
 
         bar_1 = findViewById(R.id.bar_1);
         bar_2 = findViewById(R.id.bar_2);
         bar_3 = findViewById(R.id.bar_3);
+
+        checkBox_functie_de_baza_DA = findViewById(R.id.checkBox_functie_de_baza_DA);
+        checkBox_functie_de_baza_NU = findViewById(R.id.checkBox_functie_de_baza_NU);
+        checkBox_scutit_de_impozit_DA = findViewById(R.id.checkBox_scutit_de_impozit_DA);
+        checkBox_scutit_de_impozit_NU = findViewById(R.id.checkBox_scutit_de_impozit_NU);
 
         // Alert user when EditText limit exxceeded
         txt_input_edit_text.addTextChangedListener(new TextWatcher() {
@@ -330,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() == n)
                 {
-                    new AlertDialog.Builder(MainActivity.this).setTitle("\uD83D\uDC40 Ai ajuns la limită! ⌛").setMessage("Te rog, nu minți! Mulțumesc! ☺").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+                    new AlertDialog.Builder(MainActivity.this).setTitle("\uD83D\uDC40 Ați ajuns la limită! ⌛").setMessage("Vă rog, nu mințiți! Mulțumesc! ☺").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
                     txt_input_edit_text.setText("");
 
                     // Navbar-fullscreen
@@ -347,15 +360,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Set animations
-        anim_btn_play = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
+        anim_btn_play_complete = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
         anim_txt_copyright = AnimationUtils.loadAnimation(this, R.anim.bottom_to_up);
-        anim_txt_arrow = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+        anim_txt_play_complete = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
         anim_btn_diamond = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
         anim_btn_romania = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
 
         txt_copyright.setAnimation(anim_txt_copyright);
-        btn_play.setAnimation(anim_btn_play);
-        txt_arrow.setAnimation(anim_txt_arrow);
+        btn_play_complete.setAnimation(anim_btn_play_complete);
+        txt_play_complete.setAnimation(anim_txt_play_complete);
         btn_diamond.setAnimation(anim_btn_diamond);
         btn_romania.setAnimation(anim_btn_romania);
 
@@ -367,73 +380,77 @@ public class MainActivity extends AppCompatActivity {
         btn_pound.setVisibility(View.INVISIBLE);
         btn_rupee.setVisibility(View.INVISIBLE);
         btn_ruble.setVisibility(View.INVISIBLE);
+        btn_play_final.setVisibility(View.INVISIBLE);
 
-        salaryLayout.setVisibility(View.INVISIBLE);
+        txt_play_final.setVisibility(View.INVISIBLE);
+
+//        salaryLayout.setVisibility(View.INVISIBLE);
+        optionsToCompleteLayout.setVisibility(View.INVISIBLE);
 
         // Special guest | Animation for btn_lei
-        scaleLeiDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleLeiDown.setTarget(btn_lei);
-
-        scaleLeiUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setLeiDownAndUp = new AnimatorSet();
-        setLeiDownAndUp.playSequentially(scaleLeiDown, scaleLeiUp);
+//        scaleLeiDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scaleLeiDown.setTarget(btn_lei);
+//
+//        scaleLeiUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setLeiDownAndUp = new AnimatorSet();
+//        setLeiDownAndUp.playSequentially(scaleLeiDown, scaleLeiUp);
 
         // Special guest | Animation for btn_pound
-        scalePoundDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scalePoundDown.setTarget(btn_pound);
-
-        scalePoundUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setPoundDownAndUp = new AnimatorSet();
-        setPoundDownAndUp.playSequentially(scalePoundDown, scalePoundUp);
+//        scalePoundDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scalePoundDown.setTarget(btn_pound);
+//
+//        scalePoundUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setPoundDownAndUp = new AnimatorSet();
+//        setPoundDownAndUp.playSequentially(scalePoundDown, scalePoundUp);
 
         // Special guest | Animation for btn_rupee
-        scaleRupeeDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleRupeeDown.setTarget(btn_rupee);
-
-        scaleRupeeUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setRupeeDownAndUp = new AnimatorSet();
-        setRupeeDownAndUp.playSequentially(scaleRupeeDown, scaleRupeeUp);
+//        scaleRupeeDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scaleRupeeDown.setTarget(btn_rupee);
+//
+//        scaleRupeeUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setRupeeDownAndUp = new AnimatorSet();
+//        setRupeeDownAndUp.playSequentially(scaleRupeeDown, scaleRupeeUp);
 
         // Special guest | Animation for btn_euro
-        scaleEuroDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleEuroDown.setTarget(btn_euro);
-
-        scaleEuroUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setEuroDownAndUp = new AnimatorSet();
-        setEuroDownAndUp.playSequentially(scaleEuroDown, scaleEuroUp);
+//        scaleEuroDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scaleEuroDown.setTarget(btn_euro);
+//
+//        scaleEuroUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setEuroDownAndUp = new AnimatorSet();
+//        setEuroDownAndUp.playSequentially(scaleEuroDown, scaleEuroUp);
 
         // Special guest | Animation for btn_sheqel
-        scaleSheqelDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleSheqelDown.setTarget(btn_sheqel);
-
-        scaleSheqelUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setSheqelDownAndUp = new AnimatorSet();
-        setSheqelDownAndUp.playSequentially(scaleSheqelDown, scaleSheqelUp);
+//        scaleSheqelDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scaleSheqelDown.setTarget(btn_sheqel);
+//
+//        scaleSheqelUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setSheqelDownAndUp = new AnimatorSet();
+//        setSheqelDownAndUp.playSequentially(scaleSheqelDown, scaleSheqelUp);
 
         // Special guest | Animation for btn_dollar
-        scaleDollarDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleDollarDown.setTarget(btn_dollar);
-
-        scaleDollarUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setDollarDownAndUp = new AnimatorSet();
-        setDollarDownAndUp.playSequentially(scaleDollarDown, scaleDollarUp);
-
-        // Special guest | Animation for btn_ruble
-        scaleRubleDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleRubleDown.setTarget(btn_ruble);
-
-        scaleRubleUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
-
-        setRubleDownAndUp = new AnimatorSet();
-        setRubleDownAndUp.playSequentially(scaleRubleDown, scaleRubleUp);
+//        scaleDollarDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scaleDollarDown.setTarget(btn_dollar);
+//
+//        scaleDollarUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setDollarDownAndUp = new AnimatorSet();
+//        setDollarDownAndUp.playSequentially(scaleDollarDown, scaleDollarUp);
 
         // Special guest | Animation for btn_ruble
+//        scaleRubleDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+//        scaleRubleDown.setTarget(btn_ruble);
+//
+//        scaleRubleUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+//
+//        setRubleDownAndUp = new AnimatorSet();
+//        setRubleDownAndUp.playSequentially(scaleRubleDown, scaleRubleUp);
+
+        // Special guest | Animation for btn_gift
         scaleGiftDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
         scaleGiftDown.setTarget(btn_gift);
 
@@ -444,37 +461,37 @@ public class MainActivity extends AppCompatActivity {
         setGiftDownAndUp.start();
 
         // Awesome animations (for backgrounds)
-        animationDrawableLei = (AnimationDrawable) btn_lei.getBackground();
-        animationDrawableLei.setEnterFadeDuration(250);
-        animationDrawableLei.setExitFadeDuration(500);
-
-        animationDrawablePound = (AnimationDrawable) btn_pound.getBackground();
-        animationDrawablePound.setEnterFadeDuration(250);
-        animationDrawablePound.setExitFadeDuration(500);
-
-        animationDrawableRupee = (AnimationDrawable) btn_rupee.getBackground();
-        animationDrawableRupee.setEnterFadeDuration(250);
-        animationDrawableRupee.setExitFadeDuration(500);
-
-        animationDrawableEuro = (AnimationDrawable) btn_euro.getBackground();
-        animationDrawableEuro.setEnterFadeDuration(250);
-        animationDrawableEuro.setExitFadeDuration(500);
-
-        animationDrawableSheqel = (AnimationDrawable) btn_sheqel.getBackground();
-        animationDrawableSheqel.setEnterFadeDuration(250);
-        animationDrawableSheqel.setExitFadeDuration(500);
-
-        animationDrawableDollar = (AnimationDrawable) btn_dollar.getBackground();
-        animationDrawableDollar.setEnterFadeDuration(250);
-        animationDrawableDollar.setExitFadeDuration(500);
-
-        animationDrawableRuble = (AnimationDrawable) btn_ruble.getBackground();
-        animationDrawableRuble.setEnterFadeDuration(250);
-        animationDrawableRuble.setExitFadeDuration(500);
+//        animationDrawableLei = (AnimationDrawable) btn_lei.getBackground();
+//        animationDrawableLei.setEnterFadeDuration(250);
+//        animationDrawableLei.setExitFadeDuration(500);
+//
+//        animationDrawablePound = (AnimationDrawable) btn_pound.getBackground();
+//        animationDrawablePound.setEnterFadeDuration(250);
+//        animationDrawablePound.setExitFadeDuration(500);
+//
+//        animationDrawableRupee = (AnimationDrawable) btn_rupee.getBackground();
+//        animationDrawableRupee.setEnterFadeDuration(250);
+//        animationDrawableRupee.setExitFadeDuration(500);
+//
+//        animationDrawableEuro = (AnimationDrawable) btn_euro.getBackground();
+//        animationDrawableEuro.setEnterFadeDuration(250);
+//        animationDrawableEuro.setExitFadeDuration(500);
+//
+//        animationDrawableSheqel = (AnimationDrawable) btn_sheqel.getBackground();
+//        animationDrawableSheqel.setEnterFadeDuration(250);
+//        animationDrawableSheqel.setExitFadeDuration(500);
+//
+//        animationDrawableDollar = (AnimationDrawable) btn_dollar.getBackground();
+//        animationDrawableDollar.setEnterFadeDuration(250);
+//        animationDrawableDollar.setExitFadeDuration(500);
+//
+//        animationDrawableRuble = (AnimationDrawable) btn_ruble.getBackground();
+//        animationDrawableRuble.setEnterFadeDuration(250);
+//        animationDrawableRuble.setExitFadeDuration(500);
 
         // Cloning
         constraintSetActivityOLD.clone(mainLayout);
-        constraintSetActivityNEW.clone(this, R.layout.clone_activity_main);
+        constraintSetActivityNEW.clone(this, R.layout.clone_activity_main_options_to_complete);
 
         // Hide bars from txt_title
         new Handler().postDelayed(new Runnable() {
@@ -497,15 +514,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, 1600);
-
-        // Set currency buttons visibility
-        btn_euro.setVisibility(View.INVISIBLE);
-        btn_lei.setVisibility(View.INVISIBLE);
-        btn_sheqel.setVisibility(View.INVISIBLE);
-        btn_dollar.setVisibility(View.INVISIBLE);
-        btn_pound.setVisibility(View.INVISIBLE);
-        btn_rupee.setVisibility(View.INVISIBLE);
-        btn_ruble.setVisibility(View.INVISIBLE);
 
         // Set freestyle buttons to invisible
         btn_freestyle_1.setVisibility(View.INVISIBLE);
@@ -952,6 +960,59 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Checkboxes enable style
+
+        checkBox_functie_de_baza_DA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                if(isChecked) {
+                    checkBox_functie_de_baza_NU.setEnabled(false);
+                }
+                else {
+                    checkBox_functie_de_baza_NU.setEnabled(true);
+                }
+            }
+        });
+        checkBox_functie_de_baza_NU.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                if(isChecked) {
+                    checkBox_functie_de_baza_DA.setEnabled(false);
+                }
+                else {
+                    checkBox_functie_de_baza_DA.setEnabled(true);
+                }
+            }
+        });
+
+        checkBox_scutit_de_impozit_DA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                if(isChecked) {
+                    checkBox_scutit_de_impozit_NU.setEnabled(false);
+                }
+                else {
+                    checkBox_scutit_de_impozit_NU.setEnabled(true);
+                }
+            }
+        });
+        checkBox_scutit_de_impozit_NU.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+
+                if(isChecked) {
+                    checkBox_scutit_de_impozit_DA.setEnabled(false);
+                }
+                else {
+                    checkBox_scutit_de_impozit_DA.setEnabled(true);
+                }
+            }
+        });
+
+
     }
 
     // Hide the navigation bar and make full screen all app
@@ -993,70 +1054,70 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void ClickToShow(View v){
-
-        handler_btn_currency_1 = new  Handler();
-        runnable_btn_currency_1 = new Runnable() {
-            @Override
-            public void run() {
-                btn_lei.setVisibility(View.VISIBLE);
-
-                setLeiDownAndUp.start();
-
-                animationDrawableLei.start();
-            }
-        };
-        handler_btn_currency_1.postDelayed(runnable_btn_currency_1, 300);
-
-        handler_btn_currency_2 = new  Handler();
-        runnable_btn_currency_2 = new Runnable() {
-            @Override
-            public void run() {
-                btn_pound.setVisibility(View.VISIBLE);
-                btn_rupee.setVisibility(View.VISIBLE);
-
-                setPoundDownAndUp.start();
-                setRupeeDownAndUp.start();
-
-                animationDrawablePound.start();
-                animationDrawableRupee.start();
-            }
-        };
-        handler_btn_currency_2.postDelayed(runnable_btn_currency_2, 600);
-
-        handler_btn_currency_3 = new  Handler();
-        runnable_btn_currency_3 = new Runnable() {
-            @Override
-            public void run() {
-                btn_euro.setVisibility(View.VISIBLE);
-                btn_sheqel.setVisibility(View.VISIBLE);
-
-                setEuroDownAndUp.start();
-                setSheqelDownAndUp.start();
-
-                animationDrawableEuro.start();
-                animationDrawableSheqel.start();
-            }
-        };
-        handler_btn_currency_3.postDelayed(runnable_btn_currency_3, 900);
-
-        handler_btn_currency_4 = new  Handler();
-        runnable_btn_currency_4 = new Runnable() {
-            @Override
-            public void run() {
-                btn_dollar.setVisibility(View.VISIBLE);
-                btn_ruble.setVisibility(View.VISIBLE);
-
-                setDollarDownAndUp.start();
-                setRubleDownAndUp.start();
-
-                animationDrawableDollar.start();
-                animationDrawableRuble.start();
-            }
-        };
-        handler_btn_currency_4.postDelayed(runnable_btn_currency_4, 1200);
-
-    }
+//    public void ClickToShow(View v){
+//
+//        handler_btn_currency_1 = new  Handler();
+//        runnable_btn_currency_1 = new Runnable() {
+//            @Override
+//            public void run() {
+//                btn_lei.setVisibility(View.VISIBLE);
+//
+//                setLeiDownAndUp.start();
+//
+//                animationDrawableLei.start();
+//            }
+//        };
+//        handler_btn_currency_1.postDelayed(runnable_btn_currency_1, 300);
+//
+//        handler_btn_currency_2 = new  Handler();
+//        runnable_btn_currency_2 = new Runnable() {
+//            @Override
+//            public void run() {
+//                btn_pound.setVisibility(View.VISIBLE);
+//                btn_rupee.setVisibility(View.VISIBLE);
+//
+//                setPoundDownAndUp.start();
+//                setRupeeDownAndUp.start();
+//
+//                animationDrawablePound.start();
+//                animationDrawableRupee.start();
+//            }
+//        };
+//        handler_btn_currency_2.postDelayed(runnable_btn_currency_2, 600);
+//
+//        handler_btn_currency_3 = new  Handler();
+//        runnable_btn_currency_3 = new Runnable() {
+//            @Override
+//            public void run() {
+//                btn_euro.setVisibility(View.VISIBLE);
+//                btn_sheqel.setVisibility(View.VISIBLE);
+//
+//                setEuroDownAndUp.start();
+//                setSheqelDownAndUp.start();
+//
+//                animationDrawableEuro.start();
+//                animationDrawableSheqel.start();
+//            }
+//        };
+//        handler_btn_currency_3.postDelayed(runnable_btn_currency_3, 900);
+//
+//        handler_btn_currency_4 = new  Handler();
+//        runnable_btn_currency_4 = new Runnable() {
+//            @Override
+//            public void run() {
+//                btn_dollar.setVisibility(View.VISIBLE);
+//                btn_ruble.setVisibility(View.VISIBLE);
+//
+//                setDollarDownAndUp.start();
+//                setRubleDownAndUp.start();
+//
+//                animationDrawableDollar.start();
+//                animationDrawableRuble.start();
+//            }
+//        };
+//        handler_btn_currency_4.postDelayed(runnable_btn_currency_4, 1200);
+//
+//    }
 
     public void ClickOnDollar(View v){
         Toast toast = Toast.makeText(this, "USD (dolar american)", Toast.LENGTH_SHORT);
@@ -1166,16 +1227,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // Change the layout to activity_main_open_github.xml
+    // Change the layout to clone_activity_main_options_to_complete.xml
     @SuppressLint("WrongConstant")
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void ChangeActivity(View v){
+
         //navbar-fullscreen
         hideNavigationBar();
 
         TransitionManager.beginDelayedTransition(mainLayout);
         if (txt_input_edit_text.getVisibility() == View.VISIBLE && txt_input_edit_text.length() == 0) {
-            new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, te rog!").setMessage("Introdu salariul în căsuța din mijloc. Mulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+            new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, vă rog!").setMessage("Introduceți salariul în căsuța din mijloc. Mulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
 
             // Navbar-fullscreen
             hideNavigationBar();
@@ -1185,6 +1247,12 @@ public class MainActivity extends AppCompatActivity {
             if (!playIsClicked) {
                 constraintSetActivityNEW.applyTo(mainLayout);
                 playIsClicked = true;
+
+                txt_play_complete.animate().rotation(txt_play_complete.getRotation()+360).start();
+                txt_play_complete.setText(R.string.str_multiple);
+
+                txt_title_calculator.setVisibility(View.INVISIBLE);
+                txt_title_completeaza.setVisibility(View.VISIBLE);
 
                 // Remove handlers
                 if(giftIsClicked){
@@ -1241,39 +1309,52 @@ public class MainActivity extends AppCompatActivity {
                 btn_freestyle_11.setVisibility(View.INVISIBLE);
                 btn_freestyle_12.setVisibility(View.INVISIBLE);
 
-                txt_input_edit_text.setEnabled(false);
-                btn_gift.setVisibility(View.INVISIBLE);
+//                txt_input_edit_text.setEnabled(false);
+//                btn_gift.setVisibility(View.INVISIBLE);
+//
+//                ClickToShow(v);
+//
+//                salaryLayout.setVisibility(View.VISIBLE);
+                optionsToCompleteLayout.setVisibility(View.VISIBLE);
 
-                ClickToShow(v);
-
-                salaryLayout.setVisibility(View.VISIBLE);
 
 
             } else {
                 // Remove currency button animations even when they are not fully loaded...
-                handler_btn_currency_1.removeCallbacksAndMessages(null);
-                handler_btn_currency_2.removeCallbacksAndMessages(null);
-                handler_btn_currency_3.removeCallbacksAndMessages(null);
-                handler_btn_currency_4.removeCallbacksAndMessages(null);
+//                handler_btn_currency_1.removeCallbacksAndMessages(null);
+//                handler_btn_currency_2.removeCallbacksAndMessages(null);
+//                handler_btn_currency_3.removeCallbacksAndMessages(null);
+//                handler_btn_currency_4.removeCallbacksAndMessages(null);
 
                 constraintSetActivityOLD.applyTo(mainLayout);
+
+                txt_title_calculator.setVisibility(View.VISIBLE);
+                txt_title_completeaza.setVisibility(View.INVISIBLE);
+
                 playIsClicked = false;
                 txt_input_edit_text.setEnabled(true);
+
+                txt_play_complete.animate().rotation(txt_play_complete.getRotation()-360).start();
+                txt_play_complete.setText(R.string.str_play_complete);
+
+                btn_play_final.setVisibility(View.INVISIBLE);
+                txt_play_final.setVisibility(View.INVISIBLE);
 
                 // Same problem like above, I fix it with this patch
                 bar_1.setVisibility(View.INVISIBLE);
                 bar_2.setVisibility(View.INVISIBLE);
                 bar_3.setVisibility(View.INVISIBLE);
 
-                btn_euro.setVisibility(View.INVISIBLE);
-                btn_lei.setVisibility(View.INVISIBLE);
-                btn_sheqel.setVisibility(View.INVISIBLE);
-                btn_dollar.setVisibility(View.INVISIBLE);
-                btn_pound.setVisibility(View.INVISIBLE);
-                btn_rupee.setVisibility(View.INVISIBLE);
-                btn_ruble.setVisibility(View.INVISIBLE);
-
-                salaryLayout.setVisibility(View.INVISIBLE);
+//                btn_euro.setVisibility(View.INVISIBLE);
+//                btn_lei.setVisibility(View.INVISIBLE);
+//                btn_sheqel.setVisibility(View.INVISIBLE);
+//                btn_dollar.setVisibility(View.INVISIBLE);
+//                btn_pound.setVisibility(View.INVISIBLE);
+//                btn_rupee.setVisibility(View.INVISIBLE);
+//                btn_ruble.setVisibility(View.INVISIBLE);
+//
+//                salaryLayout.setVisibility(View.INVISIBLE);
+                optionsToCompleteLayout.setVisibility(View.INVISIBLE);
 
                 btn_gift.setVisibility(View.VISIBLE);
                 btn_gift.setText(R.string.str_gift);
@@ -1286,41 +1367,41 @@ public class MainActivity extends AppCompatActivity {
             CalculLei(v);
 
             // Text animation (beta version)
-            colorAnimSalariuNet = ObjectAnimator.ofInt(txt_salariu_net, "textColor",
-                    Color.BLACK, Color.GREEN);
-            colorAnimSalariuNet.setEvaluator(new ArgbEvaluator());
-            colorAnimSalariuNet.setDuration(4000);
-            colorAnimSalariuNet.setRepeatMode(ValueAnimator.REVERSE);
-            colorAnimSalariuNet.setRepeatCount(Animation.INFINITE);
-            colorAnimSalariuNet.setInterpolator(new LinearInterpolator());
-            colorAnimSalariuNet.start();
-
-            colorAnimSalariuNetRezultat = ObjectAnimator.ofInt(txt_salariu_net_rezultat, "textColor",
-                    Color.BLACK, Color.GREEN);
-            colorAnimSalariuNetRezultat.setEvaluator(new ArgbEvaluator());
-            colorAnimSalariuNetRezultat.setDuration(4000);
-            colorAnimSalariuNetRezultat.setRepeatMode(ValueAnimator.REVERSE);
-            colorAnimSalariuNetRezultat.setRepeatCount(Animation.INFINITE);
-            colorAnimSalariuNetRezultat.setInterpolator(new LinearInterpolator());
-            colorAnimSalariuNetRezultat.start();
-
-            colorAnimSalariuBrut = ObjectAnimator.ofInt(txt_salariu_brut, "textColor",
-                    Color.BLACK, Color.RED);
-            colorAnimSalariuBrut.setEvaluator(new ArgbEvaluator());
-            colorAnimSalariuBrut.setDuration(4000);
-            colorAnimSalariuBrut.setRepeatMode(ValueAnimator.REVERSE);
-            colorAnimSalariuBrut.setRepeatCount(Animation.INFINITE);
-            colorAnimSalariuBrut.setInterpolator(new LinearInterpolator());
-            colorAnimSalariuBrut.start();
-
-            colorAnimSalariuBrutRezultat = ObjectAnimator.ofInt(txt_salariu_brut_rezultat, "textColor",
-                    Color.BLACK, Color.RED);
-            colorAnimSalariuBrutRezultat.setEvaluator(new ArgbEvaluator());
-            colorAnimSalariuBrutRezultat.setDuration(4000);
-            colorAnimSalariuBrutRezultat.setRepeatMode(ValueAnimator.REVERSE);
-            colorAnimSalariuBrutRezultat.setRepeatCount(Animation.INFINITE);
-            colorAnimSalariuBrutRezultat.setInterpolator(new LinearInterpolator());
-            colorAnimSalariuBrutRezultat.start();
+//            colorAnimSalariuNet = ObjectAnimator.ofInt(txt_salariu_net, "textColor",
+//                    Color.BLACK, Color.GREEN);
+//            colorAnimSalariuNet.setEvaluator(new ArgbEvaluator());
+//            colorAnimSalariuNet.setDuration(4000);
+//            colorAnimSalariuNet.setRepeatMode(ValueAnimator.REVERSE);
+//            colorAnimSalariuNet.setRepeatCount(Animation.INFINITE);
+//            colorAnimSalariuNet.setInterpolator(new LinearInterpolator());
+//            colorAnimSalariuNet.start();
+//
+//            colorAnimSalariuNetRezultat = ObjectAnimator.ofInt(txt_salariu_net_rezultat, "textColor",
+//                    Color.BLACK, Color.GREEN);
+//            colorAnimSalariuNetRezultat.setEvaluator(new ArgbEvaluator());
+//            colorAnimSalariuNetRezultat.setDuration(4000);
+//            colorAnimSalariuNetRezultat.setRepeatMode(ValueAnimator.REVERSE);
+//            colorAnimSalariuNetRezultat.setRepeatCount(Animation.INFINITE);
+//            colorAnimSalariuNetRezultat.setInterpolator(new LinearInterpolator());
+//            colorAnimSalariuNetRezultat.start();
+//
+//            colorAnimSalariuBrut = ObjectAnimator.ofInt(txt_salariu_brut, "textColor",
+//                    Color.BLACK, Color.RED);
+//            colorAnimSalariuBrut.setEvaluator(new ArgbEvaluator());
+//            colorAnimSalariuBrut.setDuration(4000);
+//            colorAnimSalariuBrut.setRepeatMode(ValueAnimator.REVERSE);
+//            colorAnimSalariuBrut.setRepeatCount(Animation.INFINITE);
+//            colorAnimSalariuBrut.setInterpolator(new LinearInterpolator());
+//            colorAnimSalariuBrut.start();
+//
+//            colorAnimSalariuBrutRezultat = ObjectAnimator.ofInt(txt_salariu_brut_rezultat, "textColor",
+//                    Color.BLACK, Color.RED);
+//            colorAnimSalariuBrutRezultat.setEvaluator(new ArgbEvaluator());
+//            colorAnimSalariuBrutRezultat.setDuration(4000);
+//            colorAnimSalariuBrutRezultat.setRepeatMode(ValueAnimator.REVERSE);
+//            colorAnimSalariuBrutRezultat.setRepeatCount(Animation.INFINITE);
+//            colorAnimSalariuBrutRezultat.setInterpolator(new LinearInterpolator());
+//            colorAnimSalariuBrutRezultat.start();
         }
 
     }
@@ -1335,19 +1416,20 @@ public class MainActivity extends AppCompatActivity {
 
      public void CalculLei(View v){
          // Calculus
-         txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut));
+//         txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut));
 
          cas_lei = salar_brut * (25.0f / 100);
-         txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_lei));
+//         txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_lei));
 
          cass_lei = salar_brut * (10.0f / 100);
-         txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_lei));
+//         txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_lei));
 
          impozit_lei = salar_brut * (10.0f / 100);
-         txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_lei));
+//         txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_lei));
 
          salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-         txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net));
+//         txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net));
 
      }
+
 }

@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/salaryLayout"
+    android:id="@+id/optionsToCompleteLayout"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:clickable="true"
     android:background="@drawable/include_layout"
     >
 
-    <!-- BEGIN salary helpers -->
+    <!-- BEGIN helpers -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ht_salary_05"
         android:layout_width="wrap_content"
@@ -195,13 +195,13 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.7"
         />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_salary_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8"
-        />
+        app:layout_constraintGuide_percent="0.8" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vt_salary_9"
         android:layout_width="wrap_content"
@@ -209,23 +209,85 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9"
         />
-    <!-- END salary helpers -->
+    <!-- END helpers -->
 
-    <!-- BEGIN salary texts & bars -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/salary_ht_bar"
-        android:layout_width="2dp"
+    <!-- BEGIN checkbox text -->
+    <TextView
+        android:id="@+id/txt_checkBox_da"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/color_gray_light"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        android:fontFamily="@font/artifika"
+        android:gravity="center"
+        android:text="@string/str_checkBox_da"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05">
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txt_checkBox_nu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/artifika"
+        android:gravity="center"
+        android:text="@string/str_checkBox_nu"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
+    <!-- END checkbox text -->
+
+    <!-- BEGIN functie_de_baza elements -->
+    <TextView
+        android:id="@+id/txt_functie_de_baza"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/artifika"
+        android:gravity="center"
+        android:text="@string/str_functie_de_baza"
+        android:textAlignment="center"
+        android:textColor="@color/color_red_night"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_1" />
+
+    <CheckBox
+        android:id="@+id/checkBox_functie_de_baza_DA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:textColor="@color/color_red_night"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
+
+    <CheckBox
+        android:id="@+id/checkBox_functie_de_baza_NU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:textColor="@color/color_red_night"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_15" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/salary_vt_bar_1"
+        android:id="@+id/ht_bar_1"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/color_gray_light"
@@ -235,259 +297,139 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- BEGIN functie_de_baza elements -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/salary_vt_bar_2"
+    <!-- BEGIN scutire_impozit elements -->
+    <TextView
+        android:id="@+id/txt_scutit_de_impozit"
         android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/color_gray_light"
+        android:layout_height="0dp"
+        android:fontFamily="@font/artifika"
+        android:gravity="center"
+        android:text="@string/str_scutit_de_impozit"
+        android:textAlignment="center"
+        android:textColor="@color/color_green_night"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35">
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_25" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <CheckBox
+        android:id="@+id/checkBox_scutit_de_impozit_DA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:textColor="@color/color_green_night"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/checkBox_scutit_de_impozit_NU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:textColor="@color/color_green_night"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_3" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/salary_vt_bar_3"
+        android:id="@+id/ht_bar_2"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/color_gray_light"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_4"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5">
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_4">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- END scutire_impozit elements -->
+
+    <!-- BEGIN persoane_in_intretintere elements -->
+
+    <TextView
+        android:id="@+id/txt_persoane_in_intretinere"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/artifika"
+        android:gravity="center"
+        android:text="@string/str_persoane_in_intretinere"
+        android:textAlignment="center"
+        android:textColor="@color/color_blue_night"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <EditText
+        android:id="@+id/edit_txt_persoane_in_intretinere"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:text="@string/str_number_0"
+        android:textAlignment="center"
+        android:textColor="@color/color_blue_night"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/salary_vt_bar_4"
+        android:id="@+id/ht_bar_3"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@color/color_gray_light"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_6"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65">
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_6">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/salary_vt_bar_5"
+    <!-- END scutire_impozit elements -->
+
+    <!-- BEGIN explanations -->
+    <TextView
+        android:id="@+id/txt_explicatie_functie_de_baza"
         android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@color/color_gray_light"
+        android:layout_height="0dp"
+        android:fontFamily="@font/artifika"
+        android:text="@string/str_explicatie_functie_de_baza"
+        android:textColor="@color/color_red_night"
+        android:textIsSelectable="false"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/txt_salariat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariat"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
-
-    <TextView
-        android:id="@+id/txt_salariu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_lei"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
-
-    <TextView
-        android:id="@+id/txt_salariu_brut"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_brut"
-        android:tooltipText="@string/str_salariu_brut_spec"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
-
-    <TextView
-        android:id="@+id/txt_salariu_brut_rezultat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_dash"
-        android:tooltipText="@string/str_salariu_brut_spec"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_35"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_2" />
-
-    <TextView
-        android:id="@+id/txt_asigurari_cas"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_cas"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:tooltipText="@string/str_asigurari_cas"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
-
-    <TextView
-        android:id="@+id/txt_asigurari_cas_rezultat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_dash"
-        android:tooltipText="@string/str_asigurari_cas"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_35" />
-
-    <TextView
-        android:id="@+id/txt_asigurari_cass"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:inputType="textMultiLine"
-        android:text="@string/str_cass"
-        android:tooltipText="@string/str_asigurari_cass"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
-
-    <TextView
-        android:id="@+id/txt_asigurari_cass_rezultat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_dash"
-        android:tooltipText="@string/str_asigurari_cass"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_65"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
-
-    <TextView
-        android:id="@+id/txt_impozit_pe_venit"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:inputType="textMultiLine"
-        android:text="@string/str_impozit_pe_venit"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
 
     <TextView
-        android:id="@+id/txt_impozit_pe_venit_rezultat"
+        android:id="@+id/txt_explicatie_impozit"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_dash"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
+        android:text="@string/str_explicatie_impozit"
+        android:textColor="@color/color_green_night"
         android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
-
-    <TextView
-        android:id="@+id/txt_salariu_net"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:inputType="textMultiLine"
-        android:text="@string/str_salariu_net"
-        android:tooltipText="@string/str_salariu_net_spec"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
+        android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
-
-    <TextView
-        android:id="@+id/txt_salariu_net_rezultat"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="@font/artifika"
-        android:gravity="center"
-        android:text="@string/str_salariu_dash"
-        android:tooltipText="@string/str_salariu_net_spec"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textIsSelectable="false"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_8" />
-    <!-- END salary texts & bars -->
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+    <!-- END explanations -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

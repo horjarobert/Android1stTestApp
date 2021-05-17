@@ -6,7 +6,9 @@
     <string name="str_gift">🎁</string>
     <string name="str_diamond">💎</string>
 
-    <string name="str_play">➾</string>
+    <string name="str_play_final">➾</string>
+    <string name="str_play_complete">+</string>
+    <string name="str_multiple">⨯</string>
     <string name="str_euro">€</string>
     <string name="str_dollar">$</string>
     <string name="str_leu">L</string>
@@ -18,20 +20,20 @@
 
     <string name="str_hint">Salariul Brut (în lei)</string>
     <string name="str_tooltip">by Stufflex</string>
-    <string name="str_intro_brut">Introdu salariul brut</string>
+    <string name="str_intro_brut">Introduceți salariul brut</string>
     <string name="str_tooltip_lei">LEI</string>
     <string name="str_tooltip_euro">EURO</string>
     <string name="str_tooltip_dollar">DOLAR</string>
 
     <string name="str_salariu_brut">Salariu Brut</string>
-    <string name="str_salariu_brut_spec">Din Salariul Brut se scad taxele, nu rămâi în mână cu suma asta...</string>
+    <string name="str_salariu_brut_spec">Din Salariul Brut se scad taxele...</string>
     <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
     <string name="str_cas">CAS</string>
     <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
     <string name="str_cass">CASS</string>
     <string name="str_impozit_pe_venit">Impozit pe venit</string>
     <string name="str_salariu_net">Salariu Net</string>
-    <string name="str_salariu_net_spec">Salariul Net e cel cu care rămâi în mână</string>
+    <string name="str_salariu_net_spec">Salariul Net e cel cu care salariatul rămâne în mână</string>
     <string name="str_salariat">Salariat</string>
     <string name="str_salariu_lei">Lei</string>
     <string name="str_salariu_dolari">Dolari</string>
@@ -93,5 +95,19 @@
 
     <string name="str_letter_b">b</string>
     <string name="str_letter_y">y</string>
+
+    <string name="str_number_0">0</string>
+
+    <string name="str_functie_de_baza">Funcție de bază:</string>
+    <string name="str_scutit_de_impozit">Scutit de impozit:</string>
+    <string name="str_persoane_in_intretinere">Persoane în întreținere:</string>
+    <string name="str_explicatie_functie_de_baza">*Deducerea personală se acordă numai unde salariatul are funcția de bază și se calculează în funcție de salariul brut și numărul de persoane întreținute.</string>
+    <string name="str_explicatie_impozit">*În cazul în care salariatul nu este scutit de impozit, acesta i se va calcula cu procentul de 10%.</string>
+
+    <string name="str_checkBox_da">DA</string>
+    <string name="str_checkBox_nu">NU</string>
+
+    <string name="str_completeaza">Completează</string>
+
 
 </resources>
