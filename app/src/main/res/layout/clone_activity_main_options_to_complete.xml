@@ -224,7 +224,7 @@
         android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/artifika"
+        android:fontFamily="serif"
         android:onClick="Reset"
         android:text="@string/str_title"
         android:textColor="@color/black"
@@ -239,7 +239,7 @@
         android:id="@+id/txt_copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/artifika"
+        android:fontFamily="serif"
         android:text="@string/str_copyright"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -356,7 +356,7 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="40sp"
-        android:translationY="-2dp"
+        android:translationY="-3dp"
         android:translationZ="10dp"
         android:transitionName="textTransition"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_9"
@@ -398,7 +398,7 @@
             android:textColorLink="@color/black"
             android:textCursorDrawable="?android:attr/textCursorDrawable"
             android:textSize="25sp"
-            android:fontFamily="@font/artifika"
+            android:fontFamily="serif"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <!-- END calculations-->

@@ -56,7 +56,7 @@ public class FinalResultActivity extends AppCompatActivity {
     private TextView txt_impozit_pe_venit_rezultat;
     private TextView txt_salariu_net;
     private TextView txt_salariu_net_rezultat;
-    private TextView txt_afisaz_moneda_curenta;
+    private TextView txt_afisaj_moneda;
 
     private TextInputLayout txt_input_layout;
     private TextInputEditText txt_input_edit_text;
@@ -150,7 +150,7 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_impozit_pe_venit_rezultat = findViewById(R.id.txt_impozit_pe_venit_rezultat);
         txt_salariu_net = findViewById(R.id.txt_salariu_net);
         txt_salariu_net_rezultat = findViewById(R.id.txt_salariu_net_rezultat);
-        txt_afisaz_moneda_curenta = findViewById(R.id.txt_afisaz_moneda_curenta);
+        txt_afisaj_moneda = findViewById(R.id.txt_afisaj_moneda);
 
         txt_input_layout = findViewById(R.id.txt_input_layout);
         txt_input_edit_text = findViewById(R.id.txt_input_edit_text);
@@ -410,8 +410,6 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_dolari);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_dolari);
-
     }
 
     public void ClickOnEuro(View v){
@@ -427,8 +425,6 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_euro);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_euro);
-
     }
 
     public void ClickOnPound(View v){
@@ -444,8 +440,6 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_lire);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_lire);
-
     }
 
     public void ClickOnLei(View v){
@@ -461,10 +455,8 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_lei);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_lei);
 
         CalculLei();
-
     }
 
     public void ClickOnRupee(View v){
@@ -480,8 +472,6 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_rupii);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_rupii);
-
     }
 
     public void ClickOnSheqel(View v){
@@ -497,8 +487,6 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_sheqeli);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_sheqeli);
-
     }
 
     public void ClickOnRuble(View v){
@@ -514,8 +502,6 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_ruble);
-        txt_afisaz_moneda_curenta.setText(R.string.str_hint_ruble);
-
     }
 
     @SuppressLint("DefaultLocale")

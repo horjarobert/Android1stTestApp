@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/mainLayout"
+    tools:context=".FinalResultActivity"
+    android:id="@+id/completeLayout"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:clickable="true"
@@ -217,7 +217,7 @@
       android:id="@+id/txt_title"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/artifika"
+      android:fontFamily="serif"
       android:text="@string/str_rezultat"
       android:textColor="@color/black"
       android:textSize="30sp"
@@ -287,7 +287,7 @@
       android:textAlignment="center"
       android:textColor="@color/white"
       android:textSize="40sp"
-      android:translationY="2dp"
+      android:translationY="3dp"
       android:translationZ="10dp"
       android:rotation="180"
       android:transitionName="textTransition"
@@ -299,7 +299,7 @@
 
   <!-- BEGIN calculations -->
   <TextView
-      android:id="@+id/txt_afisaz_moneda_curenta"
+      android:id="@+id/txt_afisaj_moneda"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:text="@string/str_hint_lei"

@@ -110,7 +110,8 @@
     <string name="str_functie_de_baza">Funcție de bază:</string>
     <string name="str_scutit_de_impozit">Scutit de impozit:</string>
     <string name="str_persoane_in_intretinere">Persoane în întreținere:</string>
-    <string name="str_explicatie_functie_de_baza">*Deducerea personală se acordă numai unde salariatul are funcția de bază și se calculează în funcție de salariul brut și numărul de persoane întreținute.</string>
+<!--    <string name="str_explicatie_functie_de_baza">*Deducerea personală se acordă numai unde salariatul are funcția de bază și se calculează în funcție de salariul brut și numărul de persoane întreținute.</string>-->
+    <string name="str_explicatie_functie_de_baza">*Deducerea personală se calculează în funcție de salariul brut și numărul de persoane întreținute; dacă aveți mai multe salarii, doar unul este funcția de bază...</string>
     <string name="str_explicatie_impozit">*În cazul în care salariatul nu este scutit de impozit, acesta i se va calcula cu procentul de 10%.</string>
 
     <string name="str_checkBox_da">DA</string>
