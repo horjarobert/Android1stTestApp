@@ -268,7 +268,10 @@
         android:layout_height="wrap_content"
         android:scaleX="1.5"
         android:scaleY="1.5"
-        android:textColor="@color/color_red_night"
+        android:textColor="@color/color_green_night"
+        android:textColorHighlight="@color/color_green_night"
+        android:textColorLink="@color/color_green_night"
+        android:textCursorDrawable="@color/color_green_night"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
@@ -281,6 +284,9 @@
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:textColor="@color/color_red_night"
+        android:textColorHighlight="@color/color_red_night"
+        android:textColorLink="@color/color_red_night"
+        android:textCursorDrawable="@color/color_red_night"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_15"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
@@ -372,21 +378,45 @@
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
 
-    <EditText
-        android:id="@+id/edit_txt_persoane_in_intretinere"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
+    <TextView
+        android:id="@+id/txt_numar_persoane_in_intretinere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:inputType="numberSigned"
         android:text="@string/str_number_0"
         android:textAlignment="center"
         android:textColor="@color/color_blue_night"
-        android:textSize="22sp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_7"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_plus"
+        android:text="@string/str_plus"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+
+    <Button
+        android:id="@+id/btn_minus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/btn_minus"
+        android:text="@string/str_minus"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_55"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_6"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_45" />
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_5" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ht_bar_3"
@@ -430,6 +460,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+
     <!-- END explanations -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

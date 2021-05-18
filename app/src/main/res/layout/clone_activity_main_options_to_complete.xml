@@ -221,7 +221,7 @@
 
     <!-- BEGIN text views -->
     <TextView
-        android:id="@+id/txt_title_calculator"
+        android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/artifika"
@@ -229,25 +229,11 @@
         android:text="@string/str_title"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_1"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_1" />
-
-    <TextView
-        android:id="@+id/txt_title_completeaza"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/artifika"
-        android:onClick="Reset"
-        android:text="@string/str_completeaza"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_05"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_05" />
 
     <TextView
         android:id="@+id/txt_copyright"
@@ -276,7 +262,7 @@
         android:text="@string/str_romania"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
@@ -292,7 +278,7 @@
         android:text="@string/str_diamond"
         android:textAlignment="center"
         android:textSize="25sp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
@@ -325,11 +311,12 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_play"
-        android:onClick="ChangeActivity"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_15"
+        android:onClick="ChangeActivityOptionsToComplete"
+        android:transitionName="completeTransition"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_1"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/optionsToCompleteLayout" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_1" />
 
     <TextView
         android:id="@+id/txt_play_complete"
@@ -342,20 +329,23 @@
         android:textSize="40sp"
         android:translationY="-2dp"
         android:translationZ="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_15"
+        android:transitionName="completeTransition"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_1"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_15" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_1" />
 
     <Button
         android:id="@+id/btn_play_final"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_play"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_5" />
+        android:transitionName="buttonTransition"
+        android:onClick="GoToFinalResultActivity"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_9" />
 
     <TextView
         android:id="@+id/txt_play_final"
@@ -368,10 +358,11 @@
         android:textSize="40sp"
         android:translationY="-2dp"
         android:translationZ="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_5" />
+        android:transitionName="textTransition"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_9" />
     <!-- END go next objects -->
 
     <!-- BEGIN calculations -->
@@ -410,141 +401,6 @@
             android:fontFamily="@font/artifika"
             />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btn_euro"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/euro_list"
-        android:backgroundTint="@null"
-        android:gravity="center"
-        android:onClick="ClickOnEuro"
-        android:text="@string/str_euro"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorHighlight="@color/color_363636"
-        android:textColorLink="@color/color_585858"
-        android:textCursorDrawable="@color/color_585858"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_3"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_3"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
-        />
-
-    <Button
-        android:id="@+id/btn_lei"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/lei_list"
-        android:backgroundTint="@null"
-        android:text="@string/str_leu"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:onClick="ClickOnLei"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_5"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
-        />
-
-    <Button
-        android:id="@+id/btn_sheqel"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/sheqel_list"
-        android:backgroundTint="@null"
-        android:text="@string/str_sheqel"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:onClick="ClickOnSheqel"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_7"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_7"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2"
-        />
-
-    <Button
-        android:id="@+id/btn_dollar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/dollar_list"
-        android:gravity="center"
-        android:onClick="ClickOnDollar"
-        android:text="@string/str_dollar"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
-
-    <Button
-        android:id="@+id/btn_pound"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/pound_list"
-        android:gravity="center"
-        android:onClick="ClickOnPound"
-        android:text="@string/str_pound"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
-
-    <Button
-        android:id="@+id/btn_rupee"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rupee_list"
-        android:gravity="center"
-        android:onClick="ClickOnRupee"
-        android:text="@string/str_rupee"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
-
-    <Button
-        android:id="@+id/btn_ruble"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/ruble_list"
-        android:gravity="center"
-        android:onClick="ClickOnRuble"
-        android:text="@string/str_ruble"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_9"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_2" />
     <!-- END calculations-->
 
     <!-- BEGIN bar tictok -->
@@ -556,10 +412,10 @@
         android:outlineProvider="none"
         android:translationY="-10dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_title_calculator"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_title"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title_calculator">
+        app:layout_constraintTop_toBottomOf="@+id/txt_title">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -570,10 +426,10 @@
         android:background="@color/color_gray_light"
         android:outlineProvider="none"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_title_calculator"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_title"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="@+id/txt_title_calculator">
+        app:layout_constraintTop_toTopOf="@+id/txt_title">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -585,10 +441,10 @@
         android:outlineProvider="none"
         android:translationY="-10dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_title_calculator"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_title"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_2"
-        app:layout_constraintTop_toTopOf="@+id/txt_title_calculator">
+        app:layout_constraintTop_toTopOf="@+id/txt_title">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- END bar tictok -->
@@ -909,10 +765,10 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_95"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_9"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_1"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_ht_15">
+        app:layout_constraintTop_toBottomOf="@+id/guideline_ht_1">
 
         <include
             layout="@layout/include_options_to_complete"
@@ -923,7 +779,6 @@
         </include>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <!-- END option_to_complete design -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

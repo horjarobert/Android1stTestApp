@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.stufflex.salariubrut">
+    package="com.stufflex.salariubrut" >
 
     <application
         android:allowBackup="true"
@@ -8,27 +8,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/new_sb_4th_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SalariuBrut">
-
-        <activity android:name=".StufflexSplashActivity"
-            android:screenOrientation="portrait"
-            >
-
-
-
+        android:theme="@style/Theme.SalariuBrut" >
+        <activity
+            android:name=".FinalResultActivity"
+            android:screenOrientation="portrait">
         </activity>
-
+        <activity
+            android:name=".StufflexSplashActivity"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" >
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
+            </intent-filter>
         </activity>
 
         <meta-data
