@@ -1,0 +1,6 @@
+Formule:
+
+impozit = venitBaza * procent / 100
+(procentul e 10%)
+
+venitBaza = salariuBrut - cas - cass - deducere

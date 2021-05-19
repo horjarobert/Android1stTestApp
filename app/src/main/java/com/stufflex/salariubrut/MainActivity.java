@@ -73,13 +73,15 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txt_numar_persoane_in_intretinere;
 
+    private TextInputLayout txt_input_layout;
+
+    private TextInputEditText txt_input_edit_text;
+
     private ConstraintLayout mainLayout;
     private ConstraintLayout optionsToCompleteLayout;
     private ConstraintLayout bar_1;
     private ConstraintLayout bar_2;
     private ConstraintLayout bar_3;
-
-    private int n = 12;
 
     private Animation anim_txt_title;
     private Animation anim_btn_romania;
@@ -94,17 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Animator scaleGiftUp;
 
-    private static final long TOAST_TIMEOUT_MS = 2000;
-    private static long lastToastTime = 0;
-
     private ConstraintSet constraintSetActivityOLD = new ConstraintSet();
     private ConstraintSet constraintSetActivityNEW = new ConstraintSet();
-
-    private boolean playIsClicked;
-
-    private TextInputLayout txt_input_layout;
-
-    private TextInputEditText txt_input_edit_text;
 
     private Handler handler1;
     private Handler handler2;
@@ -184,17 +177,26 @@ public class MainActivity extends AppCompatActivity {
     private Runnable runnable37;
     private Runnable runnable38;
 
-    private boolean giftIsClicked = false;
-
     private CheckBox checkBox_functie_de_baza_DA;
     private CheckBox checkBox_functie_de_baza_NU;
     private CheckBox checkBox_scutit_de_impozit_DA;
     private CheckBox checkBox_scutit_de_impozit_NU;
 
+    private boolean giftIsClicked = false;
+    private boolean playIsClicked;
+    private boolean isFunctieDeBaza_YES;
+    private boolean isFunctieDeBaza_NO;
+    private boolean isScutitDeImpozit_YES;
+    private boolean isScutitDeImpozit_NO;
+
     private int nrPersoaneInIntretinere;
+    private int n = 12;
+    private int txt_salariu_brut;
 
     private float salariu;
 
+    private static final long TOAST_TIMEOUT_MS = 2000;
+    private static long lastToastTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -786,9 +788,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if(isChecked) {
                     checkBox_functie_de_baza_NU.setEnabled(false);
+                    isFunctieDeBaza_YES = true;
                 }
                 else {
                     checkBox_functie_de_baza_NU.setEnabled(true);
+                    isFunctieDeBaza_YES = false;
                 }
 
                 // Navbar-fullscreen
@@ -801,9 +805,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if(isChecked) {
                     checkBox_functie_de_baza_DA.setEnabled(false);
+                    isFunctieDeBaza_NO = true;
                 }
                 else {
                     checkBox_functie_de_baza_DA.setEnabled(true);
+                    isFunctieDeBaza_NO = false;
                 }
 
                 // Navbar-fullscreen
@@ -817,9 +823,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if(isChecked) {
                     checkBox_scutit_de_impozit_NU.setEnabled(false);
+                    isScutitDeImpozit_YES = true;
                 }
                 else {
                     checkBox_scutit_de_impozit_NU.setEnabled(true);
+                    isScutitDeImpozit_YES = false;
                 }
 
                 // Navbar-fullscreen
@@ -832,9 +840,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if(isChecked) {
                     checkBox_scutit_de_impozit_DA.setEnabled(false);
+                    isScutitDeImpozit_NO = true;
+
                 }
                 else {
                     checkBox_scutit_de_impozit_DA.setEnabled(true);
+                    isScutitDeImpozit_NO = false;
                 }
 
                 // Navbar-fullscreen
@@ -951,110 +962,120 @@ public class MainActivity extends AppCompatActivity {
             // Navbar-fullscreen
             hideNavigationBar();
         }
+
         else {
+            txt_salariu_brut = Integer.parseInt(txt_input_edit_text.getText().toString());
 
-            salariu = Float.parseFloat(txt_input_edit_text.getText().toString());
+            if(txt_salariu_brut == 0) {
+                new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Mare atenție, vă rog!").setMessage("Nu se acceptă valoarea 0! Muncitorul trebuie răsplătit, nu umilit!\n\n Mulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
 
-            if (!playIsClicked) {
-                constraintSetActivityNEW.applyTo(mainLayout);
-                playIsClicked = true;
+                // Navbar-fullscreen
+                hideNavigationBar();
+            }
+            else {
 
-                txt_play_complete.animate().rotation(txt_play_complete.getRotation()+360).start();
-                txt_play_complete.setText(R.string.str_multiple);
+                salariu = Float.parseFloat(txt_input_edit_text.getText().toString());
 
-                txt_title.setVisibility(View.INVISIBLE);
-                txt_copyright.setVisibility(View.INVISIBLE);
-                btn_romania.setVisibility(View.INVISIBLE);
-                btn_diamond.setVisibility(View.INVISIBLE);
+                if (!playIsClicked) {
+                    constraintSetActivityNEW.applyTo(mainLayout);
+                    playIsClicked = true;
 
-                // Remove handlers
-                if(giftIsClicked){
-                    handler1.removeCallbacksAndMessages(null);
-                    handler2.removeCallbacksAndMessages(null);
-                    handler3.removeCallbacksAndMessages(null);
-                    handler4.removeCallbacksAndMessages(null);
-                    handler5.removeCallbacksAndMessages(null);
-                    handler6.removeCallbacksAndMessages(null);
-                    handler7.removeCallbacksAndMessages(null);
-                    handler8.removeCallbacksAndMessages(null);
-                    handler9.removeCallbacksAndMessages(null);
-                    handler10.removeCallbacksAndMessages(null);
-                    handler11.removeCallbacksAndMessages(null);
-                    handler12.removeCallbacksAndMessages(null);
-                    handler13.removeCallbacksAndMessages(null);
-                    handler14.removeCallbacksAndMessages(null);
-                    handler15.removeCallbacksAndMessages(null);
-                    handler16.removeCallbacksAndMessages(null);
-                    handler17.removeCallbacksAndMessages(null);
-                    handler18.removeCallbacksAndMessages(null);
-                    handler19.removeCallbacksAndMessages(null);
-                    handler20.removeCallbacksAndMessages(null);
-                    handler21.removeCallbacksAndMessages(null);
-                    handler22.removeCallbacksAndMessages(null);
-                    handler23.removeCallbacksAndMessages(null);
-                    handler24.removeCallbacksAndMessages(null);
-                    handler25.removeCallbacksAndMessages(null);
-                    handler26.removeCallbacksAndMessages(null);
-                    handler27.removeCallbacksAndMessages(null);
-                    handler28.removeCallbacksAndMessages(null);
-                    handler29.removeCallbacksAndMessages(null);
-                    handler30.removeCallbacksAndMessages(null);
-                    handler31.removeCallbacksAndMessages(null);
-                    handler32.removeCallbacksAndMessages(null);
-                    handler33.removeCallbacksAndMessages(null);
-                    handler34.removeCallbacksAndMessages(null);
-                    handler35.removeCallbacksAndMessages(null);
-                    handler36.removeCallbacksAndMessages(null);
-                    handler37.removeCallbacksAndMessages(null);
-                    handler38.removeCallbacksAndMessages(null);
+                    txt_play_complete.animate().rotation(txt_play_complete.getRotation()+360).start();
+                    txt_play_complete.setText(R.string.str_multiple);
+
+                    txt_title.setVisibility(View.INVISIBLE);
+                    txt_copyright.setVisibility(View.INVISIBLE);
+                    btn_romania.setVisibility(View.INVISIBLE);
+                    btn_diamond.setVisibility(View.INVISIBLE);
+
+                    // Remove handlers
+                    if(giftIsClicked){
+                        handler1.removeCallbacksAndMessages(null);
+                        handler2.removeCallbacksAndMessages(null);
+                        handler3.removeCallbacksAndMessages(null);
+                        handler4.removeCallbacksAndMessages(null);
+                        handler5.removeCallbacksAndMessages(null);
+                        handler6.removeCallbacksAndMessages(null);
+                        handler7.removeCallbacksAndMessages(null);
+                        handler8.removeCallbacksAndMessages(null);
+                        handler9.removeCallbacksAndMessages(null);
+                        handler10.removeCallbacksAndMessages(null);
+                        handler11.removeCallbacksAndMessages(null);
+                        handler12.removeCallbacksAndMessages(null);
+                        handler13.removeCallbacksAndMessages(null);
+                        handler14.removeCallbacksAndMessages(null);
+                        handler15.removeCallbacksAndMessages(null);
+                        handler16.removeCallbacksAndMessages(null);
+                        handler17.removeCallbacksAndMessages(null);
+                        handler18.removeCallbacksAndMessages(null);
+                        handler19.removeCallbacksAndMessages(null);
+                        handler20.removeCallbacksAndMessages(null);
+                        handler21.removeCallbacksAndMessages(null);
+                        handler22.removeCallbacksAndMessages(null);
+                        handler23.removeCallbacksAndMessages(null);
+                        handler24.removeCallbacksAndMessages(null);
+                        handler25.removeCallbacksAndMessages(null);
+                        handler26.removeCallbacksAndMessages(null);
+                        handler27.removeCallbacksAndMessages(null);
+                        handler28.removeCallbacksAndMessages(null);
+                        handler29.removeCallbacksAndMessages(null);
+                        handler30.removeCallbacksAndMessages(null);
+                        handler31.removeCallbacksAndMessages(null);
+                        handler32.removeCallbacksAndMessages(null);
+                        handler33.removeCallbacksAndMessages(null);
+                        handler34.removeCallbacksAndMessages(null);
+                        handler35.removeCallbacksAndMessages(null);
+                        handler36.removeCallbacksAndMessages(null);
+                        handler37.removeCallbacksAndMessages(null);
+                        handler38.removeCallbacksAndMessages(null);
+                    }
+
+                    btn_freestyle_1.setVisibility(View.INVISIBLE);
+                    btn_freestyle_2.setVisibility(View.INVISIBLE);
+                    btn_freestyle_3.setVisibility(View.INVISIBLE);
+                    btn_freestyle_4.setVisibility(View.INVISIBLE);
+                    btn_freestyle_5.setVisibility(View.INVISIBLE);
+                    btn_freestyle_6.setVisibility(View.INVISIBLE);
+                    btn_freestyle_7.setVisibility(View.INVISIBLE);
+                    btn_freestyle_8.setVisibility(View.INVISIBLE);
+                    btn_freestyle_9.setVisibility(View.INVISIBLE);
+                    btn_freestyle_10.setVisibility(View.INVISIBLE);
+                    btn_freestyle_11.setVisibility(View.INVISIBLE);
+                    btn_freestyle_12.setVisibility(View.INVISIBLE);
+
+                    optionsToCompleteLayout.setVisibility(View.VISIBLE);
+
+                } else {
+
+                    constraintSetActivityOLD.applyTo(mainLayout);
+
+                    txt_title.setVisibility(View.VISIBLE);
+                    txt_copyright.setVisibility(View.VISIBLE);
+                    btn_romania.setVisibility(View.VISIBLE);
+                    btn_diamond.setVisibility(View.VISIBLE);
+
+                    playIsClicked = false;
+                    txt_input_edit_text.setEnabled(true);
+
+                    txt_play_complete.animate().rotation(txt_play_complete.getRotation()-360).start();
+                    txt_play_complete.setText(R.string.str_play_complete);
+
+                    btn_play_final.setVisibility(View.INVISIBLE);
+                    txt_play_final.setVisibility(View.INVISIBLE);
+
+                    // Same problem like above, I fix it with this patch
+                    bar_1.setVisibility(View.INVISIBLE);
+                    bar_2.setVisibility(View.INVISIBLE);
+                    bar_3.setVisibility(View.INVISIBLE);
+
+                    optionsToCompleteLayout.setVisibility(View.INVISIBLE);
+
+                    btn_gift.setVisibility(View.VISIBLE);
+                    btn_gift.setText(R.string.str_gift);
+                    setGiftDownAndUp.start();
                 }
-
-                btn_freestyle_1.setVisibility(View.INVISIBLE);
-                btn_freestyle_2.setVisibility(View.INVISIBLE);
-                btn_freestyle_3.setVisibility(View.INVISIBLE);
-                btn_freestyle_4.setVisibility(View.INVISIBLE);
-                btn_freestyle_5.setVisibility(View.INVISIBLE);
-                btn_freestyle_6.setVisibility(View.INVISIBLE);
-                btn_freestyle_7.setVisibility(View.INVISIBLE);
-                btn_freestyle_8.setVisibility(View.INVISIBLE);
-                btn_freestyle_9.setVisibility(View.INVISIBLE);
-                btn_freestyle_10.setVisibility(View.INVISIBLE);
-                btn_freestyle_11.setVisibility(View.INVISIBLE);
-                btn_freestyle_12.setVisibility(View.INVISIBLE);
-
-                optionsToCompleteLayout.setVisibility(View.VISIBLE);
-
-            } else {
-
-                constraintSetActivityOLD.applyTo(mainLayout);
-
-                txt_title.setVisibility(View.VISIBLE);
-                txt_copyright.setVisibility(View.VISIBLE);
-                btn_romania.setVisibility(View.VISIBLE);
-                btn_diamond.setVisibility(View.VISIBLE);
-
-                playIsClicked = false;
-                txt_input_edit_text.setEnabled(true);
-
-                txt_play_complete.animate().rotation(txt_play_complete.getRotation()-360).start();
-                txt_play_complete.setText(R.string.str_play_complete);
-
-                btn_play_final.setVisibility(View.INVISIBLE);
-                txt_play_final.setVisibility(View.INVISIBLE);
-
-                // Same problem like above, I fix it with this patch
-                bar_1.setVisibility(View.INVISIBLE);
-                bar_2.setVisibility(View.INVISIBLE);
-                bar_3.setVisibility(View.INVISIBLE);
-
-                optionsToCompleteLayout.setVisibility(View.INVISIBLE);
-
-                btn_gift.setVisibility(View.VISIBLE);
-                btn_gift.setText(R.string.str_gift);
-                setGiftDownAndUp.start();
             }
         }
-
     }
 
     public void CaleaSpreSucces(View v) {
@@ -1090,6 +1111,11 @@ public class MainActivity extends AppCompatActivity {
          pairs[3] = new Pair<View, String>(txt_play_complete, "completeTransition");
 
          goToFinalResultActivity.putExtra("salariu", salariu);
+         goToFinalResultActivity.putExtra("isFunctieDeBaza_YES", isFunctieDeBaza_YES);
+         goToFinalResultActivity.putExtra("isFunctieDeBaza_NO", isFunctieDeBaza_NO);
+         goToFinalResultActivity.putExtra("isScutitDeImpozit_YES", isScutitDeImpozit_YES);
+         goToFinalResultActivity.putExtra("isScutitDeImpozit_NO", isScutitDeImpozit_NO);
+         goToFinalResultActivity.putExtra("nrPersoaneInIntretinere", nrPersoaneInIntretinere);
 
          ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
 
