@@ -10,16 +10,16 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Pair;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +27,13 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.jsoup.Jsoup;
+import org.jsoup.select.Elements;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import java.io.IOException;
 
 public class FinalResultActivity extends AppCompatActivity {
 
@@ -123,6 +130,9 @@ public class FinalResultActivity extends AppCompatActivity {
     private boolean isImpozitScutit_YES;
     private boolean isImpozitScutit_NO;
 
+    private Animation anim_btn_romania;
+    private Animation anim_btn_diamond;
+
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +172,13 @@ public class FinalResultActivity extends AppCompatActivity {
 
         txt_input_layout = findViewById(R.id.txt_input_layout);
         txt_input_edit_text = findViewById(R.id.txt_input_edit_text);
+
+        // Set animations
+        anim_btn_diamond = AnimationUtils.loadAnimation(this, R.anim.left_to_right);
+        anim_btn_romania = AnimationUtils.loadAnimation(this, R.anim.right_to_left);
+
+        btn_diamond.setAnimation(anim_btn_diamond);
+        btn_romania.setAnimation(anim_btn_romania);
 
         // Calculus
         Intent getSalary = getIntent();
@@ -506,7 +523,7 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_salariu.setText(R.string.str_salariu_sheqeli);
     }
 
-    public void ClickOnRuble(View v){
+    public void ClickOnRuble(View v) throws IOException {
         Toast toast = Toast.makeText(this, "RUB (rubla rusească)", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM, 0, 0);
 
@@ -519,6 +536,8 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_ruble);
+
+//        getWebsite();
     }
 
     @SuppressLint("DefaultLocale")
@@ -9021,7 +9040,7 @@ public class FinalResultActivity extends AppCompatActivity {
             impozit_lei = venit_baza * 10.0f / 100;
             txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
 
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+//            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
             salar_net_int = (int) salar_net;
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
@@ -9031,5 +9050,21 @@ public class FinalResultActivity extends AppCompatActivity {
     public void GoToMainActivity(View v){
         super.onBackPressed();
         txt_title.setTextColor(Color.WHITE);
+
     }
+
+//    public void getWebsite() {
+//        String url = "https://www.cursbnr.ro/";
+//
+//
+//        Document doc = (Document) Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X; de-de) AppleWebKit/523.10.3 (KHTML, like Gecko) Version/3.0.4 Safari/523.10").get();
+//        Elements euroCurrency = (Elements) doc.getElementById("calendar");
+//
+//        String title = doc.title();
+//
+//        txt_salariu_brut.setText(String.valueOf(euroCurrency));
+//
+//
+//
+//    }
 }
