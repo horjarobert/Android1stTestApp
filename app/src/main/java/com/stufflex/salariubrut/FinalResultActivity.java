@@ -391,6 +391,12 @@ public class FinalResultActivity extends AppCompatActivity {
         // Calculus call; can find a better place than bottom...
         CalculLei();
 
+        // If impozit is negative, put 0 because otherwise it will be irrelevant
+        if (impozit_lei < 0) {
+            impozit_lei = 0;
+            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
+        }
+
     }
 
     // Hide the navigation bar and make full screen all app
@@ -566,8 +572,8 @@ public class FinalResultActivity extends AppCompatActivity {
 
          */
 
-        // Plafon 1 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = NU
-        if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
+        // Plafon 575 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = NU
+        if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 510;
 
@@ -579,7 +585,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 670;
 
@@ -591,7 +597,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 830;
 
@@ -603,7 +609,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 990;
             impozit_lei = venit_baza * 10.0f / 100;
@@ -614,7 +620,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 1310;
 
@@ -2663,8 +2669,8 @@ public class FinalResultActivity extends AppCompatActivity {
 
          */
 
-        // Plafon 1 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = DA
-        if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 0)) {
+        // Plafon 575 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = DA
+        if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 0)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 510;
 
@@ -2676,7 +2682,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 1)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 1)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 670;
 
@@ -2688,7 +2694,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 2)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 2)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 830;
 
@@ -2700,7 +2706,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 3)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 3)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 990;
 
@@ -2712,7 +2718,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere >= 4)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere >= 4)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei - 1310;
 
@@ -4794,8 +4800,8 @@ public class FinalResultActivity extends AppCompatActivity {
 
          */
 
-        // Plafon 1 - 1950 lei | functie_de_baza = NU | scutit_de_impozit = DA
-        if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 0)) {
+        // Plafon 575 - 1950 lei | functie_de_baza = NU | scutit_de_impozit = DA
+        if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 0)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -4807,7 +4813,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 1)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 1)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -4819,7 +4825,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 2)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 2)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -4831,7 +4837,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 3)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere == 3)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -4843,7 +4849,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere >= 4)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_YES && (nr_persoane_intretinere >= 4)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -6924,8 +6930,8 @@ public class FinalResultActivity extends AppCompatActivity {
 
          */
 
-        // Plafon 1 - 1950 lei | functie_de_baza = NU | scutit_de_impozit = NU
-        if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
+        // Plafon 575 - 1950 lei | functie_de_baza = NU | scutit_de_impozit = NU
+        if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -6937,7 +6943,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -6949,7 +6955,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -6961,7 +6967,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
@@ -6973,7 +6979,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
-        else if ((salar_brut >= 1 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
+        else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_NO && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
 
             venit_baza = salar_brut - cas_lei - cass_lei;
 
