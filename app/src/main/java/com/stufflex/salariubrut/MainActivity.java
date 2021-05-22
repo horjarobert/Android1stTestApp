@@ -957,7 +957,7 @@ public class MainActivity extends AppCompatActivity {
 
         TransitionManager.beginDelayedTransition(mainLayout);
         if (txt_input_edit_text.getVisibility() == View.VISIBLE && txt_input_edit_text.length() == 0) {
-            new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, vă rog!").setMessage("\tIntroduceți salariul în căsuța din mijloc.\n\n\tMulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+            new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, vă rog!").setMessage("\tIntroduceți salariul în zona din mijloc.\n\n\tMulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
 
             // Navbar-fullscreen
             hideNavigationBar();

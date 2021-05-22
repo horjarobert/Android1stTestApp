@@ -809,7 +809,8 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_letter_f_2.setAnimation(anim_letter_f_2);
             }
         };
-        handler5.postDelayed(runnable5, 2400);
+//        handler5.postDelayed(runnable5, 2400);
+        handler5.postDelayed(runnable5, 2300);
 
         handler6 = new  Handler();
         runnable6 = new Runnable() {
@@ -824,7 +825,8 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_letter_l.setAnimation(anim_letter_l);
             }
         };
-        handler6.postDelayed(runnable6, 2900);
+//        handler6.postDelayed(runnable6, 2900);
+        handler6.postDelayed(runnable6, 2700);
 
         handler7 = new  Handler();
         runnable7 = new Runnable() {
@@ -836,7 +838,7 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_letter_e.setAnimation(anim_letter_e);
             }
         };
-        handler7.postDelayed(runnable7, 3200);
+        handler7.postDelayed(runnable7, 3000);
 
         handler8 = new  Handler();
         runnable8 = new Runnable() {
@@ -849,7 +851,7 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_letter_x.setAnimation(anim_letter_x);
             }
         };
-        handler8.postDelayed(runnable8, 3500);
+        handler8.postDelayed(runnable8, 3300);
 
         handler9 = new  Handler();
         runnable9 = new Runnable() {

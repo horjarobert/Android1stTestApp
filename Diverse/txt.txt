@@ -4,3 +4,11 @@ impozit = venitBaza * procent / 100
 (procentul e 10%)
 
 venitBaza = salariuBrut - cas - cass - deducere
+
+
+În 2021, salariul minim e 2300 de lei (dacă ai studii superioare e 2350 de lei).
+
+- La 6 ore lucrate pe zi, formula este: 2300 / 8 * 6 = 1725 salariul brut (adică 1060 de lei net, fără scutire impozit, cu funcție bază, fără persoane de întreținut).
+- La 4 ore lucrate pe zi, formula este: 2300 / 8 * 4 = 1150 salariul brut (adică 723 de lei net, fără scutire impozit, cu funcție bază, fără persoane de întreținut).
+- La 2 ore lucrate pe zi, formula este: 2300 / 8 * 2 = 575 salariul brut (adică 387 de lei net, fără scutire impozit, cu funcție bază, fără persoane de întreținut).
+
