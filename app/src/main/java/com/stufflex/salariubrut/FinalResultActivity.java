@@ -564,7 +564,17 @@ public class FinalResultActivity extends AppCompatActivity {
         FunctieBaza_NU_ScutitImpozit_NU();
 
     }
+    private void Calculeaza(int persoane, int nuStiuCeInseamna){
+        venit_baza = salar_brut - cas_lei - cass_lei - 510;
 
+        impozit_lei = venit_baza * 10.0f / 100;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
+
+        salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+        salar_net_int = (int) salar_net;
+
+        txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+    };
     public void FunctieBaza_DA_ScutitImpozit_NU(){
         /*
 
@@ -574,16 +584,18 @@ public class FinalResultActivity extends AppCompatActivity {
 
         // Plafon 575 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = NU
         if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
+Calculeaza(0, 510);
+// linii urmatoare au fost inlocuite de functia de mai sus
+          // tot asa trebuie procedat cu toate liniile urmatoare existente in ELSE
+//            venit_baza = salar_brut - cas_lei - cass_lei - 510;
+//
+ //           impozit_lei = venit_baza * 10.0f / 100;
+ //           txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
 
-            venit_baza = salar_brut - cas_lei - cass_lei - 510;
+      //      salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+     //       salar_net_int = (int) salar_net;
 
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+       //     txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
         else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
 
