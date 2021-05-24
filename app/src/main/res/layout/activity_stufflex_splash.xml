@@ -2623,4 +2623,18 @@
 
     <!-- END the unbelievable -->
 
+    <!-- BEGIN click_to_end -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clickToEndLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- END click_to_end -->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

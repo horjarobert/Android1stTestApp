@@ -1,6 +1,7 @@
 package com.stufflex.salariubrut;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.Animator;
 import android.animation.AnimatorInflater;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 public class StufflexSplashActivity extends AppCompatActivity {
 
     // Declarations
+    private ConstraintLayout clickToEndLayout;
+
     private TextView txt_changeable_letter;
     private TextView txt_changeable_f_1;
     private TextView txt_changeable_f_2;
@@ -255,25 +258,12 @@ public class StufflexSplashActivity extends AppCompatActivity {
 
     private int SPLASH_DISPLAY_LENGTH = 7380;
 
-    private Handler handler1;
-    private Handler handler2;
-    private Handler handler3;
-    private Handler handler4;
-    private Handler handler5;
-    private Handler handler6;
-    private Handler handler7;
-    private Handler handler8;
-    private Handler handler9;
+    private Handler handler1, handler2, handler3, handler4, handler5, handler6, handler7, handler8, handler9, handlerSpecial;
 
-    private Runnable runnable1;
-    private Runnable runnable2;
-    private Runnable runnable3;
-    private Runnable runnable4;
-    private Runnable runnable5;
-    private Runnable runnable6;
-    private Runnable runnable7;
-    private Runnable runnable8;
-    private Runnable runnable9;
+
+    private Runnable runnable1, runnable2, runnable3, runnable4, runnable5, runnable6, runnable7, runnable8, runnable9, runnableSpecial;
+
+    private boolean isAnimStarting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -284,6 +274,8 @@ public class StufflexSplashActivity extends AppCompatActivity {
         hideNavigationBar();
 
         // Initializations
+        clickToEndLayout = findViewById(R.id.clickToEndLayout);
+
         txt_changeable_letter = findViewById(R.id.txt_changeable_letter);
         txt_changeable_f_1 = findViewById(R.id.txt_changeable_f_1);
         txt_changeable_f_2 = findViewById(R.id.txt_changeable_f_2);
@@ -744,6 +736,44 @@ public class StufflexSplashActivity extends AppCompatActivity {
         txt_letter_b.setAnimation(anim_letter_b);
         txt_letter_y.setAnimation(anim_letter_y);
 
+        StartAnimations();
+
+        clickToEndLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isAnimStarting = true;
+                if (isAnimStarting) {
+                    handlerSpecial.removeCallbacksAndMessages(null);
+                    GoToMainActivity();
+                }
+            }
+        });
+
+    }
+
+    // Hide the navigation bar and make full screen all app
+    private void hideNavigationBar() {
+        this.getWindow().getDecorView()
+                .setSystemUiVisibility(
+                        View.SYSTEM_UI_FLAG_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
+                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
+                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                );
+    }
+
+    // When I exit for a moment from the app and I'll come back, the same effect must be continue
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        hideNavigationBar();
+    }
+
+    // Start Animations
+    public void StartAnimations() {
         handler1 = new  Handler();
         runnable1 = new Runnable() {
             @Override
@@ -809,7 +839,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_letter_f_2.setAnimation(anim_letter_f_2);
             }
         };
-//        handler5.postDelayed(runnable5, 2400);
         handler5.postDelayed(runnable5, 2300);
 
         handler6 = new  Handler();
@@ -825,7 +854,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_letter_l.setAnimation(anim_letter_l);
             }
         };
-//        handler6.postDelayed(runnable6, 2900);
         handler6.postDelayed(runnable6, 2700);
 
         handler7 = new  Handler();
@@ -1010,7 +1038,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_h_20.setVisibility(View.VISIBLE);
                 txt_i_19.setVisibility(View.VISIBLE);
                 txt_j_18.setVisibility(View.VISIBLE);
-
             }
         }, 5740);
         new Handler().postDelayed(new Runnable(){
@@ -1032,7 +1059,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
                 txt_h_19.setVisibility(View.VISIBLE);
                 txt_i_18.setVisibility(View.VISIBLE);
                 txt_j_17.setVisibility(View.VISIBLE);
-
             }
         }, 5760);
         new Handler().postDelayed(new Runnable(){
@@ -1040,7 +1066,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_16.setVisibility(View.VISIBLE);
                 txt_j_5.setVisibility(View.VISIBLE);
-
             }
         }, 5780);
         new Handler().postDelayed(new Runnable(){
@@ -1048,7 +1073,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_e_20.setVisibility(View.VISIBLE);
                 txt_f_1.setVisibility(View.VISIBLE);
-
             }
         }, 5800);
         new Handler().postDelayed(new Runnable(){
@@ -1056,7 +1080,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_15.setVisibility(View.VISIBLE);
                 txt_j_6.setVisibility(View.VISIBLE);
-
             }
         }, 5820);
         new Handler().postDelayed(new Runnable(){
@@ -1064,7 +1087,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_e_1.setVisibility(View.VISIBLE);
                 txt_f_20.setVisibility(View.VISIBLE);
-
             }
         }, 5840);
         new Handler().postDelayed(new Runnable(){
@@ -1072,7 +1094,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_14.setVisibility(View.VISIBLE);
                 txt_j_7.setVisibility(View.VISIBLE);
-
             }
         }, 5860);
         new Handler().postDelayed(new Runnable(){
@@ -1080,7 +1101,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_13.setVisibility(View.VISIBLE);
                 txt_j_8.setVisibility(View.VISIBLE);
-
             }
         }, 5880);
         new Handler().postDelayed(new Runnable(){
@@ -1088,7 +1108,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_12.setVisibility(View.VISIBLE);
                 txt_j_9.setVisibility(View.VISIBLE);
-
             }
         }, 5900);
         new Handler().postDelayed(new Runnable(){
@@ -1096,7 +1115,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_11.setVisibility(View.VISIBLE);
                 txt_j_10.setVisibility(View.VISIBLE);
-
             }
         }, 5920);
         new Handler().postDelayed(new Runnable(){
@@ -1113,7 +1131,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_10.setVisibility(View.VISIBLE);
                 txt_j_11.setVisibility(View.VISIBLE);
-
             }
         }, 5960);
         new Handler().postDelayed(new Runnable(){
@@ -1121,7 +1138,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_9.setVisibility(View.VISIBLE);
                 txt_j_12.setVisibility(View.VISIBLE);
-
             }
         }, 5980);
         new Handler().postDelayed(new Runnable(){
@@ -1129,7 +1145,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_8.setVisibility(View.VISIBLE);
                 txt_j_13.setVisibility(View.VISIBLE);
-
             }
         }, 6000);
         new Handler().postDelayed(new Runnable(){
@@ -1137,7 +1152,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_7.setVisibility(View.VISIBLE);
                 txt_j_14.setVisibility(View.VISIBLE);
-
             }
         }, 6020);
         new Handler().postDelayed(new Runnable(){
@@ -1145,7 +1159,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_6.setVisibility(View.VISIBLE);
                 txt_j_15.setVisibility(View.VISIBLE);
-
             }
         }, 6040);
         new Handler().postDelayed(new Runnable(){
@@ -1153,7 +1166,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_a_5.setVisibility(View.VISIBLE);
                 txt_j_16.setVisibility(View.VISIBLE);
-
             }
         }, 6060);
         new Handler().postDelayed(new Runnable(){
@@ -1161,7 +1173,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_b_17.setVisibility(View.VISIBLE);
                 txt_i_4.setVisibility(View.VISIBLE);
-
             }
         }, 6080);
         new Handler().postDelayed(new Runnable(){
@@ -1169,7 +1180,6 @@ public class StufflexSplashActivity extends AppCompatActivity {
             public void run() {
                 txt_b_16.setVisibility(View.VISIBLE);
                 txt_i_5.setVisibility(View.VISIBLE);
-
             }
         }, 6100);
         new Handler().postDelayed(new Runnable(){
@@ -1622,37 +1632,23 @@ public class StufflexSplashActivity extends AppCompatActivity {
         }, 7380);
 
         // Splash screen time-limit
-        new Handler().postDelayed(new Runnable(){
+        handlerSpecial = new Handler();
+        runnableSpecial = new Runnable() {
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
                 Intent mainIntent = new Intent(StufflexSplashActivity.this, MainActivity.class);
                 StufflexSplashActivity.this.startActivity(mainIntent);
                 StufflexSplashActivity.this.finish();
             }
-        }, SPLASH_DISPLAY_LENGTH);
-
+        };
+        handlerSpecial.postDelayed(runnableSpecial, SPLASH_DISPLAY_LENGTH);
     }
 
-    // Hide the navigation bar and make full screen all app
-    private void hideNavigationBar() {
-        this.getWindow().getDecorView()
-                .setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_FULLSCREEN |
-                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
-                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                );
-    }
-
-    // When I exit for a moment from the app and I'll come back, the same effect must be continue
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        hideNavigationBar();
+    // Go to MainActivity
+    public void GoToMainActivity() {
+        Intent mainIntent = new Intent(StufflexSplashActivity.this, MainActivity.class);
+        StufflexSplashActivity.this.startActivity(mainIntent);
+        StufflexSplashActivity.this.finish();
     }
 
 }
