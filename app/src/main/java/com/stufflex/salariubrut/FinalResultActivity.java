@@ -391,12 +391,6 @@ public class FinalResultActivity extends AppCompatActivity {
         // Calculus call; can find a better place than bottom...
         CalculLei();
 
-        // If impozit is negative, put 0 because otherwise it will be irrelevant
-        if (impozit_lei < 0) {
-            impozit_lei = 0;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-        }
-
     }
 
     // Hide the navigation bar and make full screen all app
@@ -564,17 +558,30 @@ public class FinalResultActivity extends AppCompatActivity {
         FunctieBaza_NU_ScutitImpozit_NU();
 
     }
-    private void Calculeaza(int persoane, int nuStiuCeInseamna){
-        venit_baza = salar_brut - cas_lei - cass_lei - 510;
+
+    private void CalculeazaFunctieBaza_DA_ScutitImpozit_NU(int deducere_personala){
+        venit_baza = salar_brut - cas_lei - cass_lei - deducere_personala;
 
         impozit_lei = venit_baza * 10.0f / 100;
         txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
 
-        salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-        salar_net_int = (int) salar_net;
+        if (impozit_lei < 0) {
+            impozit_lei = 0;
+            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
 
-        txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
-    };
+            salar_net = salar_brut - (cas_lei + cass_lei);
+            salar_net_int = (int) salar_net;
+
+            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+        } else {
+            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+            salar_net_int = (int) salar_net;
+
+            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+        }
+
+    }
+
     public void FunctieBaza_DA_ScutitImpozit_NU(){
         /*
 
@@ -584,2093 +591,601 @@ public class FinalResultActivity extends AppCompatActivity {
 
         // Plafon 575 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = NU
         if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-Calculeaza(0, 510);
-// linii urmatoare au fost inlocuite de functia de mai sus
-          // tot asa trebuie procedat cu toate liniile urmatoare existente in ELSE
-//            venit_baza = salar_brut - cas_lei - cass_lei - 510;
-//
- //           impozit_lei = venit_baza * 10.0f / 100;
- //           txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-      //      salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-     //       salar_net_int = (int) salar_net;
-
-       //     txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(510);
         }
         else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 670;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(670);
         }
         else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 830;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(830);
         }
         else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 990;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(990);
         }
         else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1310;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1310);
         }
 
         // Plafon 1951 - 2000 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 1951 && salar_brut <= 2000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 495;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1310);
         }
         else if ((salar_brut >= 1951 && salar_brut <= 2000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 655;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(655);
         }
         else if ((salar_brut >= 1951 && salar_brut <= 2000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 815;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(815);
         }
         else if ((salar_brut >= 1951 && salar_brut <= 2000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 975;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(975);
         }
         else if ((salar_brut >= 1951 && salar_brut <= 2000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1295;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1295);
         }
 
         // Plafon 2001 - 2050 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2001 && salar_brut <= 2050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 480;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(480);
         }
         else if ((salar_brut >= 2001 && salar_brut <= 2050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 640;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(640);
         }
         else if ((salar_brut >= 2001 && salar_brut <= 2050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 800;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(800);
         }
         else if ((salar_brut >= 2001 && salar_brut <= 2050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 960;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(960);
         }
         else if ((salar_brut >= 2001 && salar_brut <= 2050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1280;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1280);
         }
 
         // Plafon 2051 - 2100 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2051 && salar_brut <= 2100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 465;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(465);
         }
         else if ((salar_brut >= 2051 && salar_brut <= 2100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 625;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(625);
         }
         else if ((salar_brut >= 2051 && salar_brut <= 2100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 785;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(785);
         }
         else if ((salar_brut >= 2051 && salar_brut <= 2100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 945;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(945);
         }
         else if ((salar_brut >= 2051 && salar_brut <= 2100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1265;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1265);
         }
 
         // Plafon 2101 - 2150 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2101 && salar_brut <= 2150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 450;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(450);
         }
         else if ((salar_brut >= 2101 && salar_brut <= 2150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 610;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(610);
         }
         else if ((salar_brut >= 2101 && salar_brut <= 2150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 770;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(770);
         }
         else if ((salar_brut >= 2101 && salar_brut <= 2150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 930;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(930);
         }
         else if ((salar_brut >= 2101 && salar_brut <= 2150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1250;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1250);
         }
 
         // Plafon 2151 - 2200 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2151 && salar_brut <= 2200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 435;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(435);
         }
         else if ((salar_brut >= 2151 && salar_brut <= 2200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 595;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(595);
         }
         else if ((salar_brut >= 2151 && salar_brut <= 2200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 755;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(755);
         }
         else if ((salar_brut >= 2151 && salar_brut <= 2200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 915;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(915);
         }
         else if ((salar_brut >= 2151 && salar_brut <= 2200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1235;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1235);
         }
 
         // Plafon 2201 - 2250 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2201 && salar_brut <= 2250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 420;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(420);
         }
         else if ((salar_brut >= 2201 && salar_brut <= 2250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 580;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(580);
         }
         else if ((salar_brut >= 2201 && salar_brut <= 2250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 740;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(740);
         }
         else if ((salar_brut >= 2201 && salar_brut <= 2250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 900;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(900);
         }
         else if ((salar_brut >= 2201 && salar_brut <= 2250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1220;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1220);
         }
 
         // Plafon 2251 - 2300 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2251 && salar_brut <= 2300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 405;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(405);
         }
         else if ((salar_brut >= 2251 && salar_brut <= 2300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 565;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(565);
         }
         else if ((salar_brut >= 2251 && salar_brut <= 2300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 725;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(725);
         }
         else if ((salar_brut >= 2251 && salar_brut <= 2300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 885;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(885);
         }
         else if ((salar_brut >= 2251 && salar_brut <= 2300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1205;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1205);
         }
 
         // Plafon 2301 - 2350 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2301 && salar_brut <= 2350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 390;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(390);
         }
         else if ((salar_brut >= 2301 && salar_brut <= 2350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 550;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(550);
         }
         else if ((salar_brut >= 2301 && salar_brut <= 2350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 710;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(710);
         }
         else if ((salar_brut >= 2301 && salar_brut <= 2350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 870;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(870);
         }
         else if ((salar_brut >= 2301 && salar_brut <= 2350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1190;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1190);
         }
 
         // Plafon 2351 - 2400 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2351 && salar_brut <= 2400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 375;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(375);
         }
         else if ((salar_brut >= 2351 && salar_brut <= 2400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(535);
 
-            venit_baza = salar_brut - cas_lei - cass_lei - 535;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
         else if ((salar_brut >= 2351 && salar_brut <= 2400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 695;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(695);
         }
         else if ((salar_brut >= 2351 && salar_brut <= 2400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 855;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(855);
         }
         else if ((salar_brut >= 2351 && salar_brut <= 2400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1175;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1175);
         }
 
         // Plafon 2401 - 2450 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2401 && salar_brut <= 2450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 360;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(360);
         }
         else if ((salar_brut >= 2401 && salar_brut <= 2450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 520;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(520);
         }
         else if ((salar_brut >= 2401 && salar_brut <= 2450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 680;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(680);
         }
         else if ((salar_brut >= 2401 && salar_brut <= 2450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 840;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(840);
         }
         else if ((salar_brut >= 2401 && salar_brut <= 2450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1160;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1160);
         }
 
         // Plafon 2451 - 2500 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2451 && salar_brut <= 2500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 345;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(345);
         }
         else if ((salar_brut >= 2451 && salar_brut <= 2500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 505;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(505);
         }
         else if ((salar_brut >= 2451 && salar_brut <= 2500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 665;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(665);
         }
         else if ((salar_brut >= 2451 && salar_brut <= 2500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 825;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(825);
         }
         else if ((salar_brut >= 2451 && salar_brut <= 2500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1145;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1145);
         }
 
         // Plafon 2501 - 2550 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2501 && salar_brut <= 2550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 330;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(330);
         }
         else if ((salar_brut >= 2501 && salar_brut <= 2550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 490;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(490);
         }
         else if ((salar_brut >= 2501 && salar_brut <= 2550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 650;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(650);
         }
         else if ((salar_brut >= 2501 && salar_brut <= 2550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 810;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(810);
         }
         else if ((salar_brut >= 2501 && salar_brut <= 2550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1130;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1130);
         }
 
         // Plafon 2551 - 2600 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2551 && salar_brut <= 2600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 315;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(315);
         }
         else if ((salar_brut >= 2551 && salar_brut <= 2600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 475;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(475);
         }
         else if ((salar_brut >= 2551 && salar_brut <= 2600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 635;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(635);
         }
         else if ((salar_brut >= 2551 && salar_brut <= 2600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 795;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(795);
         }
         else if ((salar_brut >= 2551 && salar_brut <= 2600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1115;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(115);
         }
 
         // Plafon 2601 - 2650 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2601 && salar_brut <= 2650) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 300;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(300);
         }
         else if ((salar_brut >= 2601 && salar_brut <= 2650) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 460;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(460);
         }
         else if ((salar_brut >= 2601 && salar_brut <= 2650) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 620;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(620);
         }
         else if ((salar_brut >= 2601 && salar_brut <= 2650) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 780;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(780);
         }
         else if ((salar_brut >= 2601 && salar_brut <= 2650) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1100;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1100);
         }
 
         // Plafon 2651 - 2700 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2651 && salar_brut <= 2700) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 285;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(285);
         }
         else if ((salar_brut >= 2651 && salar_brut <= 2700) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 445;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(445);
         }
         else if ((salar_brut >= 2651 && salar_brut <= 2700) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 605;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(605);
         }
         else if ((salar_brut >= 2651 && salar_brut <= 2700) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 765;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(765);
         }
         else if ((salar_brut >= 2651 && salar_brut <= 2700) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1085;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1085);
         }
 
         // Plafon 2701 - 2750 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2701 && salar_brut <= 2750) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 270;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(270);
         }
         else if ((salar_brut >= 2701 && salar_brut <= 2750) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 430;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(430);
         }
         else if ((salar_brut >= 2701 && salar_brut <= 2750) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 590;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(590);
         }
         else if ((salar_brut >= 2701 && salar_brut <= 2750) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 750;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(750);
         }
         else if ((salar_brut >= 2701 && salar_brut <= 2750) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1070;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1070);
         }
 
         // Plafon 2751 - 2800 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2751 && salar_brut <= 2800) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 255;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(255);
         }
         else if ((salar_brut >= 2751 && salar_brut <= 2800) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 415;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(415);
         }
         else if ((salar_brut >= 2751 && salar_brut <= 2800) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 575;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(575);
         }
         else if ((salar_brut >= 2751 && salar_brut <= 2800) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 735;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(735);
         }
         else if ((salar_brut >= 2751 && salar_brut <= 2800) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1055;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1055);
         }
 
         // Plafon 2801 - 2850 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2801 && salar_brut <= 2850) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 240;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(240);
         }
         else if ((salar_brut >= 2801 && salar_brut <= 2850) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 400;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(400);
         }
         else if ((salar_brut >= 2801 && salar_brut <= 2850) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 560;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(560);
         }
         else if ((salar_brut >= 2801 && salar_brut <= 2850) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 720;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(720);
         }
         else if ((salar_brut >= 2801 && salar_brut <= 2850) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1040;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1040);
         }
 
         // Plafon 2851 - 2900 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2851 && salar_brut <= 2900) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 225;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(225);
         }
         else if ((salar_brut >= 2851 && salar_brut <= 2900) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 385;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(385);
         }
         else if ((salar_brut >= 2851 && salar_brut <= 2900) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 545;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(545);
         }
         else if ((salar_brut >= 2851 && salar_brut <= 2900) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 705;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(705);
         }
         else if ((salar_brut >= 2851 && salar_brut <= 2900) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1025;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1025);
         }
 
         // Plafon 2901 - 2950 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2901 && salar_brut <= 2950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 210;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(210);
         }
         else if ((salar_brut >= 2901 && salar_brut <= 2950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 370;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(370);
         }
         else if ((salar_brut >= 2901 && salar_brut <= 2950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 530;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(530);
         }
         else if ((salar_brut >= 2901 && salar_brut <= 2950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 690;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(690);
         }
         else if ((salar_brut >= 2901 && salar_brut <= 2950) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 1010;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(1010);
         }
 
         // Plafon 2951 - 3000 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 2951 && salar_brut <= 3000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 195;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(195);
         }
         else if ((salar_brut >= 2951 && salar_brut <= 3000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 355;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(355);
         }
         else if ((salar_brut >= 2951 && salar_brut <= 3000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 515;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(515);
         }
         else if ((salar_brut >= 2951 && salar_brut <= 3000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 675;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(675);
         }
         else if ((salar_brut >= 2951 && salar_brut <= 3000) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 995;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(995);
         }
 
         // Plafon 3001 - 3050 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3001 && salar_brut <= 3050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 180;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(180);
         }
         else if ((salar_brut >= 3001 && salar_brut <= 3050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 340;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(340);
         }
         else if ((salar_brut >= 3001 && salar_brut <= 3050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 500;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(500);
         }
         else if ((salar_brut >= 3001 && salar_brut <= 3050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 660;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(660);
         }
         else if ((salar_brut >= 3001 && salar_brut <= 3050) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 980;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(980);
         }
 
         // Plafon 3051 - 3100 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3051 && salar_brut <= 3100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 165;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(165);
         }
         else if ((salar_brut >= 3051 && salar_brut <= 3100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 325;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(325);
         }
         else if ((salar_brut >= 3051 && salar_brut <= 3100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 485;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(485);
         }
         else if ((salar_brut >= 3051 && salar_brut <= 3100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 645;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(645);
         }
         else if ((salar_brut >= 3051 && salar_brut <= 3100) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 965;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(965);
         }
 
         // Plafon 3101 - 3150 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3101 && salar_brut <= 3150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 150;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(150);
         }
         else if ((salar_brut >= 3101 && salar_brut <= 3150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(310);
 
-            venit_baza = salar_brut - cas_lei - cass_lei - 310;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
         }
         else if ((salar_brut >= 3101 && salar_brut <= 3150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 470;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(470);
         }
         else if ((salar_brut >= 3101 && salar_brut <= 3150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 630;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(630);
         }
         else if ((salar_brut >= 3101 && salar_brut <= 3150) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 950;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(950);
         }
 
         // Plafon 3151 - 3200 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3151 && salar_brut <= 3200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 135;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(135);
         }
         else if ((salar_brut >= 3151 && salar_brut <= 3200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 295;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(295);
         }
         else if ((salar_brut >= 3151 && salar_brut <= 3200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 455;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(455);
         }
         else if ((salar_brut >= 3151 && salar_brut <= 3200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 615;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(615);
         }
         else if ((salar_brut >= 3151 && salar_brut <= 3200) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 935;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(935);
         }
 
         // Plafon 3201 - 3250 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3201 && salar_brut <= 3250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 120;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(120);
         }
         else if ((salar_brut >= 3201 && salar_brut <= 3250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 280;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(280);
         }
         else if ((salar_brut >= 3201 && salar_brut <= 3250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 440;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(440);
         }
         else if ((salar_brut >= 3201 && salar_brut <= 3250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 600;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(600);
         }
         else if ((salar_brut >= 3201 && salar_brut <= 3250) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 920;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(920);
         }
 
         // Plafon 3251 - 3300 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3251 && salar_brut <= 3300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 105;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(105);
         }
         else if ((salar_brut >= 3251 && salar_brut <= 3300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 265;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(265);
         }
         else if ((salar_brut >= 3251 && salar_brut <= 3300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 425;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(425);
         }
         else if ((salar_brut >= 3251 && salar_brut <= 3300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 585;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(585);
         }
         else if ((salar_brut >= 3251 && salar_brut <= 3300) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 905;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(905);
         }
 
         // Plafon 3301 - 3350 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3301 && salar_brut <= 3350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 90;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(90);
         }
         else if ((salar_brut >= 3301 && salar_brut <= 3350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 250;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(250);
         }
         else if ((salar_brut >= 3301 && salar_brut <= 3350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 410;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(410);
         }
         else if ((salar_brut >= 3301 && salar_brut <= 3350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 570;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(570);
         }
         else if ((salar_brut >= 3301 && salar_brut <= 3350) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 890;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(890);
         }
 
         // Plafon 3351 - 3400 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3351 && salar_brut <= 3400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 75;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(75);
         }
         else if ((salar_brut >= 3351 && salar_brut <= 3400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 235;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(235);
         }
         else if ((salar_brut >= 3351 && salar_brut <= 3400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 395;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(395);
         }
         else if ((salar_brut >= 3351 && salar_brut <= 3400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 555;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(555);
         }
         else if ((salar_brut >= 3351 && salar_brut <= 3400) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 875;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(875);
         }
 
         // Plafon 3401 - 3450 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3401 && salar_brut <= 3450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 60;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(60);
         }
         else if ((salar_brut >= 3401 && salar_brut <= 3450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 220;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(220);
         }
         else if ((salar_brut >= 3401 && salar_brut <= 3450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 380;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(380);
         }
         else if ((salar_brut >= 3401 && salar_brut <= 3450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 540;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(540);
         }
         else if ((salar_brut >= 3401 && salar_brut <= 3450) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 860;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(860);
         }
 
         // Plafon 3451 - 3500 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3451 && salar_brut <= 3500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 45;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(45);
         }
         else if ((salar_brut >= 3451 && salar_brut <= 3500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 205;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(205);
         }
         else if ((salar_brut >= 3451 && salar_brut <= 3500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 365;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(365);
         }
         else if ((salar_brut >= 3451 && salar_brut <= 3500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 525;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(525);
         }
         else if ((salar_brut >= 3451 && salar_brut <= 3500) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 845;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(845);
         }
 
         // Plafon 3501 - 3550 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3501 && salar_brut <= 3550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 30;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(30);
         }
         else if ((salar_brut >= 3501 && salar_brut <= 3550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 190;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(190);
         }
         else if ((salar_brut >= 3501 && salar_brut <= 3550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 350;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(350);
         }
         else if ((salar_brut >= 3501 && salar_brut <= 3550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 510;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(510);
         }
         else if ((salar_brut >= 3501 && salar_brut <= 3550) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 830;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(830);
         }
 
         // Plafon 3551 - 3600 lei | functie_de_baza = DA | scutit_de_impozit = NU
         else if ((salar_brut >= 3551 && salar_brut <= 3600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 15;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(15);
         }
         else if ((salar_brut >= 3551 && salar_brut <= 3600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 1)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 175;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(175);
         }
         else if ((salar_brut >= 3551 && salar_brut <= 3600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 2)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 335;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(335);
         }
         else if ((salar_brut >= 3551 && salar_brut <= 3600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere == 3)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 495;
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(495);
         }
         else if ((salar_brut >= 3551 && salar_brut <= 3600) && isFunctieBaza_YES && isImpozitScutit_NO && (nr_persoane_intretinere >= 4)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 815;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(815);
         }
 
         // Plafon > 3600 lei | functie_de_baza = DA | scutit_de_impozit = NU
-        else if ((salar_brut >= 3600) && isFunctieBaza_YES && isImpozitScutit_NO) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei;
-
-            impozit_lei = venit_baza * 10.0f / 100;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+        else if ((salar_brut > 3600) && isFunctieBaza_YES && isImpozitScutit_NO) {
+            CalculeazaFunctieBaza_DA_ScutitImpozit_NU(0);
         }
+
+    }
+
+    private void CalculeazaFunctieBaza_DA_ScutitImpozit_DA(int deducere_personala){
+        venit_baza = salar_brut - cas_lei - cass_lei - deducere_personala;
+
+        impozit_lei = 0;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
+
+        salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+        salar_net_int = (int) salar_net;
+
+        txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
 
     }
 
@@ -2683,16 +1198,7 @@ Calculeaza(0, 510);
 
         // Plafon 575 - 1950 lei | functie_de_baza = DA | scutit_de_impozit = DA
         if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 0)) {
-
-            venit_baza = salar_brut - cas_lei - cass_lei - 510;
-
-            impozit_lei = 0;
-            txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
-
-            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
-            salar_net_int = (int) salar_net;
-
-            txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
+            CalculeazaFunctieBaza_DA_ScutitImpozit_DA(510);
         }
         else if ((salar_brut >= 575 && salar_brut <= 1950) && isFunctieBaza_YES && isImpozitScutit_YES && (nr_persoane_intretinere == 1)) {
 
@@ -9058,7 +7564,7 @@ Calculeaza(0, 510);
             impozit_lei = venit_baza * 10.0f / 100;
             txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
 
-//            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
+            salar_net = salar_brut - (cas_lei + cass_lei + impozit_lei);
             salar_net_int = (int) salar_net;
 
             txt_salariu_net_rezultat.setText(String.valueOf(salar_net_int));
