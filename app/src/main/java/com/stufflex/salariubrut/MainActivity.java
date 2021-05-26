@@ -41,54 +41,19 @@ import com.google.android.material.textfield.TextInputLayout;
 public class MainActivity extends AppCompatActivity {
 
     // Declarations
-    private Button btn_play_complete;
-    private Button btn_play_final;
-    private Button btn_romania;
-    private Button btn_gift;
-    private Button btn_diamond;
-    private Button btn_freestyle_1;
-    private Button btn_freestyle_2;
-    private Button btn_freestyle_3;
-    private Button btn_freestyle_4;
-    private Button btn_freestyle_5;
-    private Button btn_freestyle_6;
-    private Button btn_freestyle_7;
-    private Button btn_freestyle_8;
-    private Button btn_freestyle_9;
-    private Button btn_freestyle_10;
-    private Button btn_freestyle_11;
-    private Button btn_freestyle_12;
-    private Button btn_money_1;
-    private Button btn_money_2;
-    private Button btn_money_3;
-    private Button btn_money_4;
-    private Button btn_money_5;
-    private Button btn_plus;
-    private Button btn_minus;
+    private Button btn_play_complete, btn_play_final, btn_romania, btn_gift, btn_diamond, btn_freestyle_1, btn_freestyle_2, btn_freestyle_3,
+            btn_freestyle_4, btn_freestyle_5, btn_freestyle_6, btn_freestyle_7, btn_freestyle_8, btn_freestyle_9, btn_freestyle_10,
+            btn_freestyle_11, btn_freestyle_12, btn_money_1, btn_money_2, btn_money_3, btn_money_4, btn_money_5, btn_plus, btn_minus;
 
-    private TextView txt_title;
-    private TextView txt_play_complete;
-    private TextView txt_play_final;
-    private TextView txt_copyright;
-
-    private TextView txt_numar_persoane_in_intretinere;
+    private TextView txt_title, txt_play_complete, txt_play_final, txt_copyright, txt_numar_persoane_in_intretinere;
 
     private TextInputLayout txt_input_layout;
 
     private TextInputEditText txt_input_edit_text;
 
-    private ConstraintLayout mainLayout;
-    private ConstraintLayout optionsToCompleteLayout;
-    private ConstraintLayout bar_1;
-    private ConstraintLayout bar_2;
-    private ConstraintLayout bar_3;
+    private ConstraintLayout mainLayout, optionsToCompleteLayout,  bar_1, bar_2, bar_3;
 
-    private Animation anim_txt_title;
-    private Animation anim_btn_romania;
-    private Animation anim_btn_diamond;
-    private Animation anim_btn_play_complete;
-    private Animation anim_txt_copyright;
-    private Animation anim_txt_play_complete;
+    private Animation anim_txt_title, anim_btn_romania, anim_btn_diamond, anim_btn_play_complete, anim_txt_copyright, anim_txt_play_complete;
 
     private AnimatorSet setGiftDownAndUp;
 
@@ -99,95 +64,21 @@ public class MainActivity extends AppCompatActivity {
     private ConstraintSet constraintSetActivityOLD = new ConstraintSet();
     private ConstraintSet constraintSetActivityNEW = new ConstraintSet();
 
-    private Handler handler1;
-    private Handler handler2;
-    private Handler handler3;
-    private Handler handler4;
-    private Handler handler5;
-    private Handler handler6;
-    private Handler handler7;
-    private Handler handler8;
-    private Handler handler9;
-    private Handler handler10;
-    private Handler handler11;
-    private Handler handler12;
-    private Handler handler13;
-    private Handler handler14;
-    private Handler handler15;
-    private Handler handler16;
-    private Handler handler17;
-    private Handler handler18;
-    private Handler handler19;
-    private Handler handler20;
-    private Handler handler21;
-    private Handler handler22;
-    private Handler handler23;
-    private Handler handler24;
-    private Handler handler25;
-    private Handler handler26;
-    private Handler handler27;
-    private Handler handler28;
-    private Handler handler29;
-    private Handler handler30;
-    private Handler handler31;
-    private Handler handler32;
-    private Handler handler33;
-    private Handler handler34;
-    private Handler handler35;
-    private Handler handler36;
-    private Handler handler37;
-    private Handler handler38;
+    private Handler handler1, handler2, handler3, handler4, handler5, handler6, handler7, handler8, handler9, handler10, handler11,
+            handler12, handler13, handler14, handler15, handler16, handler17, handler18, handler19, handler20, handler21,
+            handler22, handler23, handler24, handler25, handler26, handler27, handler28, handler29, handler30, handler31,
+            handler32, handler33, handler34, handler35, handler36, handler37, handler38;
 
-    private Runnable runnable1;
-    private Runnable runnable2;
-    private Runnable runnable3;
-    private Runnable runnable4;
-    private Runnable runnable5;
-    private Runnable runnable6;
-    private Runnable runnable7;
-    private Runnable runnable8;
-    private Runnable runnable9;
-    private Runnable runnable10;
-    private Runnable runnable11;
-    private Runnable runnable12;
-    private Runnable runnable13;
-    private Runnable runnable14;
-    private Runnable runnable15;
-    private Runnable runnable16;
-    private Runnable runnable17;
-    private Runnable runnable18;
-    private Runnable runnable19;
-    private Runnable runnable20;
-    private Runnable runnable21;
-    private Runnable runnable22;
-    private Runnable runnable23;
-    private Runnable runnable24;
-    private Runnable runnable25;
-    private Runnable runnable26;
-    private Runnable runnable27;
-    private Runnable runnable28;
-    private Runnable runnable29;
-    private Runnable runnable30;
-    private Runnable runnable31;
-    private Runnable runnable32;
-    private Runnable runnable33;
-    private Runnable runnable34;
-    private Runnable runnable35;
-    private Runnable runnable36;
-    private Runnable runnable37;
-    private Runnable runnable38;
+    private Runnable runnable1, runnable2, runnable3, runnable4, runnable5, runnable6, runnable7, runnable8, runnable9,
+            runnable10, runnable11, runnable12, runnable13, runnable14, runnable15, runnable16, runnable17, runnable18,
+            runnable19, runnable20, runnable21, runnable22, runnable23, runnable24, runnable25, runnable26, runnable27,
+            runnable28, runnable29, runnable30, runnable31, runnable32, runnable33, runnable34, runnable35, runnable36,
+            runnable37, runnable38;
 
-    private CheckBox checkBox_functie_de_baza_DA;
-    private CheckBox checkBox_functie_de_baza_NU;
-    private CheckBox checkBox_scutit_de_impozit_DA;
-    private CheckBox checkBox_scutit_de_impozit_NU;
+    private CheckBox checkBox_functie_de_baza_DA, checkBox_functie_de_baza_NU, checkBox_scutit_de_impozit_DA, checkBox_scutit_de_impozit_NU;
 
-    private boolean giftIsClicked = false;
-    private boolean playIsClicked;
-    private boolean isFunctieDeBaza_YES;
-    private boolean isFunctieDeBaza_NO;
-    private boolean isScutitDeImpozit_YES;
-    private boolean isScutitDeImpozit_NO;
+    private boolean giftIsClicked = false, playIsClicked,
+            isFunctieDeBaza_YES, isFunctieDeBaza_NO, isScutitDeImpozit_YES, isScutitDeImpozit_NO;
 
     private int nrPersoaneInIntretinere;
     private int n = 12;
@@ -197,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final long TOAST_TIMEOUT_MS = 2000;
     private static long lastToastTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
