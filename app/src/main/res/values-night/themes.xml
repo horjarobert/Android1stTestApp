@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SalariuBrut" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="Theme.SalariuBrut" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/color_080808</item>
         <item name="colorPrimaryVariant">@color/color_020202</item>
