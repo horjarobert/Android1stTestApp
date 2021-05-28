@@ -14,6 +14,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
@@ -157,7 +158,17 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence.length() == n)
                 {
-                    new AlertDialog.Builder(MainActivity.this).setTitle("\uD83D\uDC40 Ați ajuns la limită! ⌛").setMessage("\tVă rog, nu mințiți!\n\n\tMulțumesc! ☺").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+                    AlertDialog.Builder limita = new AlertDialog.Builder(MainActivity.this);
+                    limita.setTitle("\uD83D\uDC40 Ați ajuns la limită! ⌛");
+                    limita.setMessage("\tVă rog, nu mințiți!\n\n\tMulțumesc! ☺");
+                    limita.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            hideNavigationBar();
+                        }
+                    }).setCancelable(false).show();
+
                     txt_input_edit_text.setText("");
 
                     // Navbar-fullscreen
@@ -753,7 +764,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (nrPersoaneInIntretinere == 30) {
-                    new AlertDialog.Builder(MainActivity.this).setTitle("\uD83D\uDC40 Ați ajuns la limită! ⌛").setMessage("\tVă rog, nu mințiți!\n\n\tMulțumesc! ☺").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+
+                    AlertDialog.Builder limita = new AlertDialog.Builder(MainActivity.this);
+                    limita.setTitle("\uD83D\uDC40 Ați ajuns la limită! ⌛");
+                    limita.setMessage("\tVă rog, nu mințiți!\n\n\tMulțumesc! ☺");
+                    limita.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            hideNavigationBar();
+                        }
+                    }).setCancelable(false).show();
 
                     // Navbar-fullscreen
                     hideNavigationBar();
@@ -849,7 +870,17 @@ public class MainActivity extends AppCompatActivity {
 
         TransitionManager.beginDelayedTransition(mainLayout);
         if (txt_input_edit_text.getVisibility() == View.VISIBLE && txt_input_edit_text.length() == 0) {
-            new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, vă rog!").setMessage("\tIntroduceți salariul în zona din mijloc.\n\n\tMulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(MainActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\tIntroduceți salariul în zona din mijloc.\n\n\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
 
             // Navbar-fullscreen
             hideNavigationBar();
@@ -859,13 +890,33 @@ public class MainActivity extends AppCompatActivity {
             txt_salariu_brut = Integer.parseInt(txt_input_edit_text.getText().toString());
 
             if (txt_salariu_brut == 0) {
-                new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Mare atenție, vă rog!").setMessage("\t\tNu se acceptă valoarea 0! Muncitorul trebuie răsplătit, nu umilit!\n\n\nMulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+
+                AlertDialog.Builder atentie = new AlertDialog.Builder(MainActivity.this);
+                atentie.setTitle("⚠ Mare atenție, vă rog!");
+                atentie.setMessage("\t\tNu se acceptă valoarea 0! Muncitorul trebuie răsplătit, nu umilit!\n\n\nMulțumesc! \uD83D\uDD75️\u200D♂️");
+                atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        hideNavigationBar();
+                    }
+                }).setCancelable(false).show();
 
                 // Navbar-fullscreen
                 hideNavigationBar();
             }
             else if (txt_salariu_brut <= 574) {
-                new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Mare atenție, vă rog!").setMessage("\t\tÎn România, pentru anul 2021, salariul minim pe economie este 2300 de lei, iar la cea mai mică normă (două ore lucrate pe zi), salariul brut este 575 de lei.\n\n\t\tNu se acceptă o valoare introdusă mai mică decât 575 de lei. Totul trebuie să fie legal!\n\n\nMulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+
+                AlertDialog.Builder atentie = new AlertDialog.Builder(MainActivity.this);
+                atentie.setTitle("⚠ Mare atenție, vă rog!");
+                atentie.setMessage("\t\tÎn România, pentru anul 2021, salariul minim pe economie este 2300 de lei, iar la cea mai mică normă (două ore lucrate pe zi), salariul brut este 575 de lei.\n\n\t\tNu se acceptă o valoare introdusă mai mică decât 575 de lei. Totul trebuie să fie legal!\n\n\nMulțumesc! \uD83D\uDD75️\u200D♂️");
+                atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        hideNavigationBar();
+                    }
+                }).setCancelable(false).show();
 
                 // Navbar-fullscreen
                 hideNavigationBar();
@@ -1022,7 +1073,16 @@ public class MainActivity extends AppCompatActivity {
          }
          else {
 
-             new AlertDialog.Builder(MainActivity.this).setTitle("⚠ Puțină atenție, vă rog!").setMessage("\tCompletați formularul.\n\n\tMulțumesc! \uD83D\uDD75️\u200D♂️").setPositiveButton(android.R.string.ok, null).setCancelable(false).show();
+             AlertDialog.Builder atentie = new AlertDialog.Builder(MainActivity.this);
+             atentie.setTitle("⚠ Puțină atenție, vă rog!");
+             atentie.setMessage("\tCompletați formularul.\n\n\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+             atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+                     dialogInterface.dismiss();
+                     hideNavigationBar();
+                 }
+             }).setCancelable(false).show();
 
              // Navbar-fullscreen
              hideNavigationBar();
