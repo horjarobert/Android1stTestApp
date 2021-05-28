@@ -319,12 +319,12 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_05" />
 
     <TextView
-        android:id="@+id/txt_salariu_brut"
+        android:id="@+id/txt_salariul_brut"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="@string/str_salariu_brut"
+        android:text="@string/str_salariul_brut"
         android:tooltipText="@string/str_salariu_brut_spec"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -455,13 +455,13 @@
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
 
     <TextView
-        android:id="@+id/txt_salariu_net"
+        android:id="@+id/txt_salariul_net"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fontFamily="serif"
         android:gravity="center"
         android:inputType="textMultiLine"
-        android:text="@string/str_salariu_net"
+        android:text="@string/str_salariul_net"
         android:tooltipText="@string/str_salariu_net_spec"
         android:textAlignment="center"
         android:textColor="@color/black"

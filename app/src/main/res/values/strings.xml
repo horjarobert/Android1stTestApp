@@ -34,14 +34,14 @@
     <string name="str_tooltip_euro">EURO</string>
     <string name="str_tooltip_dollar">DOLAR</string>
 
-    <string name="str_salariu_brut">Salariu Brut</string>
+    <string name="str_salariul_brut">Salariul Brut</string>
     <string name="str_salariu_brut_spec">Din Salariul Brut se scad taxele...</string>
     <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
     <string name="str_cas">CAS</string>
     <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
     <string name="str_cass">CASS</string>
     <string name="str_impozit_pe_venit">Impozit pe venit</string>
-    <string name="str_salariu_net">Salariu Net</string>
+    <string name="str_salariul_net">Salariul Net</string>
     <string name="str_salariu_net_spec">Salariul Net e cel cu care salariatul rămâne în mână</string>
     <string name="str_salariat">Salariat</string>
     <string name="str_salariu_lei">Lei</string>
@@ -110,7 +110,7 @@
     <string name="str_functie_de_baza">Funcție de bază:</string>
     <string name="str_scutit_de_impozit">Scutit de impozit:</string>
     <string name="str_persoane_in_intretinere">Persoane în întreținere:</string>
-    <string name="str_explicatie_functie_de_baza">*Salariatul poate decide unde își declară funcția de bază dacă are mai multe contracte individuale de muncă, dacă are un singur contract, acesta e funcția de bază.</string>
+    <string name="str_explicatie_functie_de_baza">*Salariatul poate decide unde își declară funcția de bază dacă are mai multe contracte individuale de muncă, iar dacă are un singur contract, acesta e funcția de bază.</string>
     <string name="str_explicatie_deducere">*Deducerea personală se acordă fiecărui salariat care are un contract individual de muncă (pe teritoriul României).</string>
     <string name="str_explicatie_impozit">*În cazul în care salariatul nu este scutit de impozit, acesta i se va calcula cu procentul de 10%.</string>
 

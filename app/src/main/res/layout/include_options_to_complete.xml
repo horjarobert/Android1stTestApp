@@ -436,33 +436,36 @@
     <!-- END scutire_impozit elements -->
 
     <!-- BEGIN explanations -->
-    <TextView
-        android:id="@+id/txt_explicatie_functie_de_baza"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:fontFamily="serif"
-        android:text="@string/str_explicatie_functie_de_baza"
-        android:textColor="@color/color_red_night"
-        android:textIsSelectable="false"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_explicatie_impozit"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
-        app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65" />
 
-    <TextView
-        android:id="@+id/txt_explicatie_impozit"
+
+    <ScrollView
+        android:id="@+id/scrollLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fontFamily="serif"
-        android:text="@string/str_explicatie_impozit"
-        android:textColor="@color/color_green_night"
-        android:textIsSelectable="false"
-        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_salary_95"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_salary_9"
         app:layout_constraintStart_toStartOf="@+id/guideline_vt_salary_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_85" />
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_salary_65">
+
+        <TextView
+            android:id="@+id/txt_explicatii"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="\t\t*Salariatul poate decide unde își declară funcția de bază dacă are mai multe contracte individuale de muncă, iar dacă are un singur contract, acesta e funcția de bază.\n\n\t\t*În cazul în care salariatul nu este scutit de impozit, acesta i se va calcula cu procentul de 10%.\n\n\t\t*Deducerea personală se acordă fiecărui salariat care are un contract individual de muncă (pe teritoriul României)."
+            android:textColor="@color/black"
+            android:textIsSelectable="false"
+            android:textSize="14sp"
+            android:padding="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            />
+
+    </ScrollView>
+
+
 
     <!-- END explanations -->
 

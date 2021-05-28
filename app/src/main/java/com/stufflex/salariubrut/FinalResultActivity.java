@@ -15,7 +15,6 @@ import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,11 +26,6 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import org.jsoup.Jsoup;
-import org.jsoup.select.Elements;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import java.io.IOException;
 
@@ -158,7 +152,7 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_play_final = findViewById(R.id.txt_play_final);
         txt_salariat = findViewById(R.id.txt_salariat);
         txt_salariu = findViewById(R.id.txt_salariu);
-        txt_salariu_brut = findViewById(R.id.txt_salariu_brut);
+        txt_salariu_brut = findViewById(R.id.txt_salariul_brut);
         txt_salariu_brut_rezultat = findViewById(R.id.txt_salariu_brut_rezultat);
         txt_asigurari_cas = findViewById(R.id.txt_asigurari_cas);
         txt_asigurari_cas_rezultat = findViewById(R.id.txt_asigurari_cas_rezultat);
@@ -166,7 +160,7 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_asigurari_cass_rezultat = findViewById(R.id.txt_asigurari_cass_rezultat);
         txt_impozit_pe_venit = findViewById(R.id.txt_impozit_pe_venit);
         txt_impozit_pe_venit_rezultat = findViewById(R.id.txt_impozit_pe_venit_rezultat);
-        txt_salariu_net = findViewById(R.id.txt_salariu_net);
+        txt_salariu_net = findViewById(R.id.txt_salariul_net);
         txt_salariu_net_rezultat = findViewById(R.id.txt_salariu_net_rezultat);
         txt_afisaj_moneda = findViewById(R.id.txt_afisaj_moneda);
 
