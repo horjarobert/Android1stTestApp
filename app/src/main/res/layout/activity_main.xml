@@ -900,6 +900,22 @@
         </include>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!-- END option_to_complete design -->
+
+    <!-- BEGIN stop freestyle animations -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stopLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="StopFreestyleAnimations"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_ht_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_ht_15">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- END stop freestyle animations -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

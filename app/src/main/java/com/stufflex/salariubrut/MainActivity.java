@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText txt_input_edit_text;
 
-    private ConstraintLayout mainLayout, optionsToCompleteLayout,  bar_1, bar_2, bar_3;
+    private ConstraintLayout mainLayout, optionsToCompleteLayout, bar_1, bar_2, bar_3, stopLayout;
 
     private Animation anim_txt_title, anim_btn_romania, anim_btn_diamond, anim_btn_play_complete, anim_txt_copyright, anim_txt_play_complete;
 
@@ -79,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBox_functie_de_baza_DA, checkBox_functie_de_baza_NU, checkBox_scutit_de_impozit_DA, checkBox_scutit_de_impozit_NU;
 
     private boolean giftIsClicked = false, playIsClicked,
-            isFunctieDeBaza_YES, isFunctieDeBaza_NO, isScutitDeImpozit_YES, isScutitDeImpozit_NO;
+            isFunctieDeBaza_YES, isFunctieDeBaza_NO, isScutitDeImpozit_YES, isScutitDeImpozit_NO,
+            isFreestyleAnimationClicked = false;
 
     private int nrPersoaneInIntretinere;
     private int n = 12;
@@ -136,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         mainLayout = findViewById(R.id.mainLayout);
         optionsToCompleteLayout = findViewById(R.id.optionsToCompleteLayout);
+        stopLayout = findViewById(R.id.stopLayout);
 
         bar_1 = findViewById(R.id.bar_1);
         bar_2 = findViewById(R.id.bar_2);
@@ -257,11 +259,14 @@ public class MainActivity extends AppCompatActivity {
         btn_money_3.setVisibility(View.INVISIBLE);
         btn_money_4.setVisibility(View.INVISIBLE);
         btn_money_5.setVisibility(View.INVISIBLE);
+        stopLayout.setVisibility(View.INVISIBLE);
 
         // Freestyle animations on click to btn_gift
         btn_gift.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                stopLayout.setVisibility(View.VISIBLE);
 
                 CaleaSpreSucces(view);
                 giftIsClicked = true;
@@ -682,7 +687,12 @@ public class MainActivity extends AppCompatActivity {
                 };
                 handler38.postDelayed(runnable38, 15500);
             }
+
+
+
         });
+
+
 
         // Checkboxes enable style
         checkBox_functie_de_baza_DA.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -936,6 +946,7 @@ public class MainActivity extends AppCompatActivity {
                     txt_copyright.setVisibility(View.INVISIBLE);
                     btn_romania.setVisibility(View.INVISIBLE);
                     btn_diamond.setVisibility(View.INVISIBLE);
+                    stopLayout.setVisibility(View.INVISIBLE);
 
                     // Remove handlers
                     if(giftIsClicked){
@@ -1002,6 +1013,7 @@ public class MainActivity extends AppCompatActivity {
                     txt_copyright.setVisibility(View.VISIBLE);
                     btn_romania.setVisibility(View.VISIBLE);
                     btn_diamond.setVisibility(View.VISIBLE);
+                    stopLayout.setVisibility(View.VISIBLE);
 
                     playIsClicked = false;
                     txt_input_edit_text.setEnabled(true);
@@ -1028,10 +1040,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void CaleaSpreSucces(View v) {
-         Toast toast = Toast.makeText(this, "Calea spre succes...", Toast.LENGTH_LONG);
+         Toast toast = Toast.makeText(this, "Calea spre succes...", Toast.LENGTH_SHORT);
          toast.setGravity(Gravity.BOTTOM, 0, 0);
 
-         toast.show();
+        // Toast improvement, never click twice, just once after each 3s
+        long now = System.currentTimeMillis();
+
+        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
+            toast.show();
+            lastToastTime = now;
+        }
 
      }
 
@@ -1088,5 +1106,78 @@ public class MainActivity extends AppCompatActivity {
              hideNavigationBar();
          }
 
+     }
+
+     public void StopFreestyleAnimations(View v) {
+         // Stop freestyle animations
+         stopLayout.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 isFreestyleAnimationClicked = true;
+                 if (isFreestyleAnimationClicked) {
+                     handler1.removeCallbacksAndMessages(null);
+                     handler2.removeCallbacksAndMessages(null);
+                     handler3.removeCallbacksAndMessages(null);
+                     handler4.removeCallbacksAndMessages(null);
+                     handler5.removeCallbacksAndMessages(null);
+                     handler6.removeCallbacksAndMessages(null);
+                     handler7.removeCallbacksAndMessages(null);
+                     handler8.removeCallbacksAndMessages(null);
+                     handler9.removeCallbacksAndMessages(null);
+                     handler10.removeCallbacksAndMessages(null);
+                     handler11.removeCallbacksAndMessages(null);
+                     handler12.removeCallbacksAndMessages(null);
+                     handler13.removeCallbacksAndMessages(null);
+                     handler14.removeCallbacksAndMessages(null);
+                     handler15.removeCallbacksAndMessages(null);
+                     handler16.removeCallbacksAndMessages(null);
+                     handler17.removeCallbacksAndMessages(null);
+                     handler18.removeCallbacksAndMessages(null);
+                     handler19.removeCallbacksAndMessages(null);
+                     handler20.removeCallbacksAndMessages(null);
+                     handler21.removeCallbacksAndMessages(null);
+                     handler22.removeCallbacksAndMessages(null);
+                     handler23.removeCallbacksAndMessages(null);
+                     handler24.removeCallbacksAndMessages(null);
+                     handler25.removeCallbacksAndMessages(null);
+                     handler26.removeCallbacksAndMessages(null);
+                     handler27.removeCallbacksAndMessages(null);
+                     handler28.removeCallbacksAndMessages(null);
+                     handler29.removeCallbacksAndMessages(null);
+                     handler30.removeCallbacksAndMessages(null);
+                     handler31.removeCallbacksAndMessages(null);
+                     handler32.removeCallbacksAndMessages(null);
+                     handler33.removeCallbacksAndMessages(null);
+                     handler34.removeCallbacksAndMessages(null);
+                     handler35.removeCallbacksAndMessages(null);
+                     handler36.removeCallbacksAndMessages(null);
+                     handler37.removeCallbacksAndMessages(null);
+                     handler38.removeCallbacksAndMessages(null);
+
+                     btn_freestyle_1.setVisibility(View.INVISIBLE);
+                     btn_freestyle_2.setVisibility(View.INVISIBLE);
+                     btn_freestyle_3.setVisibility(View.INVISIBLE);
+                     btn_freestyle_4.setVisibility(View.INVISIBLE);
+                     btn_freestyle_5.setVisibility(View.INVISIBLE);
+                     btn_freestyle_6.setVisibility(View.INVISIBLE);
+                     btn_freestyle_7.setVisibility(View.INVISIBLE);
+                     btn_freestyle_8.setVisibility(View.INVISIBLE);
+                     btn_freestyle_9.setVisibility(View.INVISIBLE);
+                     btn_freestyle_10.setVisibility(View.INVISIBLE);
+                     btn_freestyle_11.setVisibility(View.INVISIBLE);
+                     btn_freestyle_12.setVisibility(View.INVISIBLE);
+                     btn_money_1.setVisibility(View.INVISIBLE);
+                     btn_money_2.setVisibility(View.INVISIBLE);
+                     btn_money_3.setVisibility(View.INVISIBLE);
+                     btn_money_4.setVisibility(View.INVISIBLE);
+                     btn_money_5.setVisibility(View.INVISIBLE);
+
+                     btn_gift.setVisibility(View.VISIBLE);
+                     btn_gift.setText(R.string.str_gift);
+
+                     setGiftDownAndUp.start();
+                 }
+             }
+         });
      }
 }
