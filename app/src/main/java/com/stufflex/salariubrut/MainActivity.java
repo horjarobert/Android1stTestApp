@@ -205,6 +205,14 @@ public class MainActivity extends AppCompatActivity {
 
         optionsToCompleteLayout.setVisibility(View.INVISIBLE);
 
+        if (giftIsClicked) {
+            stopLayout.setVisibility(View.VISIBLE);
+        }
+        else {
+            stopLayout.setVisibility(View.INVISIBLE);
+        }
+
+
         // Special guest | Animation for btn_gift
         scaleGiftDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
         scaleGiftDown.setTarget(btn_gift);
@@ -1013,7 +1021,6 @@ public class MainActivity extends AppCompatActivity {
                     txt_copyright.setVisibility(View.VISIBLE);
                     btn_romania.setVisibility(View.VISIBLE);
                     btn_diamond.setVisibility(View.VISIBLE);
-                    stopLayout.setVisibility(View.VISIBLE);
 
                     playIsClicked = false;
                     txt_input_edit_text.setEnabled(true);
