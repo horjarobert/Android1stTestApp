@@ -3,6 +3,7 @@ package com.stufflex.salariubrut;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.TooltipCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             btn_freestyle_4, btn_freestyle_5, btn_freestyle_6, btn_freestyle_7, btn_freestyle_8, btn_freestyle_9, btn_freestyle_10,
             btn_freestyle_11, btn_freestyle_12, btn_money_1, btn_money_2, btn_money_3, btn_money_4, btn_money_5, btn_plus, btn_minus;
 
-    private TextView txt_title, txt_play_complete, txt_play_final, txt_copyright, txt_numar_persoane_in_intretinere;
+    private TextView txt_title, txt_play_complete, txt_play_final, txt_copyright, txt_numar_persoane_in_intretinere, txt_functie_de_baza, txt_explicatii;
 
     private TextInputLayout txt_input_layout;
 
@@ -102,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         // Initializations
         txt_title = findViewById(R.id.txt_title);
         txt_numar_persoane_in_intretinere = findViewById(R.id.txt_numar_persoane_in_intretinere);
+        txt_functie_de_baza = findViewById(R.id.txt_functie_de_baza);
+        txt_explicatii = findViewById(R.id.txt_explicatii);
 
         txt_input_layout = findViewById(R.id.txt_input_layout);
         txt_input_edit_text = findViewById(R.id.txt_input_edit_text);
@@ -1187,4 +1190,33 @@ public class MainActivity extends AppCompatActivity {
              }
          });
      }
+
+    public void OnFunctieDeBazaClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_functie_de_baza,"Se calculează la un salariu brut între 575 și 3600 de lei");
+
+        txt_functie_de_baza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_functie_de_baza.performLongClick();
+            }
+        });
+
+    }
+
+    public void OnTxtExplicatiiClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_explicatii,"Bine de știut...");
+
+        txt_explicatii.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_explicatii.performLongClick();
+            }
+        });
+
+    }
+
 }

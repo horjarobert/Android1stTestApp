@@ -1,6 +1,7 @@
 package com.stufflex.salariubrut;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.TooltipCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.animation.Animator;
@@ -32,100 +33,41 @@ import java.io.IOException;
 public class FinalResultActivity extends AppCompatActivity {
 
     // Declarations
-    private Button btn_romania;
-    private Button btn_diamond;
-    private Button btn_play_final;
-    private Button btn_euro;
-    private Button btn_lei;
-    private Button btn_sheqel;
-    private Button btn_dollar;
-    private Button btn_pound;
-    private Button btn_rupee;
-    private Button btn_ruble;
+    private Button btn_romania, btn_diamond, btn_play_final, btn_euro, btn_lei, btn_sheqel, btn_dollar, btn_pound, btn_rupee, btn_ruble;
 
-    private TextView txt_title;
-    private TextView txt_play_final;
-    private TextView txt_salariat;
-    private TextView txt_salariu;
-    private TextView txt_salariu_brut;
-    private TextView txt_salariu_brut_rezultat;
-    private TextView txt_asigurari_cas;
-    private TextView txt_asigurari_cas_rezultat;
-    private TextView txt_asigurari_cass;
-    private TextView txt_asigurari_cass_rezultat;
-    private TextView txt_impozit_pe_venit;
-    private TextView txt_impozit_pe_venit_rezultat;
-    private TextView txt_salariu_net;
-    private TextView txt_salariu_net_rezultat;
-    private TextView txt_afisaj_moneda;
+    private TextView txt_title, txt_play_final, txt_salariat, txt_salariu, txt_salariu_brut, txt_salariu_brut_rezultat, txt_asigurari_cas, txt_asigurari_cas_rezultat, txt_asigurari_cass,
+            txt_asigurari_cass_rezultat, txt_impozit_pe_venit, txt_impozit_pe_venit_rezultat, txt_salariu_net, txt_salariu_net_rezultat, txt_afisaj_moneda;
 
     private TextInputLayout txt_input_layout;
     private TextInputEditText txt_input_edit_text;
 
     private ConstraintLayout salaryLayout;
 
-    private AnimatorSet setLeiDownAndUp;
-    private AnimatorSet setPoundDownAndUp;
-    private AnimatorSet setRupeeDownAndUp;
-    private AnimatorSet setEuroDownAndUp;
-    private AnimatorSet setSheqelDownAndUp;
-    private AnimatorSet setDollarDownAndUp;
-    private AnimatorSet setRubleDownAndUp;
+    private AnimatorSet setLeiDownAndUp, setPoundDownAndUp, setRupeeDownAndUp, setEuroDownAndUp, setSheqelDownAndUp, setDollarDownAndUp, setRubleDownAndUp;
 
-    private Animator scaleLeiDown;
-    private Animator scalePoundDown;
-    private Animator scaleRupeeDown;
-    private Animator scaleEuroDown;
-    private Animator scaleSheqelDown;
-    private Animator scaleDollarDown;
-    private Animator scaleRubleDown;
+    private Animator scaleLeiDown, scalePoundDown, scaleRupeeDown, scaleEuroDown, scaleSheqelDown, scaleDollarDown, scaleRubleDown;
 
-    private Animator scaleLeiUp;
-    private Animator scalePoundUp;
-    private Animator scaleRupeeUp;
-    private Animator scaleEuroUp;
-    private Animator scaleSheqelUp;
-    private Animator scaleDollarUp;
-    private Animator scaleRubleUp;
+    private Animator scaleLeiUp, scalePoundUp, scaleRupeeUp, scaleEuroUp, scaleSheqelUp, scaleDollarUp, scaleRubleUp;
 
-    private AnimationDrawable animationDrawableLei;
-    private AnimationDrawable animationDrawablePound;
-    private AnimationDrawable animationDrawableRupee;
-    private AnimationDrawable animationDrawableEuro;
-    private AnimationDrawable animationDrawableSheqel;
-    private AnimationDrawable animationDrawableDollar;
-    private AnimationDrawable animationDrawableRuble;
+    private AnimationDrawable animationDrawableLei, animationDrawablePound, animationDrawableRupee, animationDrawableEuro, animationDrawableSheqel, animationDrawableDollar, animationDrawableRuble;
 
-    private Handler handler_btn_currency_1;
-    private Handler handler_btn_currency_2;
-    private Handler handler_btn_currency_3;
-    private Handler handler_btn_currency_4;
+    private Handler handler_btn_currency_1, handler_btn_currency_2, handler_btn_currency_3, handler_btn_currency_4;
 
-    private Runnable runnable_btn_currency_1;
-    private Runnable runnable_btn_currency_2;
-    private Runnable runnable_btn_currency_3;
-    private Runnable runnable_btn_currency_4;
+    private Runnable runnable_btn_currency_1, runnable_btn_currency_2, runnable_btn_currency_3, runnable_btn_currency_4;
 
     private float salar_brut, cas_lei, cass_lei, impozit_lei, salar_net;
     private float venit_baza, deducere, nr_persoane_intretinere;
 
     private int salar_net_int;
 
-    private ObjectAnimator colorAnimSalariuNet;
-    private ObjectAnimator colorAnimSalariuNetRezultat;
-    private ObjectAnimator colorAnimSalariuBrut;
-    private ObjectAnimator colorAnimSalariuBrutRezultat;
+    private ObjectAnimator colorAnimSalariuNet, colorAnimSalariuNetRezultat, colorAnimSalariuBrut, colorAnimSalariuBrutRezultat;
 
     private static final long TOAST_TIMEOUT_MS = 2000;
     private static long lastToastTime = 0;
 
-    private boolean isFunctieBaza_YES;
-    private boolean isFunctieBaza_NO;
-    private boolean isImpozitScutit_YES;
-    private boolean isImpozitScutit_NO;
+    private boolean isFunctieBaza_YES, isFunctieBaza_NO, isImpozitScutit_YES, isImpozitScutit_NO;
 
-    private Animation anim_btn_romania;
-    private Animation anim_btn_diamond;
+    private Animation anim_btn_romania, anim_btn_diamond;
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -2999,6 +2941,63 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_title.setTextColor(Color.WHITE);
 
     }
+
+    public void OnTxtSalariuBrutClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_salariu_brut,"Din salariul brut se scad taxele");
+
+        txt_salariu_brut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_salariu_brut.performLongClick();
+            }
+        });
+
+    }
+
+    public void OnTxtAsigurariCASClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_asigurari_cas,"Asigurări Sociale");
+
+        txt_asigurari_cas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_asigurari_cas.performLongClick();
+            }
+        });
+
+    }
+
+    public void OnTxtAsigurariCASSClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_asigurari_cass,"Asigurări Sociale de Sănătate");
+
+        txt_asigurari_cass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_asigurari_cass.performLongClick();
+            }
+        });
+
+    }
+
+    public void OnTxtSalariuNetClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_salariu_net,"Salariatul rămâne în mână cu salariul net");
+
+        txt_salariu_net.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_salariu_net.performLongClick();
+            }
+        });
+
+    }
+
 
 //    public void getWebsite() {
 //        String url = "https://www.cursbnr.ro/";

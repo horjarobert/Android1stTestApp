@@ -35,7 +35,7 @@
     <string name="str_tooltip_dollar">DOLAR</string>
 
     <string name="str_salariul_brut">Salariul Brut</string>
-    <string name="str_salariu_brut_spec">Din Salariul Brut se scad taxele...</string>
+    <string name="str_salariu_brut_spec">Din Salariul Brut se scad taxele</string>
     <string name="str_asigurari_cas">Asigurări Sociale (CAS)</string>
     <string name="str_cas">CAS</string>
     <string name="str_asigurari_cass">Asigurări Sociale de Sănătate (CASS)</string>
