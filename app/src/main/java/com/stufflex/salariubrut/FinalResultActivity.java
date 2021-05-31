@@ -2956,6 +2956,20 @@ public class FinalResultActivity extends AppCompatActivity {
 
     }
 
+    public void OnTxtSalariuBrutRezultatClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_salariu_brut_rezultat,"Din salariul brut se scad taxele");
+
+        txt_salariu_brut_rezultat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_salariu_brut_rezultat.performLongClick();
+            }
+        });
+
+    }
+
     public void OnTxtAsigurariCASClick(View view) {
 
         //Set Tooltip
@@ -2965,6 +2979,20 @@ public class FinalResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 txt_asigurari_cas.performLongClick();
+            }
+        });
+
+    }
+
+    public void OnTxtAsigurariCASRezultatClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_asigurari_cas_rezultat,"Asigurări Sociale");
+
+        txt_asigurari_cas_rezultat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_asigurari_cas_rezultat.performLongClick();
             }
         });
 
@@ -2984,6 +3012,20 @@ public class FinalResultActivity extends AppCompatActivity {
 
     }
 
+    public void OnTxtAsigurariCASSRezultatClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_asigurari_cass_rezultat,"Asigurări Sociale de Sănătate");
+
+        txt_asigurari_cass_rezultat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_asigurari_cass_rezultat.performLongClick();
+            }
+        });
+
+    }
+
     public void OnTxtSalariuNetClick(View view) {
 
         //Set Tooltip
@@ -2993,6 +3035,20 @@ public class FinalResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 txt_salariu_net.performLongClick();
+            }
+        });
+
+    }
+
+    public void OnTxtSalariuNetRezultatClick(View view) {
+
+        //Set Tooltip
+        TooltipCompat.setTooltipText(txt_salariu_net_rezultat,"Salariatul rămâne în mână cu salariul net");
+
+        txt_salariu_net_rezultat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt_salariu_net_rezultat.performLongClick();
             }
         });
 
