@@ -1,5 +1,6 @@
 package com.stufflex.salariubrut;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.TooltipCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -11,6 +12,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
@@ -136,6 +138,65 @@ public class FinalResultActivity extends AppCompatActivity {
         isImpozitScutit_NO = getIntent().getExtras().getBoolean("isScutitDeImpozit_NO");
 
         nr_persoane_intretinere = getIntent().getIntExtra("nrPersoaneInIntretinere", 0);
+
+        // Click on info buttons
+        btn_romania.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_romania.animate().rotation(btn_romania.getRotation()-45).start();
+
+                AlertDialog.Builder romania = new AlertDialog.Builder(FinalResultActivity.this);
+
+                romania.setTitle("\uD83C\uDF0D Pentru românii din România");
+                romania.setMessage("\t\tUtilitatea aplicației este pentru calcularea salariilor bazate pe legislația din România.\n" +
+                        "\n\t\tPrecizia aplicației este de 100%.\n" +
+                        "\n\t\tCalculatorul nu are aplicabilitate pentru persoanele care-și desfășoară activitatea în domeniul construcțiilor. Dacă e nevoie, pe viitor, la o nouă actualizare a aplicației va fi și opțiunea pentru calculul salariilor din domeniul construcțiilor.\n" +
+                        "\n\t\tAplicația respectă legislația GDPR, datele nu sunt stocate, orice salariu veți introduce va fi calculat numai și numai pentru dumneavoastră ca utilitate proprie.");
+                romania.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        hideNavigationBar();
+
+                        btn_romania.animate().rotation(btn_romania.getRotation()+45).start();
+                    }
+                }).setCancelable(false).show();
+
+                // Navbar-fullscreen
+                hideNavigationBar();
+            }
+        });
+
+        btn_diamond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_diamond.animate().rotation(btn_diamond.getRotation()+45).start();
+
+                AlertDialog.Builder diamond = new AlertDialog.Builder(FinalResultActivity.this);
+
+                diamond.setTitle("\uD83C\uDF81 Informații prețioase");
+                diamond.setMessage("\t\tPentru calcularea salariului cu funcția de bază activă, s-au folosit limitele valorice din Ordonanța de Urgență nr. 79/2017 din 8 Noiembrie, 2017.\n" +
+                        "\n\t\tFormula pentru calculul impozitului:\n" +
+                        "\n\t\timpozit = venitBaza * procent / 100\n" +
+                        "\t\t# unde procentul e de 10%, iar formula pentru venitul de bază este următoarea:\n" +
+                        "\t\t# venitBaza = salariulBrut - CAS - CASS - deducere\n" +
+                        "\t\t# datele pentru deducere sunt cele din OUG 79/2017 din 8 Noiembrie, 2017\n" +
+                        "\n\t\tPentru salariile mai mari decât 3600 de lei, nu mai contează deducerea pentru funcția de bază și nici câte persoane sunt în întreținerea salariatului.");
+                diamond.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        hideNavigationBar();
+
+                        btn_diamond.animate().rotation(btn_diamond.getRotation()-45).start();
+                    }
+                }).setCancelable(false).show();
+
+                // Navbar-fullscreen
+                hideNavigationBar();
+            }
+        });
+
 
         // Special guest | Animation for btn_lei
         scaleLeiDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
@@ -2991,7 +3052,7 @@ public class FinalResultActivity extends AppCompatActivity {
     public void OnTxtAsigurariCASRezultatClick(View view) {
 
         //Set Tooltip
-        TooltipCompat.setTooltipText(txt_asigurari_cas_rezultat,"Asigurări Sociale");
+        TooltipCompat.setTooltipText(txt_asigurari_cas_rezultat,"25% din salariul brut");
 
         txt_asigurari_cas_rezultat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -3019,7 +3080,7 @@ public class FinalResultActivity extends AppCompatActivity {
     public void OnTxtAsigurariCASSRezultatClick(View view) {
 
         //Set Tooltip
-        TooltipCompat.setTooltipText(txt_asigurari_cass_rezultat,"Asigurări Sociale de Sănătate");
+        TooltipCompat.setTooltipText(txt_asigurari_cass_rezultat,"10% din salariul brut");
 
         txt_asigurari_cass_rezultat.setOnClickListener(new View.OnClickListener() {
             @Override

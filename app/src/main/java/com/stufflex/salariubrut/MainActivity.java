@@ -155,6 +155,64 @@ public class MainActivity extends AppCompatActivity {
         checkBox_scutit_de_impozit_DA = findViewById(R.id.checkBox_scutit_de_impozit_DA);
         checkBox_scutit_de_impozit_NU = findViewById(R.id.checkBox_scutit_de_impozit_NU);
 
+        // Click on info buttons
+        btn_romania.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_romania.animate().rotation(btn_romania.getRotation()-45).start();
+
+                AlertDialog.Builder romania = new AlertDialog.Builder(MainActivity.this);
+
+                romania.setTitle("\uD83C\uDF0D Pentru românii din România");
+                romania.setMessage("\t\tUtilitatea aplicației este pentru calcularea salariilor bazate pe legislația din România.\n" +
+                        "\n\t\tPrecizia aplicației este de 100%.\n" +
+                        "\n\t\tCalculatorul nu are aplicabilitate pentru persoanele care-și desfășoară activitatea în domeniul construcțiilor. Dacă e nevoie, pe viitor, la o nouă actualizare a aplicației va fi și opțiunea pentru calculul salariilor din domeniul construcțiilor.\n" +
+                        "\n\t\tAplicația respectă legislația GDPR, datele nu sunt stocate, orice salariu veți introduce va fi calculat numai și numai pentru dumneavoastră ca utilitate proprie.");
+                romania.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        hideNavigationBar();
+
+                        btn_romania.animate().rotation(btn_romania.getRotation()+45).start();
+                    }
+                }).setCancelable(false).show();
+
+                // Navbar-fullscreen
+                hideNavigationBar();
+            }
+        });
+
+        btn_diamond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_diamond.animate().rotation(btn_diamond.getRotation()+45).start();
+
+                AlertDialog.Builder diamond = new AlertDialog.Builder(MainActivity.this);
+
+                diamond.setTitle("\uD83C\uDF81 Informații prețioase");
+                diamond.setMessage("\t\tPentru calcularea salariului cu funcția de bază activă, s-au folosit limitele valorice din Ordonanța de Urgență nr. 79/2017 din 8 Noiembrie, 2017.\n" +
+                        "\n\t\tFormula pentru calculul impozitului:\n" +
+                        "\n\t\timpozit = venitBaza * procent / 100\n" +
+                        "\t\t# unde procentul e de 10%, iar formula pentru venitul de bază este următoarea:\n" +
+                        "\t\t# venitBaza = salariulBrut - CAS - CASS - deducere\n" +
+                        "\t\t# datele pentru deducere sunt cele din OUG 79/2017 din 8 Noiembrie, 2017\n" +
+                        "\n\t\tPentru salariile mai mari decât 3600 de lei, nu mai contează deducerea pentru funcția de bază și nici câte persoane sunt în întreținerea salariatului.");
+                diamond.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        hideNavigationBar();
+
+                        btn_diamond.animate().rotation(btn_diamond.getRotation()-45).start();
+                    }
+                }).setCancelable(false).show();
+
+                // Navbar-fullscreen
+                hideNavigationBar();
+            }
+        });
+
         // Alert user when EditText limit exxceeded
         txt_input_edit_text.addTextChangedListener(new TextWatcher() {
             @Override
