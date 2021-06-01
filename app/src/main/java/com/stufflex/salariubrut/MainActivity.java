@@ -28,6 +28,7 @@ import android.transition.TransitionManager;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -99,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Navbar-fullscreen
         hideNavigationBar();
+
+        // Disable screenshot option by using FLAG_SECURE
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         // Initializations
         txt_title = findViewById(R.id.txt_title);

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -19,247 +20,45 @@ public class StufflexSplashActivity extends AppCompatActivity {
     // Declarations
     private ConstraintLayout clickToEndLayout;
 
-    private TextView txt_changeable_letter;
-    private TextView txt_changeable_f_1;
-    private TextView txt_changeable_f_2;
-    private TextView txt_letter_S;
-    private TextView txt_letter_t;
-    private TextView txt_letter_u;
-    private TextView txt_letter_f_1;
-    private TextView txt_letter_f_2;
-    private TextView txt_letter_l;
-    private TextView txt_letter_e;
-    private TextView txt_letter_x;
-    private TextView txt_letter_b;
-    private TextView txt_letter_y;
+    private TextView txt_changeable_letter, txt_changeable_f_1, txt_changeable_f_2, txt_letter_S,  txt_letter_t, txt_letter_u,
+            txt_letter_f_1, txt_letter_f_2, txt_letter_l, txt_letter_e, txt_letter_x, txt_letter_b, txt_letter_y;
 
-    private TextView txt_a_1;
-    private TextView txt_a_2;
-    private TextView txt_a_3;
-    private TextView txt_a_4;
-    private TextView txt_a_5;
-    private TextView txt_a_6;
-    private TextView txt_a_7;
-    private TextView txt_a_8;
-    private TextView txt_a_9;
-    private TextView txt_a_10;
-    private TextView txt_a_11;
-    private TextView txt_a_12;
-    private TextView txt_a_13;
-    private TextView txt_a_14;
-    private TextView txt_a_15;
-    private TextView txt_a_16;
-    private TextView txt_a_17;
-    private TextView txt_a_18;
-    private TextView txt_a_19;
-    private TextView txt_a_20;
+    private TextView txt_a_1, txt_a_2, txt_a_3, txt_a_4, txt_a_5, txt_a_6, txt_a_7, txt_a_8, txt_a_9, txt_a_10, txt_a_11, txt_a_12, txt_a_13, txt_a_14,
+            txt_a_15, txt_a_16, txt_a_17, txt_a_18, txt_a_19, txt_a_20;
 
-    private TextView txt_b_1;
-    private TextView txt_b_2;
-    private TextView txt_b_3;
-    private TextView txt_b_4;
-    private TextView txt_b_5;
-    private TextView txt_b_6;
-    private TextView txt_b_7;
-    private TextView txt_b_8;
-    private TextView txt_b_9;
-    private TextView txt_b_10;
-    private TextView txt_b_11;
-    private TextView txt_b_12;
-    private TextView txt_b_13;
-    private TextView txt_b_14;
-    private TextView txt_b_15;
-    private TextView txt_b_16;
-    private TextView txt_b_17;
-    private TextView txt_b_18;
-    private TextView txt_b_19;
-    private TextView txt_b_20;
+    private TextView txt_b_1, txt_b_2, txt_b_3, txt_b_4, txt_b_5, txt_b_6, txt_b_7, txt_b_8, txt_b_9, txt_b_10, txt_b_11, txt_b_12, txt_b_13, txt_b_14,
+            txt_b_15, txt_b_16, txt_b_17, txt_b_18, txt_b_19, txt_b_20;
 
-    private TextView txt_c_1;
-    private TextView txt_c_2;
-    private TextView txt_c_3;
-    private TextView txt_c_4;
-    private TextView txt_c_5;
-    private TextView txt_c_6;
-    private TextView txt_c_7;
-    private TextView txt_c_8;
-    private TextView txt_c_9;
-    private TextView txt_c_10;
-    private TextView txt_c_11;
-    private TextView txt_c_12;
-    private TextView txt_c_13;
-    private TextView txt_c_14;
-    private TextView txt_c_15;
-    private TextView txt_c_16;
-    private TextView txt_c_17;
-    private TextView txt_c_18;
-    private TextView txt_c_19;
-    private TextView txt_c_20;
+    private TextView txt_c_1, txt_c_2, txt_c_3, txt_c_4, txt_c_5, txt_c_6, txt_c_7, txt_c_8, txt_c_9, txt_c_10, txt_c_11, txt_c_12, txt_c_13, txt_c_14,
+            txt_c_15, txt_c_16, txt_c_17, txt_c_18, txt_c_19, txt_c_20;
 
-    private TextView txt_d_1;
-    private TextView txt_d_2;
-    private TextView txt_d_3;
-    private TextView txt_d_4;
-    private TextView txt_d_5;
-    private TextView txt_d_6;
-    private TextView txt_d_7;
-    private TextView txt_d_8;
-    private TextView txt_d_9;
-    private TextView txt_d_10;
-    private TextView txt_d_11;
-    private TextView txt_d_12;
-    private TextView txt_d_13;
-    private TextView txt_d_14;
-    private TextView txt_d_15;
-    private TextView txt_d_16;
-    private TextView txt_d_17;
-    private TextView txt_d_18;
-    private TextView txt_d_19;
-    private TextView txt_d_20;
+    private TextView txt_d_1, txt_d_2, txt_d_3, txt_d_4, txt_d_5, txt_d_6, txt_d_7, txt_d_8, txt_d_9, txt_d_10, txt_d_11, txt_d_12, txt_d_13, txt_d_14,
+            txt_d_15, txt_d_16, txt_d_17, txt_d_18, txt_d_19, txt_d_20;
 
-    private TextView txt_e_1;
-    private TextView txt_e_2;
-    private TextView txt_e_3;
-    private TextView txt_e_4;
-    private TextView txt_e_5;
-    private TextView txt_e_6;
-    private TextView txt_e_7;
-    private TextView txt_e_8;
-    private TextView txt_e_9;
-    private TextView txt_e_10;
-    private TextView txt_e_11;
-    private TextView txt_e_12;
-    private TextView txt_e_13;
-    private TextView txt_e_14;
-    private TextView txt_e_15;
-    private TextView txt_e_16;
-    private TextView txt_e_17;
-    private TextView txt_e_18;
-    private TextView txt_e_19;
-    private TextView txt_e_20;
+    private TextView txt_e_1, txt_e_2, txt_e_3, txt_e_4, txt_e_5, txt_e_6, txt_e_7, txt_e_8, txt_e_9, txt_e_10, txt_e_11, txt_e_12, txt_e_13, txt_e_14,
+            txt_e_15, txt_e_16, txt_e_17, txt_e_18, txt_e_19, txt_e_20;
 
-    private TextView txt_f_1;
-    private TextView txt_f_2;
-    private TextView txt_f_3;
-    private TextView txt_f_4;
-    private TextView txt_f_5;
-    private TextView txt_f_6;
-    private TextView txt_f_7;
-    private TextView txt_f_8;
-    private TextView txt_f_9;
-    private TextView txt_f_10;
-    private TextView txt_f_11;
-    private TextView txt_f_12;
-    private TextView txt_f_13;
-    private TextView txt_f_14;
-    private TextView txt_f_15;
-    private TextView txt_f_16;
-    private TextView txt_f_17;
-    private TextView txt_f_18;
-    private TextView txt_f_19;
-    private TextView txt_f_20;
+    private TextView txt_f_1, txt_f_2, txt_f_3, txt_f_4, txt_f_5, txt_f_6, txt_f_7, txt_f_8, txt_f_9, txt_f_10, txt_f_11, txt_f_12, txt_f_13, txt_f_14,
+            txt_f_15, txt_f_16, txt_f_17, txt_f_18, txt_f_19, txt_f_20;
 
-    private TextView txt_g_1;
-    private TextView txt_g_2;
-    private TextView txt_g_3;
-    private TextView txt_g_4;
-    private TextView txt_g_5;
-    private TextView txt_g_6;
-    private TextView txt_g_7;
-    private TextView txt_g_8;
-    private TextView txt_g_9;
-    private TextView txt_g_10;
-    private TextView txt_g_11;
-    private TextView txt_g_12;
-    private TextView txt_g_13;
-    private TextView txt_g_14;
-    private TextView txt_g_15;
-    private TextView txt_g_16;
-    private TextView txt_g_17;
-    private TextView txt_g_18;
-    private TextView txt_g_19;
-    private TextView txt_g_20;
+    private TextView txt_g_1, txt_g_2, txt_g_3, txt_g_4, txt_g_5, txt_g_6, txt_g_7, txt_g_8, txt_g_9, txt_g_10, txt_g_11, txt_g_12, txt_g_13, txt_g_14,
+            txt_g_15, txt_g_16, txt_g_17, txt_g_18, txt_g_19, txt_g_20;
 
-    private TextView txt_h_1;
-    private TextView txt_h_2;
-    private TextView txt_h_3;
-    private TextView txt_h_4;
-    private TextView txt_h_5;
-    private TextView txt_h_6;
-    private TextView txt_h_7;
-    private TextView txt_h_8;
-    private TextView txt_h_9;
-    private TextView txt_h_10;
-    private TextView txt_h_11;
-    private TextView txt_h_12;
-    private TextView txt_h_13;
-    private TextView txt_h_14;
-    private TextView txt_h_15;
-    private TextView txt_h_16;
-    private TextView txt_h_17;
-    private TextView txt_h_18;
-    private TextView txt_h_19;
-    private TextView txt_h_20;
+    private TextView txt_h_1, txt_h_2, txt_h_3, txt_h_4, txt_h_5, txt_h_6, txt_h_7, txt_h_8, txt_h_9, txt_h_10, txt_h_11, txt_h_12, txt_h_13, txt_h_14,
+            txt_h_15, txt_h_16, txt_h_17, txt_h_18, txt_h_19, txt_h_20;
 
-    private TextView txt_i_1;
-    private TextView txt_i_2;
-    private TextView txt_i_3;
-    private TextView txt_i_4;
-    private TextView txt_i_5;
-    private TextView txt_i_6;
-    private TextView txt_i_7;
-    private TextView txt_i_8;
-    private TextView txt_i_9;
-    private TextView txt_i_10;
-    private TextView txt_i_11;
-    private TextView txt_i_12;
-    private TextView txt_i_13;
-    private TextView txt_i_14;
-    private TextView txt_i_15;
-    private TextView txt_i_16;
-    private TextView txt_i_17;
-    private TextView txt_i_18;
-    private TextView txt_i_19;
-    private TextView txt_i_20;
+    private TextView txt_i_1, txt_i_2, txt_i_3, txt_i_4, txt_i_5, txt_i_6, txt_i_7, txt_i_8, txt_i_9, txt_i_10, txt_i_11, txt_i_12, txt_i_13, txt_i_14,
+            txt_i_15, txt_i_16, txt_i_17, txt_i_18, txt_i_19, txt_i_20;
 
-    private TextView txt_j_1;
-    private TextView txt_j_2;
-    private TextView txt_j_3;
-    private TextView txt_j_4;
-    private TextView txt_j_5;
-    private TextView txt_j_6;
-    private TextView txt_j_7;
-    private TextView txt_j_8;
-    private TextView txt_j_9;
-    private TextView txt_j_10;
-    private TextView txt_j_11;
-    private TextView txt_j_12;
-    private TextView txt_j_13;
-    private TextView txt_j_14;
-    private TextView txt_j_15;
-    private TextView txt_j_16;
-    private TextView txt_j_17;
-    private TextView txt_j_18;
-    private TextView txt_j_19;
-    private TextView txt_j_20;
+    private TextView txt_j_1, txt_j_2, txt_j_3, txt_j_4, txt_j_5, txt_j_6, txt_j_7, txt_j_8, txt_j_9, txt_j_10, txt_j_11, txt_j_12, txt_j_13, txt_j_14,
+            txt_j_15, txt_j_16, txt_j_17, txt_j_18, txt_j_19, txt_j_20;
 
-    private Animation anim_letter_S;
-    private Animation anim_letter_t;
-    private Animation anim_letter_u;
-    private Animation anim_letter_f_1;
-    private Animation anim_letter_f_2;
-    private Animation anim_letter_l;
-    private Animation anim_letter_e;
-    private Animation anim_letter_x;
-    private Animation anim_letter_b;
-    private Animation anim_letter_y;
-    private Animation anim_txt_changeable_f_1;
-    private Animation anim_txt_changeable_f_2;
+    private Animation anim_letter_S, anim_letter_t, anim_letter_u, anim_letter_f_1, anim_letter_f_2, anim_letter_l, anim_letter_e, anim_letter_x,
+            anim_letter_b, anim_letter_y, anim_txt_changeable_f_1, anim_txt_changeable_f_2;
 
     private int SPLASH_DISPLAY_LENGTH = 7380;
 
     private Handler handler1, handler2, handler3, handler4, handler5, handler6, handler7, handler8, handler9, handlerSpecial;
-
 
     private Runnable runnable1, runnable2, runnable3, runnable4, runnable5, runnable6, runnable7, runnable8, runnable9, runnableSpecial;
 
@@ -272,6 +71,9 @@ public class StufflexSplashActivity extends AppCompatActivity {
 
         // Navbar-fullscreen
         hideNavigationBar();
+
+        // Disable screenshot option by using FLAG_SECURE
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         // Initializations
         clickToEndLayout = findViewById(R.id.clickToEndLayout);

@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -77,6 +78,9 @@ public class FinalResultActivity extends AppCompatActivity {
 
         // Navbar-fullscreen
         hideNavigationBar();
+
+        // Disable screenshot option by using FLAG_SECURE
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         // Initializations
         btn_romania = findViewById(R.id.btn_romania);
