@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -30,6 +31,11 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
@@ -65,12 +71,15 @@ public class FinalResultActivity extends AppCompatActivity {
 
     private ObjectAnimator colorAnimSalariuNet, colorAnimSalariuNetRezultat, colorAnimSalariuBrut, colorAnimSalariuBrutRezultat;
 
-    private static final long TOAST_TIMEOUT_MS = 2000;
+    private static final long TOAST_TIMEOUT_MS = 1500;
     private static long lastToastTime = 0;
 
     private boolean isFunctieBaza_YES, isFunctieBaza_NO, isImpozitScutit_YES, isImpozitScutit_NO;
 
     private Animation anim_btn_romania, anim_btn_diamond;
+
+    private String url_bnr = "https://www.cursbnr.ro/";
+    private String salariuInDolari, salariuInEuro, salariuInLei, salariuInSheqeli, salariuInRuble, salariuInLire, salariuInRupii;
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -197,6 +206,20 @@ public class FinalResultActivity extends AppCompatActivity {
             }
         });
 
+        // Async instantiation
+        AsyncBNRinEuro asyncBNRinEuro = new AsyncBNRinEuro();
+        AsyncBNRinDolari asyncBNRinDolari = new AsyncBNRinDolari();
+        AsyncBNRinSheqeli asyncBNRinSheqeli = new AsyncBNRinSheqeli();
+        AsyncBNRinRuble asyncBNRinRuble = new AsyncBNRinRuble();
+        AsyncBNRinLire asyncBNRinLire = new AsyncBNRinLire();
+        AsyncBNRinRupii asyncBNRinRupii = new AsyncBNRinRupii();
+
+        asyncBNRinEuro.execute();
+        asyncBNRinDolari.execute();
+        asyncBNRinSheqeli.execute();
+        asyncBNRinRuble.execute();
+        asyncBNRinLire.execute();
+        asyncBNRinRupii.execute();
 
         // Special guest | Animation for btn_lei
         scaleLeiDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
@@ -445,6 +468,16 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_dolari);
+
+//        CalculLei();
+//
+//        float salariuTransformatInDolari = Float.parseFloat(salariuInDolari);
+//        salar_brut = salar_brut / salariuTransformatInDolari;
+
+        txt_salariu_brut_rezultat.setText(salariuInDolari);
+//
+//        cas_lei = (salar_brut * (25.0f / 100)) / salariuTransformatInDolari;
+//        txt_asigurari_cas_rezultat.setText(String.format("%.0f", cas_lei));
     }
 
     public void ClickOnEuro(View v){
@@ -460,6 +493,9 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_euro);
+
+        txt_salariu_brut_rezultat.setText(salariuInEuro);
+
     }
 
     public void ClickOnPound(View v){
@@ -475,6 +511,9 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_lire);
+
+        txt_salariu_brut_rezultat.setText(salariuInLire);
+
     }
 
     public void ClickOnLei(View v){
@@ -492,6 +531,9 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_salariu.setText(R.string.str_salariu_lei);
 
         CalculLei();
+
+        txt_salariu_brut_rezultat.setText(String.format("%.0f", salar_brut));
+
     }
 
     public void ClickOnRupee(View v){
@@ -507,6 +549,8 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_rupii);
+
+        txt_salariu_brut_rezultat.setText(salariuInRupii);
     }
 
     public void ClickOnSheqel(View v){
@@ -522,6 +566,8 @@ public class FinalResultActivity extends AppCompatActivity {
         }
 
         txt_salariu.setText(R.string.str_salariu_sheqeli);
+
+        txt_salariu_brut_rezultat.setText(salariuInSheqeli);
     }
 
     public void ClickOnRuble(View v) throws IOException {
@@ -538,7 +584,8 @@ public class FinalResultActivity extends AppCompatActivity {
 
         txt_salariu.setText(R.string.str_salariu_ruble);
 
-//        getWebsite();
+        txt_salariu_brut_rezultat.setText(salariuInRuble);
+
     }
 
     @SuppressLint("DefaultLocale")
@@ -3009,7 +3056,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtSalariuBrutClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_salariu_brut,"Din salariul brut se scad taxele");
 
         txt_salariu_brut.setOnClickListener(new View.OnClickListener() {
@@ -3023,7 +3070,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtSalariuBrutRezultatClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_salariu_brut_rezultat,"Din salariul brut se scad taxele");
 
         txt_salariu_brut_rezultat.setOnClickListener(new View.OnClickListener() {
@@ -3037,7 +3084,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtAsigurariCASClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_asigurari_cas,"Asigurări Sociale");
 
         txt_asigurari_cas.setOnClickListener(new View.OnClickListener() {
@@ -3051,7 +3098,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtAsigurariCASRezultatClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_asigurari_cas_rezultat,"25% din salariul brut");
 
         txt_asigurari_cas_rezultat.setOnClickListener(new View.OnClickListener() {
@@ -3065,7 +3112,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtAsigurariCASSClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_asigurari_cass,"Asigurări Sociale de Sănătate");
 
         txt_asigurari_cass.setOnClickListener(new View.OnClickListener() {
@@ -3079,7 +3126,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtAsigurariCASSRezultatClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_asigurari_cass_rezultat,"10% din salariul brut");
 
         txt_asigurari_cass_rezultat.setOnClickListener(new View.OnClickListener() {
@@ -3093,7 +3140,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
     public void OnTxtSalariuNetClick(View view) {
 
-        //Set Tooltip
+        // Set Tooltip
         TooltipCompat.setTooltipText(txt_salariu_net,"Salariatul rămâne în mână cu salariul net");
 
         txt_salariu_net.setOnClickListener(new View.OnClickListener() {
@@ -3119,19 +3166,198 @@ public class FinalResultActivity extends AppCompatActivity {
 
     }
 
+    // Need special attention!
+    private class AsyncBNRinEuro extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Document document = null;
+            try {
+                document = Jsoup.connect(url_bnr).get();
+                Elements table = document.select("table#table-currencies"); // select by id
 
-//    public void getWebsite() {
-//        String url = "https://www.cursbnr.ro/";
-//
-//
-//        Document doc = (Document) Jsoup.connect(url).userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X; de-de) AppleWebKit/523.10.3 (KHTML, like Gecko) Version/3.0.4 Safari/523.10").get();
-//        Elements euroCurrency = (Elements) doc.getElementById("calendar");
-//
-//        String title = doc.title();
-//
-//        txt_salariu_brut.setText(String.valueOf(euroCurrency));
-//
-//
-//
-//    }
+                Element row = table.select("td").get(2);
+
+                salariuInEuro = row.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void voids) {
+            super.onPostExecute(voids);
+
+        }
+    }
+
+    private class AsyncBNRinDolari extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Document document = null;
+            try {
+                document = Jsoup.connect(url_bnr).get();
+                Elements table = document.select("table#table-currencies"); // select by id
+
+                Element row = table.select("td").get(10);
+
+                salariuInDolari = row.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void voids) {
+            super.onPostExecute(voids);
+
+        }
+    }
+
+    private class AsyncBNRinSheqeli extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Document document = null;
+            try {
+                document = Jsoup.connect(url_bnr).get();
+                Elements table = document.select("table#table-currencies"); // select by id
+
+                Element row = table.select("td").get(2);
+
+                salariuInSheqeli = row.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void voids) {
+            super.onPostExecute(voids);
+
+        }
+    }
+
+    private class AsyncBNRinRuble extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Document document = null;
+            try {
+                document = Jsoup.connect(url_bnr).get();
+                Elements table = document.select("table#table-currencies"); // select by id
+
+                Element row = table.select("td").get(42);
+
+                salariuInRuble = row.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void voids) {
+            super.onPostExecute(voids);
+
+        }
+    }
+
+    private class AsyncBNRinLire extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Document document = null;
+            try {
+                document = Jsoup.connect(url_bnr).get();
+                Elements table = document.select("table#table-currencies"); // select by id
+
+                Element row = table.select("td").get(26);
+
+                salariuInLire = row.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void voids) {
+            super.onPostExecute(voids);
+
+        }
+    }
+
+    private class AsyncBNRinRupii extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Document document = null;
+            try {
+                document = Jsoup.connect(url_bnr).get();
+                Elements table = document.select("table#table-currencies"); // select by id
+
+                Element row = table.select("td").get(74);
+
+                salariuInRupii = row.text();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Void voids) {
+            super.onPostExecute(voids);
+
+        }
+    }
+
+
 }
