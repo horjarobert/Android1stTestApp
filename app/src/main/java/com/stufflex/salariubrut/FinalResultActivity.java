@@ -12,10 +12,13 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -199,7 +202,8 @@ public class FinalResultActivity extends AppCompatActivity {
                         "\t\t# unde procentul e de 10%, iar formula pentru venitul de bază este următoarea:\n" +
                         "\t\t# venitBaza = salariulBrut - CAS - CASS - deducere\n" +
                         "\t\t# datele pentru deducere sunt cele din OUG 79/2017 din 8 Noiembrie, 2017\n" +
-                        "\n\t\tPentru salariile mai mari decât 3600 de lei, nu mai contează deducerea pentru funcția de bază și nici câte persoane sunt în întreținerea salariatului.");
+                        "\n\t\tPentru salariile mai mari decât 3600 de lei, nu mai contează deducerea pentru funcția de bază și nici câte persoane sunt în întreținerea salariatului.\n" +
+                        "\n\t\tCursul valutar pentru conversie este luat de pe sait-ul www.cursbnr.ro, care se actualizează de Luni până Vineri în jurul orei 13.");
                 diamond.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -465,33 +469,90 @@ public class FinalResultActivity extends AppCompatActivity {
     }
 
     public void ClickOnDollar(View v){
-        txt_info_change.setText(R.string.str_click_on_dollar);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            // You are connected to a network
+            txt_info_change.setText(R.string.str_click_on_dollar);
 
-        txt_salariu.setText(R.string.str_salariu_dolari);
+            txt_salariu.setText(R.string.str_salariu_dolari);
 
-        float_etalonInDolari = Float.parseFloat(etalonInDolari);
+            float_etalonInDolari = Float.parseFloat(etalonInDolari);
 
-        CalculDolari();
+            CalculDolari();
+        }
+        else {
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(FinalResultActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\t\tNu aveți o conexiune validă la Internet. Vă rog să remediați problema dacă doriți să faceți conversia valutară.\n\n\t\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
+
+        }
     }
 
     public void ClickOnEuro(View v){
-        txt_info_change.setText(R.string.str_click_on_euro);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            // You are connected to a network
+            txt_info_change.setText(R.string.str_click_on_euro);
 
-        txt_salariu.setText(R.string.str_salariu_euro);
+            txt_salariu.setText(R.string.str_salariu_euro);
 
-        float_etalonInEuro = Float.parseFloat(etalonInEuro);
+            float_etalonInEuro = Float.parseFloat(etalonInEuro);
 
-        CalculEuro();
+            CalculEuro();
+        }
+        else {
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(FinalResultActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\t\tNu aveți o conexiune validă la Internet. Vă rog să remediați problema dacă doriți să faceți conversia valutară.\n\n\t\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
+
+        }
     }
 
     public void ClickOnPound(View v){
-        txt_info_change.setText(R.string.str_click_on_pound);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            // You are connected to a network
+            txt_info_change.setText(R.string.str_click_on_pound);
 
-        txt_salariu.setText(R.string.str_salariu_lire);
+            txt_salariu.setText(R.string.str_salariu_lire);
 
-        float_etalonInLire = Float.parseFloat(etalonInLire);
+            float_etalonInLire = Float.parseFloat(etalonInLire);
 
-        CalculLire();
+            CalculLire();
+        }
+        else {
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(FinalResultActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\t\tNu aveți o conexiune validă la Internet. Vă rog să remediați problema dacă doriți să faceți conversia valutară.\n\n\t\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
+
+        }
     }
 
     public void ClickOnLei(View v){
@@ -503,33 +564,90 @@ public class FinalResultActivity extends AppCompatActivity {
     }
 
     public void ClickOnRupee(View v){
-        txt_info_change.setText(R.string.str_click_on_rupee);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            // You are connected to a network
+            txt_info_change.setText(R.string.str_click_on_rupee);
 
-        txt_salariu.setText(R.string.str_salariu_rupii);
+            txt_salariu.setText(R.string.str_salariu_rupii);
 
-        float_etalonInRupii = Float.parseFloat(etalonInRupii);
+            float_etalonInRupii = Float.parseFloat(etalonInRupii);
 
-        CalculRupii();
+            CalculRupii();
+        }
+        else {
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(FinalResultActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\t\tNu aveți o conexiune validă la Internet. Vă rog să remediați problema dacă doriți să faceți conversia valutară.\n\n\t\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
+
+        }
     }
 
     public void ClickOnFranc(View v){
-        txt_info_change.setText(R.string.str_click_on_franc);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            // You are connected to a network
+            txt_info_change.setText(R.string.str_click_on_franc);
 
-        txt_salariu.setText(R.string.str_salariu_franc);
+            txt_salariu.setText(R.string.str_salariu_franc);
 
-        float_etalonInFranci = Float.parseFloat(etalonInFranci);
+            float_etalonInFranci = Float.parseFloat(etalonInFranci);
 
-        CalculFranci();
+            CalculFranci();
+        }
+        else {
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(FinalResultActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\t\tNu aveți o conexiune validă la Internet. Vă rog să remediați problema dacă doriți să faceți conversia valutară.\n\n\t\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
+
+        }
     }
 
     public void ClickOnRuble(View v) throws IOException {
-        txt_info_change.setText(R.string.str_click_on_ruble);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            // You are connected to a network
+            txt_info_change.setText(R.string.str_click_on_ruble);
 
-        txt_salariu.setText(R.string.str_salariu_ruble);
+            txt_salariu.setText(R.string.str_salariu_ruble);
 
-        float_etalonInRuble = Float.parseFloat(etalonInRuble);
+            float_etalonInRuble = Float.parseFloat(etalonInRuble);
 
-        CalculRuble();
+            CalculRuble();
+        }
+        else {
+
+            AlertDialog.Builder atentie = new AlertDialog.Builder(FinalResultActivity.this);
+            atentie.setTitle("⚠ Puțină atenție, vă rog!");
+            atentie.setMessage("\t\tNu aveți o conexiune validă la Internet. Vă rog să remediați problema dacă doriți să faceți conversia valutară.\n\n\t\tMulțumesc! \uD83D\uDD75️\u200D♂️");
+            atentie.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                    hideNavigationBar();
+                }
+            }).setCancelable(false).show();
+
+        }
     }
 
     @SuppressLint("DefaultLocale")

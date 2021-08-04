@@ -197,7 +197,8 @@ public class MainActivity extends AppCompatActivity {
                         "\t\t# unde procentul e de 10%, iar formula pentru venitul de bază este următoarea:\n" +
                         "\t\t# venitBaza = salariulBrut - CAS - CASS - deducere\n" +
                         "\t\t# datele pentru deducere sunt cele din OUG 79/2017 din 8 Noiembrie, 2017\n" +
-                        "\n\t\tPentru salariile mai mari decât 3600 de lei, nu mai contează deducerea pentru funcția de bază și nici câte persoane sunt în întreținerea salariatului.");
+                        "\n\t\tPentru salariile mai mari decât 3600 de lei, nu mai contează deducerea pentru funcția de bază și nici câte persoane sunt în întreținerea salariatului.\n" +
+                        "\n\t\tCursul valutar pentru conversie este luat de pe sait-ul www.cursbnr.ro, care se actualizează de Luni până Vineri în jurul orei 13.");
                 diamond.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
