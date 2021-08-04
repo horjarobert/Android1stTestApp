@@ -440,12 +440,13 @@
         />
 
     <Button
-        android:id="@+id/btn_sheqel"
+        android:id="@+id/btn_franc"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/sheqel_list"
+        android:background="@drawable/franc_list"
         android:backgroundTint="@null"
-        android:text="@string/str_sheqel"
+        android:text="@string/str_franc"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textAlignment="center"
@@ -697,8 +698,8 @@
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_22"
-        app:layout_constraintEnd_toStartOf="@+id/btn_sheqel"
-        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintEnd_toStartOf="@+id/btn_franc"
+        app:layout_constraintStart_toStartOf="@+id/btn_franc"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_22" />
 
     <Button
@@ -716,7 +717,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_3"
         app:layout_constraintEnd_toStartOf="@+id/btn_rupee"
-        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintStart_toStartOf="@+id/btn_franc"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_3" />
 
     <Button
@@ -733,8 +734,8 @@
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_38"
-        app:layout_constraintEnd_toStartOf="@+id/btn_sheqel"
-        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintEnd_toStartOf="@+id/btn_franc"
+        app:layout_constraintStart_toStartOf="@+id/btn_franc"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_38" />
 
     <Button
@@ -752,7 +753,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_275"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintStart_toStartOf="@+id/btn_franc"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_22" />
 
     <Button
@@ -788,7 +789,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline_ht_35"
         app:layout_constraintEnd_toStartOf="@+id/guideline_vt_8"
-        app:layout_constraintStart_toStartOf="@+id/btn_sheqel"
+        app:layout_constraintStart_toStartOf="@+id/btn_franc"
         app:layout_constraintTop_toTopOf="@+id/guideline_ht_35" />
 
     <Button

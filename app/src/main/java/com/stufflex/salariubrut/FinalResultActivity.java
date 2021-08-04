@@ -42,29 +42,36 @@ import java.io.IOException;
 public class FinalResultActivity extends AppCompatActivity {
 
     // Declarations
-    private Button btn_romania, btn_diamond, btn_play_final, btn_euro, btn_lei, btn_sheqel, btn_dollar, btn_pound, btn_rupee, btn_ruble;
+    private Button btn_romania, btn_diamond, btn_play_final, btn_euro, btn_lei, btn_franc, btn_dollar, btn_pound, btn_rupee, btn_ruble;
 
     private TextView txt_title, txt_play_final, txt_salariat, txt_salariu, txt_salariu_brut, txt_salariu_brut_rezultat, txt_asigurari_cas, txt_asigurari_cas_rezultat, txt_asigurari_cass,
-            txt_asigurari_cass_rezultat, txt_impozit_pe_venit, txt_impozit_pe_venit_rezultat, txt_salariu_net, txt_salariu_net_rezultat, txt_afisaj_moneda;
+            txt_asigurari_cass_rezultat, txt_impozit_pe_venit, txt_impozit_pe_venit_rezultat, txt_salariu_net, txt_salariu_net_rezultat, txt_afisaj_moneda, txt_info_change;
 
     private TextInputLayout txt_input_layout;
     private TextInputEditText txt_input_edit_text;
 
     private ConstraintLayout salaryLayout;
 
-    private AnimatorSet setLeiDownAndUp, setPoundDownAndUp, setRupeeDownAndUp, setEuroDownAndUp, setSheqelDownAndUp, setDollarDownAndUp, setRubleDownAndUp;
+    private AnimatorSet setLeiDownAndUp, setPoundDownAndUp, setRupeeDownAndUp, setEuroDownAndUp, setFrancDownAndUp, setDollarDownAndUp, setRubleDownAndUp;
 
-    private Animator scaleLeiDown, scalePoundDown, scaleRupeeDown, scaleEuroDown, scaleSheqelDown, scaleDollarDown, scaleRubleDown;
+    private Animator scaleLeiDown, scalePoundDown, scaleRupeeDown, scaleEuroDown, scaleFrancDown, scaleDollarDown, scaleRubleDown;
 
-    private Animator scaleLeiUp, scalePoundUp, scaleRupeeUp, scaleEuroUp, scaleSheqelUp, scaleDollarUp, scaleRubleUp;
+    private Animator scaleLeiUp, scalePoundUp, scaleRupeeUp, scaleEuroUp, scaleFrancUp, scaleDollarUp, scaleRubleUp;
 
-    private AnimationDrawable animationDrawableLei, animationDrawablePound, animationDrawableRupee, animationDrawableEuro, animationDrawableSheqel, animationDrawableDollar, animationDrawableRuble;
+    private AnimationDrawable animationDrawableLei, animationDrawablePound, animationDrawableRupee, animationDrawableEuro, animationDrawableFranc, animationDrawableDollar, animationDrawableRuble;
 
     private Handler handler_btn_currency_1, handler_btn_currency_2, handler_btn_currency_3, handler_btn_currency_4;
 
     private Runnable runnable_btn_currency_1, runnable_btn_currency_2, runnable_btn_currency_3, runnable_btn_currency_4;
 
     private float salar_brut, cas_lei, cass_lei, impozit_lei, salar_net;
+    private float salar_brut_in_euro, cas_in_euro, cass_in_euro, impozit_in_euro, salar_net_in_euro;
+    private float salar_brut_in_dolari, cas_in_dolari, cass_in_dolari, impozit_in_dolari, salar_net_in_dolari;
+    private float salar_brut_in_franci, cas_in_franci, cass_in_franci, impozit_in_franci, salar_net_in_franci;
+    private float salar_brut_in_ruble, cas_in_ruble, cass_in_ruble, impozit_in_ruble, salar_net_in_ruble;
+    private float salar_brut_in_lire, cas_in_lire, cass_in_lire, impozit_in_lire, salar_net_in_lire;
+    private float salar_brut_in_rupii, cas_in_rupii, cass_in_rupii, impozit_in_rupii, salar_net_in_rupii;
+
     private float venit_baza, deducere, nr_persoane_intretinere;
 
     private int salar_net_int;
@@ -79,7 +86,8 @@ public class FinalResultActivity extends AppCompatActivity {
     private Animation anim_btn_romania, anim_btn_diamond;
 
     private String url_bnr = "https://www.cursbnr.ro/";
-    private String salariuInDolari, salariuInEuro, salariuInLei, salariuInSheqeli, salariuInRuble, salariuInLire, salariuInRupii;
+    private String etalonInDolari, etalonInEuro, etalonInLei, etalonInFranci, etalonInRuble, etalonInLire, etalonInRupii;
+    private float float_etalonInDolari, float_etalonInEuro, float_etalonInLei, float_etalonInFranci, float_etalonInRuble, float_etalonInLire, float_etalonInRupii;
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -99,7 +107,7 @@ public class FinalResultActivity extends AppCompatActivity {
         btn_play_final = findViewById(R.id.btn_play_final);
         btn_euro = findViewById(R.id.btn_euro);
         btn_lei = findViewById(R.id.btn_lei);
-        btn_sheqel = findViewById(R.id.btn_sheqel);
+        btn_franc = findViewById(R.id.btn_franc);
         btn_dollar = findViewById(R.id.btn_dollar);
         btn_pound = findViewById(R.id.btn_pound);
         btn_rupee = findViewById(R.id.btn_rupee);
@@ -120,6 +128,7 @@ public class FinalResultActivity extends AppCompatActivity {
         txt_salariu_net = findViewById(R.id.txt_salariul_net);
         txt_salariu_net_rezultat = findViewById(R.id.txt_salariu_net_rezultat);
         txt_afisaj_moneda = findViewById(R.id.txt_afisaj_moneda);
+        txt_info_change = findViewById(R.id.txt_info_change);
 
         txt_input_layout = findViewById(R.id.txt_input_layout);
         txt_input_edit_text = findViewById(R.id.txt_input_edit_text);
@@ -209,14 +218,14 @@ public class FinalResultActivity extends AppCompatActivity {
         // Async instantiation
         AsyncBNRinEuro asyncBNRinEuro = new AsyncBNRinEuro();
         AsyncBNRinDolari asyncBNRinDolari = new AsyncBNRinDolari();
-        AsyncBNRinSheqeli asyncBNRinSheqeli = new AsyncBNRinSheqeli();
+        AsyncBNRinFranci asyncBNRinFranci = new AsyncBNRinFranci();
         AsyncBNRinRuble asyncBNRinRuble = new AsyncBNRinRuble();
         AsyncBNRinLire asyncBNRinLire = new AsyncBNRinLire();
         AsyncBNRinRupii asyncBNRinRupii = new AsyncBNRinRupii();
 
         asyncBNRinEuro.execute();
         asyncBNRinDolari.execute();
-        asyncBNRinSheqeli.execute();
+        asyncBNRinFranci.execute();
         asyncBNRinRuble.execute();
         asyncBNRinLire.execute();
         asyncBNRinRupii.execute();
@@ -257,14 +266,14 @@ public class FinalResultActivity extends AppCompatActivity {
         setEuroDownAndUp = new AnimatorSet();
         setEuroDownAndUp.playSequentially(scaleEuroDown, scaleEuroUp);
 
-        // Special guest | Animation for btn_sheqel
-        scaleSheqelDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
-        scaleSheqelDown.setTarget(btn_sheqel);
+        // Special guest | Animation for btn_franc
+        scaleFrancDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
+        scaleFrancDown.setTarget(btn_franc);
 
-        scaleSheqelUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
+        scaleFrancUp = AnimatorInflater.loadAnimator(this, R.animator.scale_up);
 
-        setSheqelDownAndUp = new AnimatorSet();
-        setSheqelDownAndUp.playSequentially(scaleSheqelDown, scaleSheqelUp);
+        setFrancDownAndUp = new AnimatorSet();
+        setFrancDownAndUp.playSequentially(scaleFrancDown, scaleFrancUp);
 
         // Special guest | Animation for btn_dollar
         scaleDollarDown = AnimatorInflater.loadAnimator(this, R.animator.scale_down);
@@ -301,9 +310,9 @@ public class FinalResultActivity extends AppCompatActivity {
         animationDrawableEuro.setEnterFadeDuration(250);
         animationDrawableEuro.setExitFadeDuration(500);
 
-        animationDrawableSheqel = (AnimationDrawable) btn_sheqel.getBackground();
-        animationDrawableSheqel.setEnterFadeDuration(250);
-        animationDrawableSheqel.setExitFadeDuration(500);
+        animationDrawableFranc = (AnimationDrawable) btn_franc.getBackground();
+        animationDrawableFranc.setEnterFadeDuration(250);
+        animationDrawableFranc.setExitFadeDuration(500);
 
         animationDrawableDollar = (AnimationDrawable) btn_dollar.getBackground();
         animationDrawableDollar.setEnterFadeDuration(250);
@@ -348,13 +357,13 @@ public class FinalResultActivity extends AppCompatActivity {
             @Override
             public void run() {
                 btn_euro.setVisibility(View.VISIBLE);
-                btn_sheqel.setVisibility(View.VISIBLE);
+                btn_franc.setVisibility(View.VISIBLE);
 
                 setEuroDownAndUp.start();
-                setSheqelDownAndUp.start();
+                setFrancDownAndUp.start();
 
                 animationDrawableEuro.start();
-                animationDrawableSheqel.start();
+                animationDrawableFranc.start();
             }
         };
         handler_btn_currency_3.postDelayed(runnable_btn_currency_3, 900);
@@ -456,136 +465,71 @@ public class FinalResultActivity extends AppCompatActivity {
     }
 
     public void ClickOnDollar(View v){
-        Toast toast = Toast.makeText(this, "USD (dolar american)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        txt_info_change.setText(R.string.str_click_on_dollar);
 
         txt_salariu.setText(R.string.str_salariu_dolari);
 
-//        CalculLei();
-//
-//        float salariuTransformatInDolari = Float.parseFloat(salariuInDolari);
-//        salar_brut = salar_brut / salariuTransformatInDolari;
+        float_etalonInDolari = Float.parseFloat(etalonInDolari);
 
-        txt_salariu_brut_rezultat.setText(salariuInDolari);
-//
-//        cas_lei = (salar_brut * (25.0f / 100)) / salariuTransformatInDolari;
-//        txt_asigurari_cas_rezultat.setText(String.format("%.0f", cas_lei));
+        CalculDolari();
     }
 
     public void ClickOnEuro(View v){
-        Toast toast = Toast.makeText(this, "EUR (euro)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        txt_info_change.setText(R.string.str_click_on_euro);
 
         txt_salariu.setText(R.string.str_salariu_euro);
 
-        txt_salariu_brut_rezultat.setText(salariuInEuro);
+        float_etalonInEuro = Float.parseFloat(etalonInEuro);
 
+        CalculEuro();
     }
 
     public void ClickOnPound(View v){
-        Toast toast = Toast.makeText(this, "GBP (lira sterlină)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        txt_info_change.setText(R.string.str_click_on_pound);
 
         txt_salariu.setText(R.string.str_salariu_lire);
 
-        txt_salariu_brut_rezultat.setText(salariuInLire);
+        float_etalonInLire = Float.parseFloat(etalonInLire);
 
+        CalculLire();
     }
 
     public void ClickOnLei(View v){
-        Toast toast = Toast.makeText(this, "Leu (românesc)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        txt_info_change.setText(R.string.str_click_on_lei);
 
         txt_salariu.setText(R.string.str_salariu_lei);
 
         CalculLei();
-
-        txt_salariu_brut_rezultat.setText(String.format("%.0f", salar_brut));
-
     }
 
     public void ClickOnRupee(View v){
-        Toast toast = Toast.makeText(this, "INR (rupia indiană)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        txt_info_change.setText(R.string.str_click_on_rupee);
 
         txt_salariu.setText(R.string.str_salariu_rupii);
 
-        txt_salariu_brut_rezultat.setText(salariuInRupii);
+        float_etalonInRupii = Float.parseFloat(etalonInRupii);
+
+        CalculRupii();
     }
 
-    public void ClickOnSheqel(View v){
-        Toast toast = Toast.makeText(this, "ILS (sheqel israelian)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
+    public void ClickOnFranc(View v){
+        txt_info_change.setText(R.string.str_click_on_franc);
 
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
+        txt_salariu.setText(R.string.str_salariu_franc);
 
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        float_etalonInFranci = Float.parseFloat(etalonInFranci);
 
-        txt_salariu.setText(R.string.str_salariu_sheqeli);
-
-        txt_salariu_brut_rezultat.setText(salariuInSheqeli);
+        CalculFranci();
     }
 
     public void ClickOnRuble(View v) throws IOException {
-        Toast toast = Toast.makeText(this, "RUB (rubla rusească)", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM, 0, 0);
-
-        // Toast improvement, never click twice, just once after each 3s
-        long now = System.currentTimeMillis();
-
-        if (lastToastTime + TOAST_TIMEOUT_MS < now) {
-            toast.show();
-            lastToastTime = now;
-        }
+        txt_info_change.setText(R.string.str_click_on_ruble);
 
         txt_salariu.setText(R.string.str_salariu_ruble);
 
-        txt_salariu_brut_rezultat.setText(salariuInRuble);
+        float_etalonInRuble = Float.parseFloat(etalonInRuble);
 
+        CalculRuble();
     }
 
     @SuppressLint("DefaultLocale")
@@ -604,13 +548,175 @@ public class FinalResultActivity extends AppCompatActivity {
         FunctieBaza_DA_ScutitImpozit_NU();
         FunctieBaza_NU_ScutitImpozit_DA();
         FunctieBaza_NU_ScutitImpozit_NU();
+    }
 
+    @SuppressLint("DefaultLocale")
+    public void CalculEuro(){
+        // Calculus
+        salar_brut_in_euro = salar_brut / float_etalonInEuro;
+        txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut_in_euro));
+
+        cas_lei = salar_brut * (25.0f / 100);
+        cas_in_euro = cas_lei / float_etalonInEuro;
+        txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_in_euro));
+
+        cass_lei = salar_brut * (10.0f / 100);
+        cass_in_euro = cass_lei / float_etalonInEuro;
+        txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_in_euro));
+
+        // Conform OUG Nr. 79.2017 din 8 Noiembrie 2017
+        FunctieBaza_DA_ScutitImpozit_DA();
+        FunctieBaza_DA_ScutitImpozit_NU();
+        FunctieBaza_NU_ScutitImpozit_DA();
+        FunctieBaza_NU_ScutitImpozit_NU();
+
+        salar_net_in_euro = salar_net / float_etalonInEuro;
+        txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net_in_euro));
+
+        impozit_in_euro = impozit_lei / float_etalonInEuro;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_in_euro));
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void CalculDolari(){
+        // Calculus
+        salar_brut_in_dolari = salar_brut / float_etalonInDolari;
+        txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut_in_dolari));
+
+        cas_lei = salar_brut * (25.0f / 100);
+        cas_in_dolari = cas_lei / float_etalonInDolari;
+        txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_in_dolari));
+
+        cass_lei = salar_brut * (10.0f / 100);
+        cass_in_dolari = cass_lei / float_etalonInDolari;
+        txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_in_dolari));
+
+        // Conform OUG Nr. 79.2017 din 8 Noiembrie 2017
+        FunctieBaza_DA_ScutitImpozit_DA();
+        FunctieBaza_DA_ScutitImpozit_NU();
+        FunctieBaza_NU_ScutitImpozit_DA();
+        FunctieBaza_NU_ScutitImpozit_NU();
+
+        salar_net_in_dolari = salar_net / float_etalonInDolari;
+        txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net_in_dolari));
+
+        impozit_in_dolari = impozit_lei / float_etalonInDolari;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_in_dolari));
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void CalculFranci(){
+        // Calculus
+        salar_brut_in_franci = salar_brut / float_etalonInFranci;
+        txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut_in_franci));
+
+        cas_lei = salar_brut * (25.0f / 100);
+        cas_in_franci = cas_lei / float_etalonInFranci;
+        txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_in_franci));
+
+        cass_lei = salar_brut * (10.0f / 100);
+        cass_in_franci = cass_lei / float_etalonInFranci;
+        txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_in_franci));
+
+        // Conform OUG Nr. 79.2017 din 8 Noiembrie 2017
+        FunctieBaza_DA_ScutitImpozit_DA();
+        FunctieBaza_DA_ScutitImpozit_NU();
+        FunctieBaza_NU_ScutitImpozit_DA();
+        FunctieBaza_NU_ScutitImpozit_NU();
+
+        salar_net_in_franci = salar_net / float_etalonInFranci;
+        txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net_in_franci));
+
+        impozit_in_franci = impozit_lei / float_etalonInFranci;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_in_franci));
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void CalculRuble(){
+        // Calculus
+        salar_brut_in_ruble = salar_brut / float_etalonInRuble;
+        txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut_in_ruble));
+
+        cas_lei = salar_brut * (25.0f / 100);
+        cas_in_ruble = cas_lei / float_etalonInRuble;
+        txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_in_ruble));
+
+        cass_lei = salar_brut * (10.0f / 100);
+        cass_in_ruble = cass_lei / float_etalonInRuble;
+        txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_in_ruble));
+
+        // Conform OUG Nr. 79.2017 din 8 Noiembrie 2017
+        FunctieBaza_DA_ScutitImpozit_DA();
+        FunctieBaza_DA_ScutitImpozit_NU();
+        FunctieBaza_NU_ScutitImpozit_DA();
+        FunctieBaza_NU_ScutitImpozit_NU();
+
+        salar_net_in_ruble = salar_net / float_etalonInRuble;
+        txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net_in_ruble));
+
+        impozit_in_ruble = impozit_lei / float_etalonInRuble;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_in_ruble));
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void CalculLire(){
+        // Calculus
+        salar_brut_in_lire = salar_brut / float_etalonInLire;
+        txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut_in_lire));
+
+        cas_lei = salar_brut * (25.0f / 100);
+        cas_in_lire = cas_lei / float_etalonInLire;
+        txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_in_lire));
+
+        cass_lei = salar_brut * (10.0f / 100);
+        cass_in_lire = cass_lei / float_etalonInLire;
+        txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_in_lire));
+
+        // Conform OUG Nr. 79.2017 din 8 Noiembrie 2017
+        FunctieBaza_DA_ScutitImpozit_DA();
+        FunctieBaza_DA_ScutitImpozit_NU();
+        FunctieBaza_NU_ScutitImpozit_DA();
+        FunctieBaza_NU_ScutitImpozit_NU();
+
+        salar_net_in_lire = salar_net / float_etalonInLire;
+        txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net_in_lire));
+
+        impozit_in_lire = impozit_lei / float_etalonInLire;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_in_lire));
+    }
+
+    @SuppressLint("DefaultLocale")
+    public void CalculRupii(){
+        // Calculus
+        salar_brut_in_rupii = salar_brut / float_etalonInRupii;
+        txt_salariu_brut_rezultat.setText(String.format("%.2f", salar_brut_in_rupii));
+
+        cas_lei = salar_brut * (25.0f / 100);
+        cas_in_rupii = cas_lei / float_etalonInRupii;
+        txt_asigurari_cas_rezultat.setText(String.format("%.2f", cas_in_rupii));
+
+        cass_lei = salar_brut * (10.0f / 100);
+        cass_in_rupii = cass_lei / float_etalonInRupii;
+        txt_asigurari_cass_rezultat.setText(String.format("%.2f", cass_in_rupii));
+
+        // Conform OUG Nr. 79.2017 din 8 Noiembrie 2017
+        FunctieBaza_DA_ScutitImpozit_DA();
+        FunctieBaza_DA_ScutitImpozit_NU();
+        FunctieBaza_NU_ScutitImpozit_DA();
+        FunctieBaza_NU_ScutitImpozit_NU();
+
+        salar_net_in_rupii = salar_net / float_etalonInRupii;
+        txt_salariu_net_rezultat.setText(String.format("%.2f", salar_net_in_rupii));
+
+        impozit_in_rupii = impozit_lei / float_etalonInRupii;
+        txt_impozit_pe_venit_rezultat.setText(String.format("%.2f", impozit_in_rupii));
     }
 
     private void CalculeazaFunctieBaza_DA_ScutitImpozit_NU(int deducere_personala){
         venit_baza = salar_brut - cas_lei - cass_lei - deducere_personala;
 
         impozit_lei = venit_baza * 10.0f / 100;
+
         txt_impozit_pe_venit_rezultat.setText(String.format("%.0f", impozit_lei));
 
         if (impozit_lei < 0) {
@@ -3177,7 +3283,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
                 Element row = table.select("td").get(2);
 
-                salariuInEuro = row.text();
+                etalonInEuro = row.text();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -3209,7 +3315,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
                 Element row = table.select("td").get(10);
 
-                salariuInDolari = row.text();
+                etalonInDolari = row.text();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -3231,7 +3337,7 @@ public class FinalResultActivity extends AppCompatActivity {
         }
     }
 
-    private class AsyncBNRinSheqeli extends AsyncTask<Void, Void, Void> {
+    private class AsyncBNRinFranci extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
             Document document = null;
@@ -3239,9 +3345,9 @@ public class FinalResultActivity extends AppCompatActivity {
                 document = Jsoup.connect(url_bnr).get();
                 Elements table = document.select("table#table-currencies"); // select by id
 
-                Element row = table.select("td").get(2);
+                Element row = table.select("td").get(18);
 
-                salariuInSheqeli = row.text();
+                etalonInFranci = row.text();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -3273,7 +3379,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
                 Element row = table.select("td").get(42);
 
-                salariuInRuble = row.text();
+                etalonInRuble = row.text();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -3305,7 +3411,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
                 Element row = table.select("td").get(26);
 
-                salariuInLire = row.text();
+                etalonInLire = row.text();
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -3337,7 +3443,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
                 Element row = table.select("td").get(74);
 
-                salariuInRupii = row.text();
+                etalonInRupii = row.text();
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -386,17 +386,18 @@
       />
 
   <Button
-      android:id="@+id/btn_sheqel"
+      android:id="@+id/btn_franc"
       android:layout_width="50dp"
       android:layout_height="50dp"
-      android:background="@drawable/sheqel_list"
+      android:background="@drawable/franc_list"
       android:backgroundTint="@null"
-      android:text="@string/str_sheqel"
+      android:text="@string/str_franc"
+      android:textAllCaps="false"
       android:textColor="@color/white"
       android:textSize="20sp"
       android:textAlignment="center"
       android:gravity="center"
-      android:onClick="ClickOnSheqel"
+      android:onClick="ClickOnFranc"
       android:textStyle="bold"
       android:visibility="invisible"
       app:layout_constraintBottom_toTopOf="@+id/guideline_ht_2"
@@ -501,7 +502,20 @@
     </include>
 
   </androidx.constraintlayout.widget.ConstraintLayout>
-
   <!-- END salary info design -->
+
+  <!-- BEGIN bottom text info -->
+  <TextView
+      android:id="@+id/txt_info_change"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/str_click_on_lei"
+      android:textColor="@color/color_gray_night"
+      android:textSize="16sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/guideline_ht_95" />
+  <!-- END bottom text info -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

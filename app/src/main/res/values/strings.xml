@@ -14,7 +14,7 @@
     <string name="str_dollar">$</string>
     <string name="str_leu">L</string>
     <string name="str_pound">£</string>
-    <string name="str_sheqel">₪</string>
+    <string name="str_franc">fr.</string>
     <string name="str_show">✯</string>
     <string name="str_rupee">₹</string>
     <string name="str_ruble">₽</string>
@@ -24,7 +24,7 @@
     <string name="str_hint_lire">Salariul Brut (în lire)</string>
     <string name="str_hint_euro">Salariul Brut (în euro)</string>
     <string name="str_hint_lei">Salariul Brut (în lei)</string>
-    <string name="str_hint_sheqeli">Salariul Brut (în sheqeli)</string>
+    <string name="str_hint_franc">Salariul Brut (în franci)</string>
     <string name="str_hint_rupii">Salariul Brut (în rupii)</string>
     <string name="str_hint_ruble">Salariul Brut (în ruble)</string>
 
@@ -47,7 +47,7 @@
     <string name="str_salariu_lei">Lei</string>
     <string name="str_salariu_dolari">Dolari</string>
     <string name="str_salariu_euro">Euro</string>
-    <string name="str_salariu_sheqeli">Sheqeli</string>
+    <string name="str_salariu_franc">Franci</string>
     <string name="str_salariu_ruble">Ruble</string>
     <string name="str_salariu_lire">Lire</string>
     <string name="str_salariu_rupii">Rupii</string>
@@ -121,6 +121,14 @@
 
     <string name="str_plus">+</string>
     <string name="str_minus">–</string>
+
+    <string name="str_click_on_dollar">USD (dolar american)</string>
+    <string name="str_click_on_euro">EUR (euro)</string>
+    <string name="str_click_on_pound">GBP (lira sterlină)</string>
+    <string name="str_click_on_lei">Leu (românesc)</string>
+    <string name="str_click_on_rupee">INR (rupia indiană)</string>
+    <string name="str_click_on_franc">CHF (franc elvețian)</string>
+    <string name="str_click_on_ruble">RUB (rubla rusească)</string>
 
 
 </resources>
